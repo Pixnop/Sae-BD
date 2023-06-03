@@ -4,12 +4,12 @@
     <option name="dataSources">
       <list>
         <State>
-          <option name="id" value="7aab9249-078b-4f6f-a6f5-e602eeb48f25" />
-          <option name="name" value="BD-Ancienne" />
+          <option name="id" value="88a247c8-97ce-47c8-964a-dedb9ceda626" />
+          <option name="name" value="DDL data source" />
           <option name="dbmsName" value="ORACLE" />
           <option name="urls">
             <array>
-              <option value="file://$PROJECT_DIR$/Ancienne-BD/Script-Creation.sql" />
+              <option value="file://$PROJECT_DIR$/Ancienne-BD/Script-Inteij.sql" />
             </array>
           </option>
           <option name="outLayout" value="File per object by schema.groovy" />
