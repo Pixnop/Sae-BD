@@ -1,0 +1,485 @@
+"idcours";"idsemestre";"promotion";"numsemestre";"idmodule";"nommodule";"codemodule";"heures_cm";"heures_td";"heures_tp";"coefficientmodule";"idue";"nomue";"codeue";"coefficientfue";"ects";"idenseignantresponsable";"nomenseignantresponsable";"prenomenseignantresponsable";"idintervenant";"nomintervenant";"prenomintervenant"
+39;10;DUT Informatique 2016-2018;1;5;Conception de documents et d'interfaces numériques;M1105;0.0;21.0;24.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;42;Gonçalves;Mattéo
+39;10;DUT Informatique 2016-2018;1;5;Conception de documents et d'interfaces numériques;M1105;0.0;21.0;24.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;46;Riou;Ethan
+39;10;DUT Informatique 2016-2018;1;5;Conception de documents et d'interfaces numériques;M1105;0.0;21.0;24.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;35;Prat;Léonard
+40;10;DUT Informatique 2016-2018;1;6;Projet tutoré - Découverte;M1106;10.0;0.0;0.0;1.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;46;Riou;Ethan
+36;10;DUT Informatique 2016-2018;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;36;Navarro;Dorian;25;Bayle;Mohamed
+36;10;DUT Informatique 2016-2018;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;36;Navarro;Dorian;46;Riou;Ethan
+36;10;DUT Informatique 2016-2018;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;36;Navarro;Dorian;10;Benard;Clément
+36;10;DUT Informatique 2016-2018;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;36;Navarro;Dorian;24;Combes;Killian
+36;10;DUT Informatique 2016-2018;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;36;Navarro;Dorian;8;Boyer;Jérémy
+38;10;DUT Informatique 2016-2018;1;4;Introduction aux bases de données;M1104;10.0;25.0;25.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;17;Gaudin;Benjamin;26;Garnier;Mehdi
+34;10;DUT Informatique 2016-2018;1;73;Malus Assiduité1;MASSID1;0.0;0.0;0.0;0.0;89;SPORT-CULTURE;UE 13;;;41;Faure;Nicolas;22;Gonçalves;Gabin
+24;9;DUT Informatique 2016-2018;2;23;Environnement comptable, financier, juridique et social;M2203;15.0;30.0;0.0;3.0;17;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;30;Guilbert;Simon;9;Da silva;Fabrice
+25;13;DUT Informatique 2017-2019;1;4;Introduction aux bases de données;M1104;10.0;25.0;25.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;17;Gaudin;Benjamin;26;Garnier;Mehdi
+26;13;DUT Informatique 2017-2019;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;36;Navarro;Dorian;8;Boyer;Jérémy
+26;13;DUT Informatique 2017-2019;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;36;Navarro;Dorian;10;Benard;Clément
+26;13;DUT Informatique 2017-2019;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;36;Navarro;Dorian;24;Combes;Killian
+26;13;DUT Informatique 2017-2019;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;36;Navarro;Dorian;25;Bayle;Mohamed
+26;13;DUT Informatique 2017-2019;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;36;Navarro;Dorian;46;Riou;Ethan
+31;13;DUT Informatique 2017-2019;1;73;Malus Assiduité1;MASSID1;0.0;0.0;0.0;0.0;89;SPORT-CULTURE;UE 13;;;41;Faure;Nicolas;22;Gonçalves;Gabin
+32;13;DUT Informatique 2017-2019;1;5;Conception de documents et d'interfaces numériques;M1105;0.0;21.0;24.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;42;Gonçalves;Mattéo
+32;13;DUT Informatique 2017-2019;1;5;Conception de documents et d'interfaces numériques;M1105;0.0;21.0;24.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;35;Prat;Léonard
+32;13;DUT Informatique 2017-2019;1;5;Conception de documents et d'interfaces numériques;M1105;0.0;21.0;24.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;46;Riou;Ethan
+87;13;DUT Informatique 2017-2019;1;6;Projet tutoré - Découverte;M1106;10.0;0.0;0.0;1.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;46;Riou;Ethan
+95;2;DUT Informatique 2016-2018;3;80;Services réseaux;M3102;0.0;30.0;0.0;1.5;2;Informatique avancée;UE 31;12.0;12.0;5;Marques;Jordan;52;Renard;Nicolas
+95;2;DUT Informatique 2016-2018;3;80;Services réseaux;M3102;0.0;30.0;0.0;1.5;2;Informatique avancée;UE 31;12.0;12.0;5;Marques;Jordan;19;Bodin;Louis
+95;2;DUT Informatique 2016-2018;3;80;Services réseaux;M3102;0.0;30.0;0.0;1.5;2;Informatique avancée;UE 31;12.0;12.0;5;Marques;Jordan;25;Bayle;Mohamed
+105;2;DUT Informatique 2016-2018;3;82;Programmation web coté serveur;M3104;0.0;45.0;0.0;2.5;2;Informatique avancée;UE 31;12.0;12.0;52;Renard;Nicolas;25;Bayle;Mohamed
+105;2;DUT Informatique 2016-2018;3;82;Programmation web coté serveur;M3104;0.0;45.0;0.0;2.5;2;Informatique avancée;UE 31;12.0;12.0;52;Renard;Nicolas;2;Baudry;Léon
+105;2;DUT Informatique 2016-2018;3;82;Programmation web coté serveur;M3104;0.0;45.0;0.0;2.5;2;Informatique avancée;UE 31;12.0;12.0;52;Renard;Nicolas;46;Riou;Ethan
+87;13;DUT Informatique 2017-2019;1;6;Projet tutoré - Découverte;M1106;10.0;0.0;0.0;1.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;2;Baudry;Léon
+32;13;DUT Informatique 2017-2019;1;5;Conception de documents et d'interfaces numériques;M1105;0.0;21.0;24.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;2;Baudry;Léon
+32;13;DUT Informatique 2017-2019;1;5;Conception de documents et d'interfaces numériques;M1105;0.0;21.0;24.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;45;Pages;Antoine
+96;2;DUT Informatique 2016-2018;3;79;Principes des systèmes d'exploitation;M3101;0.0;45.0;0.0;2.5;2;Informatique avancée;UE 31;12.0;12.0;25;Bayle;Mohamed;52;Renard;Nicolas
+96;2;DUT Informatique 2016-2018;3;79;Principes des systèmes d'exploitation;M3101;0.0;45.0;0.0;2.5;2;Informatique avancée;UE 31;12.0;12.0;25;Bayle;Mohamed;5;Marques;Jordan
+96;2;DUT Informatique 2016-2018;3;79;Principes des systèmes d'exploitation;M3101;0.0;45.0;0.0;2.5;2;Informatique avancée;UE 31;12.0;12.0;25;Bayle;Mohamed;19;Bodin;Louis
+91;2;DUT Informatique 2016-2018;3;83;Conception et programmation objet avancées;M3105;0.0;45.0;0.0;2.5;2;Informatique avancée;UE 31;12.0;12.0;39;Toussaint;Simon;36;Navarro;Dorian
+91;2;DUT Informatique 2016-2018;3;83;Conception et programmation objet avancées;M3105;0.0;45.0;0.0;2.5;2;Informatique avancée;UE 31;12.0;12.0;39;Toussaint;Simon;26;Garnier;Mehdi
+25;13;DUT Informatique 2017-2019;1;4;Introduction aux bases de données;M1104;10.0;25.0;25.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;17;Gaudin;Benjamin;27;Gautier;Yohan
+88;2;DUT Informatique 2016-2018;3;84;Bases de données avancées;M3106C;0.0;30.0;0.0;1.5;2;Informatique avancée;UE 31;12.0;12.0;17;Gaudin;Benjamin;27;Gautier;Yohan
+86;13;DUT Informatique 2017-2019;1;11;Expression-Communication - Fondamentaux de la communication;M1205;0.0;15.0;15.0;2.0;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;42;Gonçalves;Mattéo;31;Breton;Simon
+30;13;DUT Informatique 2017-2019;1;13;PPP - Connaître le monde professionnel;M1207;0.0;10.0;10.0;1.0;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;42;Gonçalves;Mattéo;31;Breton;Simon
+27;13;DUT Informatique 2017-2019;1;1;Introduction aux systèmes informatiques;M1101;15.0;15.0;30.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;19;Bodin;Louis;8;Boyer;Jérémy
+27;13;DUT Informatique 2017-2019;1;1;Introduction aux systèmes informatiques;M1101;15.0;15.0;30.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;19;Bodin;Louis;5;Marques;Jordan
+27;13;DUT Informatique 2017-2019;1;1;Introduction aux systèmes informatiques;M1101;15.0;15.0;30.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;19;Bodin;Louis;25;Bayle;Mohamed
+53;13;DUT Informatique 2017-2019;1;10;Fonctionnement des organisations;M1204;15.0;30.0;0.0;2.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;9;Da silva;Fabrice;30;Guilbert;Simon
+53;13;DUT Informatique 2017-2019;1;10;Fonctionnement des organisations;M1204;15.0;30.0;0.0;2.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;9;Da silva;Fabrice;4;Lopes;Maxence
+119;14;DUT Informatique 2017-2019;2;23;Environnement comptable, financier, juridique et social;M2203;15.0;30.0;0.0;3.0;17;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;30;Guilbert;Simon;9;Da silva;Fabrice
+115;14;DUT Informatique 2017-2019;2;19;Programmation et administration des bases de données;M2106;15.0;0.0;30.0;2.5;16;Approfondissements en informatique;UE 21;16.0;16.0;17;Gaudin;Benjamin;27;Gautier;Yohan
+119;14;DUT Informatique 2017-2019;2;23;Environnement comptable, financier, juridique et social;M2203;15.0;30.0;0.0;3.0;17;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;30;Guilbert;Simon;27;Gautier;Yohan
+121;14;DUT Informatique 2017-2019;2;25;Expression-Communication - Communication, information et argumentation;M2205;0.0;15.0;15.0;1.5;17;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;42;Gonçalves;Mattéo;31;Breton;Simon
+123;14;DUT Informatique 2017-2019;2;27;PPP - Identifier ses compétences;M2207;0.0;10.0;10.0;1.0;17;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;42;Gonçalves;Mattéo;31;Breton;Simon
+134;11;DUT Informatique 2016-2018;4;188;Expression-communication - Communiquer dans les organisations;M4203;0.0;15.0;15.0;2.0;38;Compléments de culture scientifique, sociale et humaine;UE 42;8.0;8.0;42;Gonçalves;Mattéo;31;Breton;Simon
+151;4;DUT Informatique 2018-2020;1;13;PPP - Connaître le monde professionnel;M1207;0.0;10.0;10.0;1.0;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;31;Breton;Simon;31;Breton;Simon
+1;4;DUT Informatique 2018-2020;1;73;Malus Assiduité1;MASSID1;0.0;0.0;0.0;0.0;89;SPORT-CULTURE;UE 13;;;41;Faure;Nicolas;22;Gonçalves;Gabin
+3;4;DUT Informatique 2018-2020;1;5;Conception de documents et d'interfaces numériques;M1105;0.0;21.0;24.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;35;Prat;Léonard
+3;4;DUT Informatique 2018-2020;1;5;Conception de documents et d'interfaces numériques;M1105;0.0;21.0;24.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;42;Gonçalves;Mattéo
+3;4;DUT Informatique 2018-2020;1;5;Conception de documents et d'interfaces numériques;M1105;0.0;21.0;24.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;45;Pages;Antoine
+3;4;DUT Informatique 2018-2020;1;5;Conception de documents et d'interfaces numériques;M1105;0.0;21.0;24.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;46;Riou;Ethan
+5;4;DUT Informatique 2018-2020;1;11;Expression-Communication - Fondamentaux de la communication;M1205;0.0;15.0;15.0;2.0;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;31;Breton;Simon;31;Breton;Simon
+4;4;DUT Informatique 2018-2020;1;10;Fonctionnement des organisations;M1204;15.0;30.0;0.0;2.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;9;Da silva;Fabrice;30;Guilbert;Simon
+4;4;DUT Informatique 2018-2020;1;10;Fonctionnement des organisations;M1204;15.0;30.0;0.0;2.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;9;Da silva;Fabrice;4;Lopes;Maxence
+144;4;DUT Informatique 2018-2020;1;4;Introduction aux bases de données;M1104;10.0;25.0;25.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;17;Gaudin;Benjamin;27;Gautier;Yohan
+144;4;DUT Informatique 2018-2020;1;4;Introduction aux bases de données;M1104;10.0;25.0;25.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;17;Gaudin;Benjamin;26;Garnier;Mehdi
+145;4;DUT Informatique 2018-2020;1;6;Projet tutoré - Découverte;M1106;10.0;0.0;0.0;1.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;46;Riou;Ethan
+145;4;DUT Informatique 2018-2020;1;6;Projet tutoré - Découverte;M1106;10.0;0.0;0.0;1.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;2;Baudry;Léon
+148;4;DUT Informatique 2018-2020;1;1;Introduction aux systèmes informatiques;M1101;15.0;15.0;30.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;19;Bodin;Louis;8;Boyer;Jérémy
+148;4;DUT Informatique 2018-2020;1;1;Introduction aux systèmes informatiques;M1101;15.0;15.0;30.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;19;Bodin;Louis;5;Marques;Jordan
+148;4;DUT Informatique 2018-2020;1;1;Introduction aux systèmes informatiques;M1101;15.0;15.0;30.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;19;Bodin;Louis;25;Bayle;Mohamed
+149;4;DUT Informatique 2018-2020;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;36;Navarro;Dorian;25;Bayle;Mohamed
+149;4;DUT Informatique 2018-2020;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;36;Navarro;Dorian;24;Combes;Killian
+149;4;DUT Informatique 2018-2020;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;36;Navarro;Dorian;8;Boyer;Jérémy
+149;4;DUT Informatique 2018-2020;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;36;Navarro;Dorian;46;Riou;Ethan
+149;4;DUT Informatique 2018-2020;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;36;Navarro;Dorian;10;Benard;Clément
+3;4;DUT Informatique 2018-2020;1;5;Conception de documents et d'interfaces numériques;M1105;0.0;21.0;24.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;34;Vallee;Mattéo
+3;4;DUT Informatique 2018-2020;1;5;Conception de documents et d'interfaces numériques;M1105;0.0;21.0;24.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;8;Boyer;Jérémy
+161;5;DUT Informatique 2017-2019;3;215;Programmation web coté serveur;M3104;0.0;45.0;0.0;2.5;58;Informatique avancée;UE 31;12.0;12.0;52;Renard;Nicolas;46;Riou;Ethan
+161;5;DUT Informatique 2017-2019;3;215;Programmation web coté serveur;M3104;0.0;45.0;0.0;2.5;58;Informatique avancée;UE 31;12.0;12.0;52;Renard;Nicolas;25;Bayle;Mohamed
+163;5;DUT Informatique 2017-2019;3;212;Principes des systèmes d'exploitation;M3101;0.0;45.0;0.0;2.5;58;Informatique avancée;UE 31;12.0;12.0;25;Bayle;Mohamed;5;Marques;Jordan
+163;5;DUT Informatique 2017-2019;3;212;Principes des systèmes d'exploitation;M3101;0.0;45.0;0.0;2.5;58;Informatique avancée;UE 31;12.0;12.0;25;Bayle;Mohamed;19;Bodin;Louis
+163;5;DUT Informatique 2017-2019;3;212;Principes des systèmes d'exploitation;M3101;0.0;45.0;0.0;2.5;58;Informatique avancée;UE 31;12.0;12.0;25;Bayle;Mohamed;52;Renard;Nicolas
+172;5;DUT Informatique 2017-2019;3;213;Services réseaux;M3102;0.0;30.0;0.0;1.5;58;Informatique avancée;UE 31;12.0;12.0;5;Marques;Jordan;52;Renard;Nicolas
+172;5;DUT Informatique 2017-2019;3;213;Services réseaux;M3102;0.0;30.0;0.0;1.5;58;Informatique avancée;UE 31;12.0;12.0;5;Marques;Jordan;25;Bayle;Mohamed
+172;5;DUT Informatique 2017-2019;3;213;Services réseaux;M3102;0.0;30.0;0.0;1.5;58;Informatique avancée;UE 31;12.0;12.0;5;Marques;Jordan;19;Bodin;Louis
+176;5;DUT Informatique 2017-2019;3;227;Gestion des systèmes d'information;M3204;0.0;45.0;0.0;2.5;70;Culture scientifique, sociale et humaine avancées;UE 32;12.5;12.5;30;Guilbert;Simon;27;Gautier;Yohan
+176;5;DUT Informatique 2017-2019;3;227;Gestion des systèmes d'information;M3204;0.0;45.0;0.0;2.5;70;Culture scientifique, sociale et humaine avancées;UE 32;12.5;12.5;30;Guilbert;Simon;4;Lopes;Maxence
+160;5;DUT Informatique 2017-2019;3;273;Ateliers de création d'entreprise;M4201C;0.0;30.0;0.0;2.0;70;Culture scientifique, sociale et humaine avancées;UE 32;12.5;12.5;30;Guilbert;Simon;27;Gautier;Yohan
+160;5;DUT Informatique 2017-2019;3;273;Ateliers de création d'entreprise;M4201C;0.0;30.0;0.0;2.0;70;Culture scientifique, sociale et humaine avancées;UE 32;12.5;12.5;30;Guilbert;Simon;4;Lopes;Maxence
+177;5;DUT Informatique 2017-2019;3;217;Bases de données avancées;M3106C;0.0;30.0;0.0;1.5;58;Informatique avancée;UE 31;12.0;12.0;17;Gaudin;Benjamin;27;Gautier;Yohan
+177;5;DUT Informatique 2017-2019;3;217;Bases de données avancées;M3106C;0.0;30.0;0.0;1.5;58;Informatique avancée;UE 31;12.0;12.0;17;Gaudin;Benjamin;6;Baron;Antoine
+144;4;DUT Informatique 2018-2020;1;4;Introduction aux bases de données;M1104;10.0;25.0;25.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;17;Gaudin;Benjamin;7;Pascal;Nolan
+143;4;DUT Informatique 2018-2020;1;9;Environnement économique;M1203;15.0;15.0;0.0;1.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;9;Da silva;Fabrice;4;Lopes;Maxence
+143;4;DUT Informatique 2018-2020;1;9;Environnement économique;M1203;15.0;15.0;0.0;1.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;9;Da silva;Fabrice;30;Guilbert;Simon
+148;4;DUT Informatique 2018-2020;1;1;Introduction aux systèmes informatiques;M1101;15.0;15.0;30.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;19;Bodin;Louis;46;Riou;Ethan
+207;16;DUT Informatique 2018-2020;2;244;Programmation et administration des bases de données;M2106;15.0;0.0;30.0;2.5;63;Approfondissements en informatique;UE 21;16.0;16.0;17;Gaudin;Benjamin;27;Gautier;Yohan
+200;16;DUT Informatique 2018-2020;2;248;Environnement comptable, financier, juridique et social;M2203;15.0;30.0;0.0;3.0;65;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;30;Guilbert;Simon;9;Da silva;Fabrice
+200;16;DUT Informatique 2018-2020;2;248;Environnement comptable, financier, juridique et social;M2203;15.0;30.0;0.0;3.0;65;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;30;Guilbert;Simon;27;Gautier;Yohan
+194;15;DUT Informatique 2017-2019;4;360;Programmation répartie;M4102C;0.0;30.0;0.0;1.5;49;Compléments d'informatique;UE 41;10.0;10.0;19;Bodin;Louis;5;Marques;Jordan
+194;15;DUT Informatique 2017-2019;4;360;Programmation répartie;M4102C;0.0;30.0;0.0;1.5;49;Compléments d'informatique;UE 41;10.0;10.0;19;Bodin;Louis;24;Combes;Killian
+194;15;DUT Informatique 2017-2019;4;360;Programmation répartie;M4102C;0.0;30.0;0.0;1.5;49;Compléments d'informatique;UE 41;10.0;10.0;19;Bodin;Louis;8;Boyer;Jérémy
+205;16;DUT Informatique 2018-2020;2;240;Architecture des réseaux;M2102;8.0;8.0;14.0;1.5;63;Approfondissements en informatique;UE 21;16.0;16.0;5;Marques;Jordan;19;Bodin;Louis
+205;16;DUT Informatique 2018-2020;2;240;Architecture des réseaux;M2102;8.0;8.0;14.0;1.5;63;Approfondissements en informatique;UE 21;16.0;16.0;5;Marques;Jordan;46;Riou;Ethan
+196;16;DUT Informatique 2018-2020;2;239;Architecture et programmation des mécanismes de base d'un système informatique.;M2101;8.0;8.0;14.0;1.5;63;Approfondissements en informatique;UE 21;16.0;16.0;8;Boyer;Jérémy;46;Riou;Ethan
+196;16;DUT Informatique 2018-2020;2;239;Architecture et programmation des mécanismes de base d'un système informatique.;M2101;8.0;8.0;14.0;1.5;63;Approfondissements en informatique;UE 21;16.0;16.0;8;Boyer;Jérémy;33;Pasquier;Bastien
+196;16;DUT Informatique 2018-2020;2;239;Architecture et programmation des mécanismes de base d'un système informatique.;M2101;8.0;8.0;14.0;1.5;63;Approfondissements en informatique;UE 21;16.0;16.0;8;Boyer;Jérémy;19;Bodin;Louis
+196;16;DUT Informatique 2018-2020;2;239;Architecture et programmation des mécanismes de base d'un système informatique.;M2101;8.0;8.0;14.0;1.5;63;Approfondissements en informatique;UE 21;16.0;16.0;8;Boyer;Jérémy;5;Marques;Jordan
+214;8;DUT Informatique 2019-2021;1;1;Introduction aux systèmes informatiques;M1101;15.0;15.0;30.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;19;Bodin;Louis;46;Riou;Ethan
+214;8;DUT Informatique 2019-2021;1;1;Introduction aux systèmes informatiques;M1101;15.0;15.0;30.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;19;Bodin;Louis;5;Marques;Jordan
+214;8;DUT Informatique 2019-2021;1;1;Introduction aux systèmes informatiques;M1101;15.0;15.0;30.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;19;Bodin;Louis;25;Bayle;Mohamed
+214;8;DUT Informatique 2019-2021;1;1;Introduction aux systèmes informatiques;M1101;15.0;15.0;30.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;19;Bodin;Louis;8;Boyer;Jérémy
+155;8;DUT Informatique 2019-2021;1;13;PPP - Connaître le monde professionnel;M1207;0.0;10.0;10.0;1.0;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;31;Breton;Simon;31;Breton;Simon
+153;8;DUT Informatique 2019-2021;1;4;Introduction aux bases de données;M1104;10.0;25.0;25.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;27;Gautier;Yohan;27;Gautier;Yohan
+153;8;DUT Informatique 2019-2021;1;4;Introduction aux bases de données;M1104;10.0;25.0;25.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;27;Gautier;Yohan;26;Garnier;Mehdi
+153;8;DUT Informatique 2019-2021;1;4;Introduction aux bases de données;M1104;10.0;25.0;25.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;27;Gautier;Yohan;7;Pascal;Nolan
+158;8;DUT Informatique 2019-2021;1;73;Malus Assiduité1;MASSID1;0.0;0.0;0.0;0.0;89;SPORT-CULTURE;UE 13;;;41;Faure;Nicolas;22;Gonçalves;Gabin
+159;8;DUT Informatique 2019-2021;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;24;Combes;Killian;8;Boyer;Jérémy
+159;8;DUT Informatique 2019-2021;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;24;Combes;Killian;10;Benard;Clément
+159;8;DUT Informatique 2019-2021;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;24;Combes;Killian;46;Riou;Ethan
+159;8;DUT Informatique 2019-2021;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;24;Combes;Killian;25;Bayle;Mohamed
+159;8;DUT Informatique 2019-2021;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;24;Combes;Killian;24;Combes;Killian
+216;8;DUT Informatique 2019-2021;1;6;Projet tutoré - Découverte;M1106;10.0;0.0;0.0;1.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;46;Riou;Ethan
+216;8;DUT Informatique 2019-2021;1;6;Projet tutoré - Découverte;M1106;10.0;0.0;0.0;1.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;2;Baudry;Léon
+220;8;DUT Informatique 2019-2021;1;11;Expression-Communication - Fondamentaux de la communication;M1205;0.0;15.0;15.0;2.0;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;31;Breton;Simon;31;Breton;Simon
+219;8;DUT Informatique 2019-2021;1;10;Fonctionnement des organisations;M1204;15.0;30.0;0.0;2.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;4;Lopes;Maxence;30;Guilbert;Simon
+219;8;DUT Informatique 2019-2021;1;10;Fonctionnement des organisations;M1204;15.0;30.0;0.0;2.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;4;Lopes;Maxence;4;Lopes;Maxence
+218;8;DUT Informatique 2019-2021;1;9;Environnement économique;M1203;15.0;15.0;0.0;1.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;4;Lopes;Maxence;4;Lopes;Maxence
+218;8;DUT Informatique 2019-2021;1;9;Environnement économique;M1203;15.0;15.0;0.0;1.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;4;Lopes;Maxence;30;Guilbert;Simon
+215;8;DUT Informatique 2019-2021;1;5;Conception de documents et d'interfaces numériques;M1105;0.0;21.0;24.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;34;Vallee;Mattéo
+215;8;DUT Informatique 2019-2021;1;5;Conception de documents et d'interfaces numériques;M1105;0.0;21.0;24.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;8;Boyer;Jérémy
+215;8;DUT Informatique 2019-2021;1;5;Conception de documents et d'interfaces numériques;M1105;0.0;21.0;24.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;42;Gonçalves;Mattéo
+215;8;DUT Informatique 2019-2021;1;5;Conception de documents et d'interfaces numériques;M1105;0.0;21.0;24.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;46;Riou;Ethan
+256;1;DUT Informatique 2018-2020;3;430;Gestion des systèmes d'information;M3204;0.0;45.0;0.0;2.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;30;Guilbert;Simon;27;Gautier;Yohan
+256;1;DUT Informatique 2018-2020;3;430;Gestion des systèmes d'information;M3204;0.0;45.0;0.0;2.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;30;Guilbert;Simon;4;Lopes;Maxence
+253;1;DUT Informatique 2018-2020;3;416;Services réseaux;M3102;0.0;30.0;0.0;1.5;86;Informatique avancée;UE 31;12.0;12.0;5;Marques;Jordan;52;Renard;Nicolas
+253;1;DUT Informatique 2018-2020;3;416;Services réseaux;M3102;0.0;30.0;0.0;1.5;86;Informatique avancée;UE 31;12.0;12.0;5;Marques;Jordan;19;Bodin;Louis
+253;1;DUT Informatique 2018-2020;3;416;Services réseaux;M3102;0.0;30.0;0.0;1.5;86;Informatique avancée;UE 31;12.0;12.0;5;Marques;Jordan;25;Bayle;Mohamed
+259;1;DUT Informatique 2018-2020;3;476;Ateliers de création d'entreprise;M4201C;0.0;30.0;0.0;1.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;30;Guilbert;Simon;27;Gautier;Yohan
+259;1;DUT Informatique 2018-2020;3;476;Ateliers de création d'entreprise;M4201C;0.0;30.0;0.0;1.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;30;Guilbert;Simon;4;Lopes;Maxence
+251;1;DUT Informatique 2018-2020;3;420;Bases de données avancées;M3106C;0.0;30.0;0.0;1.5;86;Informatique avancée;UE 31;12.0;12.0;27;Gautier;Yohan;27;Gautier;Yohan
+251;1;DUT Informatique 2018-2020;3;420;Bases de données avancées;M3106C;0.0;30.0;0.0;1.5;86;Informatique avancée;UE 31;12.0;12.0;27;Gautier;Yohan;6;Baron;Antoine
+254;1;DUT Informatique 2018-2020;3;415;Principes des systèmes d'exploitation;M3101;0.0;45.0;0.0;2.5;86;Informatique avancée;UE 31;12.0;12.0;25;Bayle;Mohamed;5;Marques;Jordan
+254;1;DUT Informatique 2018-2020;3;415;Principes des systèmes d'exploitation;M3101;0.0;45.0;0.0;2.5;86;Informatique avancée;UE 31;12.0;12.0;25;Bayle;Mohamed;52;Renard;Nicolas
+254;1;DUT Informatique 2018-2020;3;415;Principes des systèmes d'exploitation;M3101;0.0;45.0;0.0;2.5;86;Informatique avancée;UE 31;12.0;12.0;25;Bayle;Mohamed;19;Bodin;Louis
+248;1;DUT Informatique 2018-2020;3;418;Programmation web coté serveur;M3104;0.0;45.0;0.0;2.5;86;Informatique avancée;UE 31;12.0;12.0;52;Renard;Nicolas;46;Riou;Ethan
+250;1;DUT Informatique 2018-2020;3;441;Malus Assiduité3;MASSID3;0.0;0.0;0.0;0.0;90;SPORT CULTURE 3;UE34;;;22;Gonçalves;Gabin;43;Grenier;Émile
+158;8;DUT Informatique 2019-2021;1;73;Malus Assiduité1;MASSID1;0.0;0.0;0.0;0.0;89;SPORT-CULTURE;UE 13;;;41;Faure;Nicolas;43;Grenier;Émile
+227;3;DUT Informatique 2018-2020;4;383;Programmation répartie;M4102C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;19;Bodin;Louis;5;Marques;Jordan
+227;3;DUT Informatique 2018-2020;4;383;Programmation répartie;M4102C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;19;Bodin;Louis;8;Boyer;Jérémy
+227;3;DUT Informatique 2018-2020;4;383;Programmation répartie;M4102C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;19;Bodin;Louis;25;Bayle;Mohamed
+228;3;DUT Informatique 2018-2020;4;384;Programmation web - client riche;M4103C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;46;Riou;Ethan;25;Bayle;Mohamed
+228;3;DUT Informatique 2018-2020;4;384;Programmation web - client riche;M4103C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;46;Riou;Ethan;8;Boyer;Jérémy
+267;12;DUT Informatique 2019-2021;2;307;Architecture et programmation des mécanismes de base d'un système informatique.;M2101;8.0;8.0;14.0;1.5;91;Approfondissements en informatique;UE 21;16.0;16.0;8;Boyer;Jérémy;19;Bodin;Louis
+267;12;DUT Informatique 2019-2021;2;307;Architecture et programmation des mécanismes de base d'un système informatique.;M2101;8.0;8.0;14.0;1.5;91;Approfondissements en informatique;UE 21;16.0;16.0;8;Boyer;Jérémy;5;Marques;Jordan
+267;12;DUT Informatique 2019-2021;2;307;Architecture et programmation des mécanismes de base d'un système informatique.;M2101;8.0;8.0;14.0;1.5;91;Approfondissements en informatique;UE 21;16.0;16.0;8;Boyer;Jérémy;33;Pasquier;Bastien
+267;12;DUT Informatique 2019-2021;2;307;Architecture et programmation des mécanismes de base d'un système informatique.;M2101;8.0;8.0;14.0;1.5;91;Approfondissements en informatique;UE 21;16.0;16.0;8;Boyer;Jérémy;46;Riou;Ethan
+235;12;DUT Informatique 2019-2021;2;308;Architecture des réseaux;M2102;8.0;8.0;14.0;1.5;91;Approfondissements en informatique;UE 21;16.0;16.0;5;Marques;Jordan;19;Bodin;Louis
+235;12;DUT Informatique 2019-2021;2;308;Architecture des réseaux;M2102;8.0;8.0;14.0;1.5;91;Approfondissements en informatique;UE 21;16.0;16.0;5;Marques;Jordan;46;Riou;Ethan
+240;12;DUT Informatique 2019-2021;2;392;Environnement comptable, financier, juridique et social;M2203;15.0;30.0;0.0;3.0;93;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;30;Guilbert;Simon;4;Lopes;Maxence
+305;19;DUT Informatique 2020-2022;1;13;PPP - Connaître le monde professionnel;M1207;0.0;10.0;10.0;1.0;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;31;Breton;Simon;31;Breton;Simon
+330;19;DUT Informatique 2020-2022;1;73;Malus Assiduité1;MASSID1;0.0;0.0;0.0;0.0;89;SPORT-CULTURE;UE 13;;;41;Faure;Nicolas;43;Grenier;Émile
+330;19;DUT Informatique 2020-2022;1;73;Malus Assiduité1;MASSID1;0.0;0.0;0.0;0.0;89;SPORT-CULTURE;UE 13;;;41;Faure;Nicolas;22;Gonçalves;Gabin
+302;19;DUT Informatique 2020-2022;1;10;Fonctionnement des organisations;M1204;15.0;30.0;0.0;2.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;4;Lopes;Maxence;30;Guilbert;Simon
+302;19;DUT Informatique 2020-2022;1;10;Fonctionnement des organisations;M1204;15.0;30.0;0.0;2.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;4;Lopes;Maxence;4;Lopes;Maxence
+296;19;DUT Informatique 2020-2022;1;4;Introduction aux bases de données;M1104;10.0;25.0;25.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;27;Gautier;Yohan;27;Gautier;Yohan
+296;19;DUT Informatique 2020-2022;1;4;Introduction aux bases de données;M1104;10.0;25.0;25.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;27;Gautier;Yohan;26;Garnier;Mehdi
+296;19;DUT Informatique 2020-2022;1;4;Introduction aux bases de données;M1104;10.0;25.0;25.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;27;Gautier;Yohan;7;Pascal;Nolan
+294;19;DUT Informatique 2020-2022;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;24;Combes;Killian;8;Boyer;Jérémy
+294;19;DUT Informatique 2020-2022;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;24;Combes;Killian;24;Combes;Killian
+294;19;DUT Informatique 2020-2022;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;24;Combes;Killian;10;Benard;Clément
+294;19;DUT Informatique 2020-2022;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;24;Combes;Killian;25;Bayle;Mohamed
+297;19;DUT Informatique 2020-2022;1;5;Conception de documents et d'interfaces numériques;M1105;0.0;21.0;24.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;34;Vallee;Mattéo
+297;19;DUT Informatique 2020-2022;1;5;Conception de documents et d'interfaces numériques;M1105;0.0;21.0;24.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;8;Boyer;Jérémy
+297;19;DUT Informatique 2020-2022;1;5;Conception de documents et d'interfaces numériques;M1105;0.0;21.0;24.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;42;Gonçalves;Mattéo
+301;19;DUT Informatique 2020-2022;1;9;Environnement économique;M1203;15.0;15.0;0.0;1.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;4;Lopes;Maxence;4;Lopes;Maxence
+301;19;DUT Informatique 2020-2022;1;9;Environnement économique;M1203;15.0;15.0;0.0;1.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;4;Lopes;Maxence;30;Guilbert;Simon
+303;19;DUT Informatique 2020-2022;1;11;Expression-Communication - Fondamentaux de la communication;M1205;0.0;15.0;15.0;2.0;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;31;Breton;Simon;31;Breton;Simon
+329;19;DUT Informatique 2020-2022;1;1;Introduction aux systèmes informatiques;M1101;15.0;15.0;30.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;19;Bodin;Louis;25;Bayle;Mohamed
+329;19;DUT Informatique 2020-2022;1;1;Introduction aux systèmes informatiques;M1101;15.0;15.0;30.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;19;Bodin;Louis;5;Marques;Jordan
+329;19;DUT Informatique 2020-2022;1;1;Introduction aux systèmes informatiques;M1101;15.0;15.0;30.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;19;Bodin;Louis;8;Boyer;Jérémy
+295;19;DUT Informatique 2020-2022;1;3;Structures de données et algorithmique fondamentaux;M1103;10.0;22.0;14.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;24;Combes;Killian;34;Vallee;Mattéo
+294;19;DUT Informatique 2020-2022;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;24;Combes;Killian;34;Vallee;Mattéo
+294;19;DUT Informatique 2020-2022;1;2;Introduction à l'algorithmique et à la programmation;M1102;10.0;29.0;20.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;24;Combes;Killian;33;Pasquier;Bastien
+295;19;DUT Informatique 2020-2022;1;3;Structures de données et algorithmique fondamentaux;M1103;10.0;22.0;14.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;24;Combes;Killian;39;Toussaint;Simon
+295;19;DUT Informatique 2020-2022;1;3;Structures de données et algorithmique fondamentaux;M1103;10.0;22.0;14.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;24;Combes;Killian;33;Pasquier;Bastien
+295;19;DUT Informatique 2020-2022;1;3;Structures de données et algorithmique fondamentaux;M1103;10.0;22.0;14.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;24;Combes;Killian;10;Benard;Clément
+329;19;DUT Informatique 2020-2022;1;1;Introduction aux systèmes informatiques;M1101;15.0;15.0;30.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;19;Bodin;Louis;29;Vallet;Grégory
+269;21;DUT Informatique 2019-2021;3;416;Services réseaux;M3102;0.0;30.0;0.0;1.5;86;Informatique avancée;UE 31;12.0;12.0;5;Marques;Jordan;19;Bodin;Louis
+269;21;DUT Informatique 2019-2021;3;416;Services réseaux;M3102;0.0;30.0;0.0;1.5;86;Informatique avancée;UE 31;12.0;12.0;5;Marques;Jordan;25;Bayle;Mohamed
+268;21;DUT Informatique 2019-2021;3;415;Principes des systèmes d'exploitation;M3101;0.0;45.0;0.0;2.5;86;Informatique avancée;UE 31;12.0;12.0;25;Bayle;Mohamed;19;Bodin;Louis
+268;21;DUT Informatique 2019-2021;3;415;Principes des systèmes d'exploitation;M3101;0.0;45.0;0.0;2.5;86;Informatique avancée;UE 31;12.0;12.0;25;Bayle;Mohamed;5;Marques;Jordan
+276;21;DUT Informatique 2019-2021;3;476;Ateliers de création d'entreprise;M4201C;0.0;30.0;0.0;1.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;30;Guilbert;Simon;27;Gautier;Yohan
+276;21;DUT Informatique 2019-2021;3;476;Ateliers de création d'entreprise;M4201C;0.0;30.0;0.0;1.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;30;Guilbert;Simon;4;Lopes;Maxence
+277;21;DUT Informatique 2019-2021;3;430;Gestion des systèmes d'information;M3204;0.0;45.0;0.0;2.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;30;Guilbert;Simon;27;Gautier;Yohan
+277;21;DUT Informatique 2019-2021;3;430;Gestion des systèmes d'information;M3204;0.0;45.0;0.0;2.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;30;Guilbert;Simon;4;Lopes;Maxence
+286;20;DUT Informatique 2020-2022;2;308;Architecture des réseaux;M2102;8.0;8.0;14.0;1.5;91;Approfondissements en informatique;UE 21;16.0;16.0;5;Marques;Jordan;19;Bodin;Louis
+293;20;DUT Informatique 2020-2022;2;307;Architecture et programmation des mécanismes de base d'un système informatique.;M2101;8.0;8.0;14.0;1.5;91;Approfondissements en informatique;UE 21;16.0;16.0;8;Boyer;Jérémy;19;Bodin;Louis
+293;20;DUT Informatique 2020-2022;2;307;Architecture et programmation des mécanismes de base d'un système informatique.;M2101;8.0;8.0;14.0;1.5;91;Approfondissements en informatique;UE 21;16.0;16.0;8;Boyer;Jérémy;46;Riou;Ethan
+293;20;DUT Informatique 2020-2022;2;307;Architecture et programmation des mécanismes de base d'un système informatique.;M2101;8.0;8.0;14.0;1.5;91;Approfondissements en informatique;UE 21;16.0;16.0;8;Boyer;Jérémy;5;Marques;Jordan
+293;20;DUT Informatique 2020-2022;2;307;Architecture et programmation des mécanismes de base d'un système informatique.;M2101;8.0;8.0;14.0;1.5;91;Approfondissements en informatique;UE 21;16.0;16.0;8;Boyer;Jérémy;33;Pasquier;Bastien
+315;20;DUT Informatique 2020-2022;2;392;Environnement comptable, financier, juridique et social;M2203;15.0;30.0;0.0;3.0;93;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;30;Guilbert;Simon;4;Lopes;Maxence
+332;22;DUT Informatique 2019-2021;4;384;Programmation web - client riche;M4103C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;52;Renard;Nicolas;25;Bayle;Mohamed
+332;22;DUT Informatique 2019-2021;4;384;Programmation web - client riche;M4103C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;52;Renard;Nicolas;8;Boyer;Jérémy
+322;22;DUT Informatique 2019-2021;4;383;Programmation répartie;M4102C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;19;Bodin;Louis;5;Marques;Jordan
+322;22;DUT Informatique 2019-2021;4;383;Programmation répartie;M4102C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;19;Bodin;Louis;8;Boyer;Jérémy
+322;22;DUT Informatique 2019-2021;4;383;Programmation répartie;M4102C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;19;Bodin;Louis;25;Bayle;Mohamed
+286;20;DUT Informatique 2020-2022;2;308;Architecture des réseaux;M2102;8.0;8.0;14.0;1.5;91;Approfondissements en informatique;UE 21;16.0;16.0;5;Marques;Jordan;29;Vallet;Grégory
+293;20;DUT Informatique 2020-2022;2;307;Architecture et programmation des mécanismes de base d'un système informatique.;M2101;8.0;8.0;14.0;1.5;91;Approfondissements en informatique;UE 21;16.0;16.0;8;Boyer;Jérémy;29;Vallet;Grégory
+311;20;DUT Informatique 2020-2022;2;380;Programmation et administration des bases de données;M2106;15.0;0.0;30.0;2.5;91;Approfondissements en informatique;UE 21;16.0;16.0;27;Gautier;Yohan;25;Bayle;Mohamed
+311;20;DUT Informatique 2020-2022;2;380;Programmation et administration des bases de données;M2106;15.0;0.0;30.0;2.5;91;Approfondissements en informatique;UE 21;16.0;16.0;27;Gautier;Yohan;6;Baron;Antoine
+337;17;DUT Informatique 2020-2022;3;416;Services réseaux;M3102;0.0;30.0;0.0;1.5;86;Informatique avancée;UE 31;12.0;12.0;5;Marques;Jordan;25;Bayle;Mohamed
+339;17;DUT Informatique 2020-2022;3;430;Gestion des systèmes d'information;M3204;0.0;45.0;0.0;2.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;30;Guilbert;Simon;27;Gautier;Yohan
+339;17;DUT Informatique 2020-2022;3;430;Gestion des systèmes d'information;M3204;0.0;45.0;0.0;2.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;30;Guilbert;Simon;4;Lopes;Maxence
+348;17;DUT Informatique 2020-2022;3;476;Ateliers de création d'entreprise;M4201C;0.0;30.0;0.0;1.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;30;Guilbert;Simon;27;Gautier;Yohan
+348;17;DUT Informatique 2020-2022;3;476;Ateliers de création d'entreprise;M4201C;0.0;30.0;0.0;1.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;30;Guilbert;Simon;4;Lopes;Maxence
+351;17;DUT Informatique 2020-2022;3;415;Principes des systèmes d'exploitation;M3101;0.0;45.0;0.0;2.5;86;Informatique avancée;UE 31;12.0;12.0;25;Bayle;Mohamed;19;Bodin;Louis
+351;17;DUT Informatique 2020-2022;3;415;Principes des systèmes d'exploitation;M3101;0.0;45.0;0.0;2.5;86;Informatique avancée;UE 31;12.0;12.0;25;Bayle;Mohamed;5;Marques;Jordan
+371;17;DUT Informatique 2020-2022;3;418;Programmation web coté serveur;M3104;0.0;45.0;0.0;2.5;86;Informatique avancée;UE 31;12.0;12.0;29;Vallet;Grégory;44;Martineau;Julien
+371;17;DUT Informatique 2020-2022;3;418;Programmation web coté serveur;M3104;0.0;45.0;0.0;2.5;86;Informatique avancée;UE 31;12.0;12.0;29;Vallet;Grégory;34;Vallee;Mattéo
+371;17;DUT Informatique 2020-2022;3;418;Programmation web coté serveur;M3104;0.0;45.0;0.0;2.5;86;Informatique avancée;UE 31;12.0;12.0;29;Vallet;Grégory;49;Boyer;Constant
+371;17;DUT Informatique 2020-2022;3;418;Programmation web coté serveur;M3104;0.0;45.0;0.0;2.5;86;Informatique avancée;UE 31;12.0;12.0;29;Vallet;Grégory;25;Bayle;Mohamed
+351;17;DUT Informatique 2020-2022;3;415;Principes des systèmes d'exploitation;M3101;0.0;45.0;0.0;2.5;86;Informatique avancée;UE 31;12.0;12.0;25;Bayle;Mohamed;8;Boyer;Jérémy
+337;17;DUT Informatique 2020-2022;3;416;Services réseaux;M3102;0.0;30.0;0.0;1.5;86;Informatique avancée;UE 31;12.0;12.0;5;Marques;Jordan;40;Marques;Clément
+351;17;DUT Informatique 2020-2022;3;415;Principes des systèmes d'exploitation;M3101;0.0;45.0;0.0;2.5;86;Informatique avancée;UE 31;12.0;12.0;25;Bayle;Mohamed;53;Brun;Julien
+381;24;DUT Informatique 2020-2022;4;384;Programmation web - client riche;M4103C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;8;Boyer;Jérémy;8;Boyer;Jérémy
+384;24;DUT Informatique 2020-2022;4;383;Programmation répartie;M4102C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;8;Boyer;Jérémy;5;Marques;Jordan
+384;24;DUT Informatique 2020-2022;4;383;Programmation répartie;M4102C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;8;Boyer;Jérémy;8;Boyer;Jérémy
+384;24;DUT Informatique 2020-2022;4;383;Programmation répartie;M4102C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;8;Boyer;Jérémy;25;Bayle;Mohamed
+381;24;DUT Informatique 2020-2022;4;384;Programmation web - client riche;M4103C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;8;Boyer;Jérémy;44;Martineau;Julien
+106;15;DUT Informatique 2017-2019;4;371;Stage professionnel;M4301;0.0;0.0;0.0;12.0;52;Mise en situation professionnelle;UE 43;12.0;12.0;8;Boyer;Jérémy;;;
+285;21;DUT Informatique 2019-2021;3;441;Malus Assiduité3;MASSID3;0.0;0.0;0.0;0.0;90;SPORT CULTURE 3;UE34;;;22;Gonçalves;Gabin;;;
+120;14;DUT Informatique 2017-2019;2;24;Gestion de projet informatique;M2204;15.0;15.0;0.0;1.5;17;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;4;Lopes;Maxence;;;
+264;1;DUT Informatique 2018-2020;3;440;Bonus LV2;BLANGS3;0.0;0.0;0.0;0.03;90;SPORT CULTURE 3;UE34;;;22;Gonçalves;Gabin;;;
+209;3;DUT Informatique 2018-2020;4;388;Programmation fonctionnelle;M4107C;0.0;0.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;19;Bodin;Louis;;;
+270;21;DUT Informatique 2019-2021;3;417;Algorithmique avancée;M3103;0.0;30.0;0.0;1.5;86;Informatique avancée;UE 31;12.0;12.0;33;Pasquier;Bastien;;;
+310;20;DUT Informatique 2020-2022;2;396;PPP - Identifier ses compétences;M2207;0.0;10.0;10.0;1.0;93;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;31;Breton;Simon;;;
+101;2;DUT Informatique 2016-2018;3;138;Ateliers de création d'entreprise;M4201C;0.0;30.0;0.0;2.0;28;Culture scientifique, sociale et humaine avancées;UE 32;12.5;12.5;30;Guilbert;Simon;;;
+20;6;DUT Informatique 2015-2017;3;47;PPP - Préciser son projet;M3303;0.0;10.0;10.0;1.0;21;Méthodologie et Projets;UE 33;6.0;6.0;42;Gonçalves;Mattéo;;;
+213;3;DUT Informatique 2018-2020;4;399;Expression-communication - Communiquer dans les organisations;M4203;0.0;15.0;15.0;2.0;94;Compléments de culture scientifique, sociale et humaine;UE 42;8.0;8.0;31;Breton;Simon;;;
+137;11;DUT Informatique 2016-2018;4;194;Bonus Sport;BSPORTS4;0.0;0.0;0.0;1.0;41;SPORT CULTURE 4;UE 44;;;36;Navarro;Dorian;;;
+265;1;DUT Informatique 2018-2020;3;431;Expression-Communication - Communication professionnelle;M3205;0.0;15.0;15.0;1.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;42;Gonçalves;Mattéo;;;
+379;24;DUT Informatique 2020-2022;4;385;Conception et développement d'applications mobiles;M4104C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;18;Maillet;Tom;;;
+292;20;DUT Informatique 2020-2022;2;390;Graphes et langages;M2201;11.0;16.0;18.0;2.5;93;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;41;Faure;Nicolas;;;
+168;5;DUT Informatique 2017-2019;3;228;Expression-Communication - Communication professionnelle;M3205;0.0;15.0;15.0;1.5;70;Culture scientifique, sociale et humaine avancées;UE 32;12.5;12.5;31;Breton;Simon;;;
+136;11;DUT Informatique 2016-2018;4;190;Stage professionnel;M4301;0.0;0.0;0.0;12.0;39;Mise en situation professionnelle;UE 43;12.0;12.0;25;Bayle;Mohamed;;;
+373;24;DUT Informatique 2020-2022;4;389;Analyse;M4108C;0.0;0.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;41;Faure;Nicolas;;;
+238;12;DUT Informatique 2019-2021;2;390;Graphes et langages;M2201;11.0;16.0;18.0;2.5;93;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;41;Faure;Nicolas;;;
+230;3;DUT Informatique 2018-2020;4;400;Travailler en anglais;M4204;0.0;15.0;15.0;2.0;94;Compléments de culture scientifique, sociale et humaine;UE 42;8.0;8.0;51;Leonard;Dimitri;;;
+93;2;DUT Informatique 2016-2018;3;94;Gestion des systèmes d'information;M3204;0.0;45.0;0.0;2.5;28;Culture scientifique, sociale et humaine avancées;UE 32;12.5;12.5;30;Guilbert;Simon;;;
+307;19;DUT Informatique 2020-2022;1;42;Bonus LV2;BLANGS1;0.0;0.0;0.0;0.03;89;SPORT-CULTURE;UE 13;;;41;Faure;Nicolas;;;
+382;24;DUT Informatique 2020-2022;4;400;Travailler en anglais;M4204;0.0;15.0;15.0;2.0;94;Compléments de culture scientifique, sociale et humaine;UE 42;8.0;8.0;51;Leonard;Dimitri;;;
+335;17;DUT Informatique 2020-2022;3;434;Projet tutoré  Mise en situation professionnelle;M3302;0.0;15.0;0.0;2.0;88;Méthodologie et Projets;UE 33;6.0;6.0;7;Pascal;Nolan;;;
+191;15;DUT Informatique 2017-2019;4;376;Bonus LV2;BLANGS4;0.0;0.0;0.0;0.03;54;SPORT CULTURE 4;UE 44;;;22;Gonçalves;Gabin;;;
+11;6;DUT Informatique 2015-2017;3;33;Bases de données avancées;M3106C;0.0;30.0;0.0;1.5;19;Informatique avancée;UE 31;12.0;12.0;17;Gaudin;Benjamin;;;
+135;11;DUT Informatique 2016-2018;4;189;Travailler en anglais;M4204;0.0;15.0;15.0;2.0;38;Compléments de culture scientifique, sociale et humaine;UE 42;8.0;8.0;51;Leonard;Dimitri;;;
+252;1;DUT Informatique 2018-2020;3;435;PPP - Préciser son projet;M3303;0.0;10.0;10.0;1.0;88;Méthodologie et Projets;UE 33;6.0;6.0;42;Gonçalves;Mattéo;;;
+131;11;DUT Informatique 2016-2018;4;204;Analyse;M4108C;0.0;0.0;0.0;1.5;36;Compléments d'informatique;UE 41;10.0;10.0;16;Lemonnier;Pierre;;;
+178;16;DUT Informatique 2018-2020;2;251;Communiquer en anglais;M2206;0.0;23.0;22.0;2.5;65;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;51;Leonard;Dimitri;;;
+255;1;DUT Informatique 2018-2020;3;429;Modélisations mathématiques;M3202C;0.0;30.0;0.0;1.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;15;Morel;Mathieu;;;
+241;12;DUT Informatique 2019-2021;2;393;Gestion de projet informatique;M2204;15.0;15.0;0.0;1.5;93;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;4;Lopes;Maxence;;;
+325;22;DUT Informatique 2019-2021;4;382;Administration système et réseau;M4101C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;5;Marques;Jordan;;;
+17;6;DUT Informatique 2015-2017;3;39;Communication professionnelle en anglais;M3206;0.0;45.0;0.0;2.5;20;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;51;Leonard;Dimitri;;;
+142;4;DUT Informatique 2018-2020;1;44;Bonus Sport;BSPORTS1;0.0;0.0;0.0;1.0;89;SPORT-CULTURE;UE 13;;;41;Faure;Nicolas;;;
+66;9;DUT Informatique 2016-2018;2;27;PPP - Identifier ses compétences;M2207;0.0;10.0;10.0;1.0;17;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;42;Gonçalves;Mattéo;;;
+89;2;DUT Informatique 2016-2018;3;97;Méthodologie de la production d'applications;M3301;0.0;60.0;0.0;3.0;4;Méthodologie et Projets;UE 33;6.0;6.0;36;Navarro;Dorian;;;
+284;21;DUT Informatique 2019-2021;3;440;Bonus LV2;BLANGS3;0.0;0.0;0.0;0.03;90;SPORT CULTURE 3;UE34;;;22;Gonçalves;Gabin;;;
+33;13;DUT Informatique 2017-2019;1;8;Algèbre linéaire;M1202;6.0;12.0;12.0;2.0;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;15;Morel;Mathieu;;;
+109;11;DUT Informatique 2016-2018;4;198;Programmation répartie;M4102C;0.0;30.0;0.0;1.5;36;Compléments d'informatique;UE 41;10.0;10.0;19;Bodin;Louis;;;
+57;9;DUT Informatique 2016-2018;2;17;Bases de la conception orientée objet;M2104;8.0;16.0;20.0;2.5;16;Approfondissements en informatique;UE 21;16.0;16.0;39;Toussaint;Simon;;;
+239;12;DUT Informatique 2019-2021;2;391;Analyse et méthodes numériques;M2202;8.0;12.0;10.0;2.0;93;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;15;Morel;Mathieu;;;
+288;20;DUT Informatique 2020-2022;2;395;Communiquer en anglais;M2206;0.0;23.0;22.0;2.5;93;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;51;Leonard;Dimitri;;;
+12;6;DUT Informatique 2015-2017;3;34;Probabilités et statistiques;M3201;0.0;45.0;0.0;2.5;20;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;16;Lemonnier;Pierre;;;
+282;21;DUT Informatique 2019-2021;3;435;PPP - Préciser son projet;M3303;0.0;10.0;10.0;1.0;88;Méthodologie et Projets;UE 33;6.0;6.0;31;Breton;Simon;;;
+321;22;DUT Informatique 2019-2021;4;388;Programmation fonctionnelle;M4107C;0.0;0.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;19;Bodin;Louis;;;
+10;6;DUT Informatique 2015-2017;3;32;Conception et programmation objet avancées;M3105;0.0;45.0;0.0;2.5;19;Informatique avancée;UE 31;12.0;12.0;39;Toussaint;Simon;;;
+324;22;DUT Informatique 2019-2021;4;406;Bonus LV2;BLANGS4;0.0;0.0;0.0;0.03;97;SPORT CULTURE 4;UE 44;;;22;Gonçalves;Gabin;;;
+18;6;DUT Informatique 2015-2017;3;40;Méthodologie de la production d'applications;M3301;0.0;60.0;0.0;3.0;21;Méthodologie et Projets;UE 33;6.0;6.0;36;Navarro;Dorian;;;
+146;4;DUT Informatique 2018-2020;1;42;Bonus LV2;BLANGS1;0.0;0.0;0.0;0.03;89;SPORT-CULTURE;UE 13;;;41;Faure;Nicolas;;;
+139;11;DUT Informatique 2016-2018;4;196;Malus Assiduité4;MASSID4;0.0;0.0;0.0;0.0;41;SPORT CULTURE 4;UE 44;;;36;Navarro;Dorian;;;
+98;2;DUT Informatique 2016-2018;3;99;PPP - Préciser son projet;M3303;0.0;10.0;10.0;1.0;4;Méthodologie et Projets;UE 33;6.0;6.0;42;Gonçalves;Mattéo;;;
+193;5;DUT Informatique 2017-2019;3;216;Conception et programmation objet avancées;M3105;0.0;45.0;0.0;2.5;58;Informatique avancée;UE 31;12.0;12.0;39;Toussaint;Simon;;;
+243;12;DUT Informatique 2019-2021;2;395;Communiquer en anglais;M2206;0.0;23.0;22.0;2.5;93;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;51;Leonard;Dimitri;;;
+167;5;DUT Informatique 2017-2019;3;214;Algorithmique avancée;M3103;0.0;30.0;0.0;1.5;58;Informatique avancée;UE 31;12.0;12.0;33;Pasquier;Bastien;;;
+64;9;DUT Informatique 2016-2018;2;25;Expression-Communication - Communication, information et argumentation;M2205;0.0;15.0;15.0;1.5;17;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;42;Gonçalves;Mattéo;;;
+198;16;DUT Informatique 2018-2020;2;245;Projet tutoré - Description et planification de projet;M2107;0.0;0.0;0.0;2.0;63;Approfondissements en informatique;UE 21;16.0;16.0;4;Lopes;Maxence;;;
+104;2;DUT Informatique 2016-2018;3;104;Bonus LV2;BLANGS3;0.0;0.0;0.0;0.03;6;SPORT CULTURE 3;UE34;;;36;Navarro;Dorian;;;
+102;2;DUT Informatique 2016-2018;3;96;Communication professionnelle en anglais;M3206;0.0;45.0;0.0;2.5;28;Culture scientifique, sociale et humaine avancées;UE 32;12.5;12.5;51;Leonard;Dimitri;;;
+2;4;DUT Informatique 2018-2020;1;12;Anglais et Informatique;M1206;0.0;15.0;15.0;1.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;51;Leonard;Dimitri;;;
+343;17;DUT Informatique 2020-2022;3;439;Bonus Sport;BSPORTS3;0.0;0.0;0.0;1.0;90;SPORT CULTURE 3;UE34;;;22;Gonçalves;Gabin;;;
+234;3;DUT Informatique 2018-2020;4;407;Malus Assiduité4;MASSID4;0.0;0.0;0.0;0.0;97;SPORT CULTURE 4;UE 44;;;22;Gonçalves;Gabin;;;
+186;15;DUT Informatique 2017-2019;4;366;Droit des TIC;M4201;0.0;30.0;0.0;2.0;51;Compléments de culture scientifique, sociale et humaine;UE 42;8.0;8.0;30;Guilbert;Simon;;;
+346;17;DUT Informatique 2020-2022;3;417;Algorithmique avancée;M3103;0.0;30.0;0.0;1.5;86;Informatique avancée;UE 31;12.0;12.0;33;Pasquier;Bastien;;;
+280;21;DUT Informatique 2019-2021;3;433;Méthodologie de la production d'applications;M3301;0.0;60.0;0.0;3.0;88;Méthodologie et Projets;UE 33;6.0;6.0;27;Gautier;Yohan;;;
+314;20;DUT Informatique 2020-2022;2;358;Bonus Lv2;BLANGS2;0.0;0.0;0.0;0.03;96;SPORT-CULTURE;UE 23;;;22;Gonçalves;Gabin;;;
+274;21;DUT Informatique 2019-2021;3;428;Probabilités et statistiques;M3201;0.0;45.0;0.0;2.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;16;Lemonnier;Pierre;;;
+320;22;DUT Informatique 2019-2021;4;402;Stage professionnel;M4301;0.0;0.0;0.0;12.0;95;Mise en situation professionnelle;UE 43;12.0;12.0;8;Boyer;Jérémy;;;
+47;10;DUT Informatique 2016-2018;1;13;PPP - Connaître le monde professionnel;M1207;0.0;10.0;10.0;1.0;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;42;Gonçalves;Mattéo;;;
+211;3;DUT Informatique 2018-2020;4;397;Droit des TIC;M4201;0.0;30.0;0.0;2.0;94;Compléments de culture scientifique, sociale et humaine;UE 42;8.0;8.0;30;Guilbert;Simon;;;
+46;10;DUT Informatique 2016-2018;1;12;Anglais et Informatique;M1206;0.0;15.0;15.0;1.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;51;Leonard;Dimitri;;;
+304;19;DUT Informatique 2020-2022;1;12;Anglais et Informatique;M1206;0.0;15.0;15.0;1.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;51;Leonard;Dimitri;;;
+15;6;DUT Informatique 2015-2017;3;37;Gestion des systèmes d'information;M3204;0.0;45.0;0.0;2.5;20;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;30;Guilbert;Simon;;;
+125;14;DUT Informatique 2017-2019;2;43;Bonus Lv2;BLANGS2;0.0;0.0;0.0;0.03;18;SPORT-CULTURE;UE 23;;;41;Faure;Nicolas;;;
+140;11;DUT Informatique 2016-2018;4;200;Conception et développement d'applications mobiles;M4104C;0.0;30.0;0.0;1.5;36;Compléments d'informatique;UE 41;10.0;10.0;18;Maillet;Tom;;;
+182;15;DUT Informatique 2017-2019;4;363;Compléments d’informatique en vue d’une insertion immédiate;M4105C;0.0;30.0;0.0;1.5;49;Compléments d'informatique;UE 41;10.0;10.0;39;Toussaint;Simon;;;
+56;9;DUT Informatique 2016-2018;2;16;Bases de la programmation orientée objets;M2103;8.0;23.0;30.0;3.5;16;Approfondissements en informatique;UE 21;16.0;16.0;2;Baudry;Léon;;;
+261;1;DUT Informatique 2018-2020;3;419;Conception et programmation objet avancées;M3105;0.0;45.0;0.0;2.5;86;Informatique avancée;UE 31;12.0;12.0;34;Vallee;Mattéo;;;
+333;22;DUT Informatique 2019-2021;4;387;Projet tutoré  Compléments;M4106;0.0;0.0;0.0;2.5;92;Compléments d'informatique;UE 41;10.0;10.0;39;Toussaint;Simon;;;
+189;15;DUT Informatique 2017-2019;4;375;Bonus Sport;BSPORTS4;0.0;0.0;0.0;1.0;54;SPORT CULTURE 4;UE 44;;;22;Gonçalves;Gabin;;;
+233;3;DUT Informatique 2018-2020;4;406;Bonus LV2;BLANGS4;0.0;0.0;0.0;0.03;97;SPORT CULTURE 4;UE 44;;;22;Gonçalves;Gabin;;;
+376;24;DUT Informatique 2020-2022;4;382;Administration système et réseau;M4101C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;5;Marques;Jordan;;;
+226;3;DUT Informatique 2018-2020;4;382;Administration système et réseau;M4101C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;5;Marques;Jordan;;;
+13;6;DUT Informatique 2015-2017;3;35;Modélisations mathématiques;M3202C;0.0;30.0;0.0;1.5;20;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;15;Morel;Mathieu;;;
+287;20;DUT Informatique 2020-2022;2;381;Projet tutoré - Description et planification de projet;M2107;0.0;0.0;0.0;2.0;91;Approfondissements en informatique;UE 21;16.0;16.0;4;Lopes;Maxence;;;
+165;5;DUT Informatique 2017-2019;3;232;PPP - Préciser son projet;M3303;0.0;10.0;10.0;1.0;60;Méthodologie et Projets;UE 33;6.0;6.0;31;Breton;Simon;;;
+21;6;DUT Informatique 2015-2017;3;70;Bonus Sport;BSPORTS3;0.0;0.0;0.0;1.0;22;SPORT CULTURE 3;UE34;;;36;Navarro;Dorian;;;
+152;8;DUT Informatique 2019-2021;1;3;Structures de données et algorithmique fondamentaux;M1103;10.0;22.0;14.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;24;Combes;Killian;;;
+281;21;DUT Informatique 2019-2021;3;434;Projet tutoré  Mise en situation professionnelle;M3302;0.0;15.0;0.0;2.0;88;Méthodologie et Projets;UE 33;6.0;6.0;7;Pascal;Nolan;;;
+181;15;DUT Informatique 2017-2019;4;362;Conception et développement d'applications mobiles;M4104C;0.0;30.0;0.0;1.5;49;Compléments d'informatique;UE 41;10.0;10.0;18;Maillet;Tom;;;
+340;17;DUT Informatique 2020-2022;3;428;Probabilités et statistiques;M3201;0.0;45.0;0.0;2.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;16;Lemonnier;Pierre;;;
+298;19;DUT Informatique 2020-2022;1;6;Projet tutoré - Découverte;M1106;10.0;0.0;0.0;1.5;85;Bases de l'informatique;UE 11;17.0;17.0;52;Renard;Nicolas;;;
+112;14;DUT Informatique 2017-2019;2;16;Bases de la programmation orientée objets;M2103;8.0;23.0;30.0;3.5;16;Approfondissements en informatique;UE 21;16.0;16.0;2;Baudry;Léon;;;
+107;16;DUT Informatique 2018-2020;2;241;Bases de la programmation orientée objets;M2103;8.0;23.0;30.0;3.5;63;Approfondissements en informatique;UE 21;16.0;16.0;34;Vallee;Mattéo;;;
+319;22;DUT Informatique 2019-2021;4;399;Expression-communication - Communiquer dans les organisations;M4203;0.0;15.0;15.0;2.0;94;Compléments de culture scientifique, sociale et humaine;UE 42;8.0;8.0;31;Breton;Simon;;;
+221;8;DUT Informatique 2019-2021;1;12;Anglais et Informatique;M1206;0.0;15.0;15.0;1.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;51;Leonard;Dimitri;;;
+258;1;DUT Informatique 2018-2020;3;433;Méthodologie de la production d'applications;M3301;0.0;60.0;0.0;3.0;88;Méthodologie et Projets;UE 33;6.0;6.0;27;Gautier;Yohan;;;
+108;11;DUT Informatique 2016-2018;4;197;Administration système et réseau;M4101C;0.0;30.0;0.0;1.5;36;Compléments d'informatique;UE 41;10.0;10.0;5;Marques;Jordan;;;
+19;6;DUT Informatique 2015-2017;3;46;Projet tutoré  Mise en situation professionnelle;M3302;0.0;15.0;0.0;2.0;21;Méthodologie et Projets;UE 33;6.0;6.0;7;Pascal;Nolan;;;
+65;9;DUT Informatique 2016-2018;2;26;Communiquer en anglais;M2206;0.0;23.0;22.0;2.5;17;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;51;Leonard;Dimitri;;;
+52;13;DUT Informatique 2017-2019;1;9;Environnement économique;M1203;15.0;15.0;0.0;1.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;9;Da silva;Fabrice;;;
+317;22;DUT Informatique 2019-2021;4;385;Conception et développement d'applications mobiles;M4104C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;18;Maillet;Tom;;;
+37;10;DUT Informatique 2016-2018;1;3;Structures de données et algorithmique fondamentaux;M1103;10.0;22.0;14.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;24;Combes;Killian;;;
+164;5;DUT Informatique 2017-2019;3;237;Bonus LV2;BLANGS3;0.0;0.0;0.0;0.03;62;SPORT CULTURE 3;UE34;;;22;Gonçalves;Gabin;;;
+326;22;DUT Informatique 2019-2021;4;389;Analyse;M4108C;0.0;0.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;41;Faure;Nicolas;;;
+278;21;DUT Informatique 2019-2021;3;431;Expression-Communication - Communication professionnelle;M3205;0.0;15.0;15.0;1.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;31;Breton;Simon;;;
+289;20;DUT Informatique 2020-2022;2;391;Analyse et méthodes numériques;M2202;8.0;12.0;10.0;2.0;93;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;15;Morel;Mathieu;;;
+133;11;DUT Informatique 2016-2018;4;187;Recherche opérationnelle et aide à la décision;M4202C;0.0;30.0;0.0;2.0;38;Compléments de culture scientifique, sociale et humaine;UE 42;8.0;8.0;16;Lemonnier;Pierre;;;
+279;21;DUT Informatique 2019-2021;3;432;Communication professionnelle en anglais;M3206;0.0;45.0;0.0;2.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;51;Leonard;Dimitri;;;
+100;2;DUT Informatique 2016-2018;3;81;Algorithmique avancée;M3103;0.0;30.0;0.0;1.5;2;Informatique avancée;UE 31;12.0;12.0;33;Pasquier;Bastien;;;
+232;3;DUT Informatique 2018-2020;4;405;Bonus Sport;BSPORTS4;0.0;0.0;0.0;1.0;97;SPORT CULTURE 4;UE 44;;;22;Gonçalves;Gabin;;;
+113;14;DUT Informatique 2017-2019;2;17;Bases de la conception orientée objet;M2104;8.0;16.0;20.0;2.5;16;Approfondissements en informatique;UE 21;16.0;16.0;39;Toussaint;Simon;;;
+377;24;DUT Informatique 2020-2022;4;402;Stage professionnel;M4301;0.0;0.0;0.0;12.0;95;Mise en situation professionnelle;UE 43;12.0;12.0;8;Boyer;Jérémy;;;
+184;15;DUT Informatique 2017-2019;4;367;Programmation fonctionnelle;M4107C;0.0;0.0;0.0;1.5;49;Compléments d'informatique;UE 41;10.0;10.0;19;Bodin;Louis;;;
+170;5;DUT Informatique 2017-2019;3;231;Projet tutoré  Mise en situation professionnelle;M3302;0.0;15.0;0.0;2.0;60;Méthodologie et Projets;UE 33;6.0;6.0;7;Pascal;Nolan;;;
+55;9;DUT Informatique 2016-2018;2;15;Architecture des réseaux;M2102;8.0;8.0;14.0;1.5;16;Approfondissements en informatique;UE 21;16.0;16.0;5;Marques;Jordan;;;
+374;24;DUT Informatique 2020-2022;4;407;Malus Assiduité4;MASSID4;0.0;0.0;0.0;0.0;97;SPORT CULTURE 4;UE 44;;;22;Gonçalves;Gabin;;;
+68;9;DUT Informatique 2016-2018;2;43;Bonus Lv2;BLANGS2;0.0;0.0;0.0;0.03;18;SPORT-CULTURE;UE 23;;;41;Faure;Nicolas;;;
+244;12;DUT Informatique 2019-2021;2;396;PPP - Identifier ses compétences;M2207;0.0;10.0;10.0;1.0;93;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;31;Breton;Simon;;;
+128;11;DUT Informatique 2016-2018;4;201;Compléments d’informatique en vue d’une insertion immédiate;M4105C;0.0;30.0;0.0;1.5;36;Compléments d'informatique;UE 41;10.0;10.0;39;Toussaint;Simon;;;
+300;19;DUT Informatique 2020-2022;1;8;Algèbre linéaire;M1202;6.0;12.0;12.0;2.0;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;15;Morel;Mathieu;;;
+202;16;DUT Informatique 2018-2020;2;267;Bonus Sport;BSPORTS2;0.0;0.0;0.0;1.0;68;SPORT-CULTURE;UE 23;;;41;Faure;Nicolas;;;
+266;12;DUT Informatique 2019-2021;2;380;Programmation et administration des bases de données;M2106;15.0;0.0;30.0;2.5;91;Approfondissements en informatique;UE 21;16.0;16.0;27;Gautier;Yohan;;;
+195;15;DUT Informatique 2017-2019;4;368;Recherche opérationnelle et aide à la décision;M4202C;0.0;30.0;0.0;2.0;51;Compléments de culture scientifique, sociale et humaine;UE 42;8.0;8.0;16;Lemonnier;Pierre;;;
+129;11;DUT Informatique 2016-2018;4;202;Projet tutoré  Compléments;M4106;0.0;0.0;0.0;2.5;36;Compléments d'informatique;UE 41;10.0;10.0;39;Toussaint;Simon;;;
+8;6;DUT Informatique 2015-2017;3;30;Algorithmique avancée;M3103;0.0;30.0;0.0;1.5;19;Informatique avancée;UE 31;12.0;12.0;33;Pasquier;Bastien;;;
+318;22;DUT Informatique 2019-2021;4;407;Malus Assiduité4;MASSID4;0.0;0.0;0.0;0.0;97;SPORT CULTURE 4;UE 44;;;22;Gonçalves;Gabin;;;
+312;20;DUT Informatique 2020-2022;2;403;Bonus Sport;BSPORTS2;0.0;0.0;0.0;1.0;96;SPORT-CULTURE;UE 23;;;22;Gonçalves;Gabin;;;
+179;16;DUT Informatique 2018-2020;2;243;Introduction aux IHM;M2105;0.0;45.0;0.0;2.5;63;Approfondissements en informatique;UE 21;16.0;16.0;45;Pages;Antoine;;;
+110;14;DUT Informatique 2017-2019;2;14;Architecture et programmation des mécanismes de base d'un système informatique.;M2101;8.0;8.0;14.0;1.5;16;Approfondissements en informatique;UE 21;16.0;16.0;8;Boyer;Jérémy;;;
+175;5;DUT Informatique 2017-2019;3;238;Malus Assiduité3;MASSID3;0.0;0.0;0.0;0.0;62;SPORT CULTURE 3;UE34;;;22;Gonçalves;Gabin;;;
+99;2;DUT Informatique 2016-2018;3;95;Expression-Communication - Communication professionnelle;M3205;0.0;15.0;15.0;1.5;28;Culture scientifique, sociale et humaine avancées;UE 32;12.5;12.5;42;Gonçalves;Mattéo;;;
+48;10;DUT Informatique 2016-2018;1;44;Bonus Sport;BSPORTS1;0.0;0.0;0.0;1.0;89;SPORT-CULTURE;UE 13;;;41;Faure;Nicolas;;;
+28;13;DUT Informatique 2017-2019;1;42;Bonus LV2;BLANGS1;0.0;0.0;0.0;0.03;89;SPORT-CULTURE;UE 13;;;41;Faure;Nicolas;;;
+313;20;DUT Informatique 2020-2022;2;404;Malus Assiduité2;MASSID2;0.0;0.0;0.0;0.0;96;SPORT-CULTURE;UE 23;;;22;Gonçalves;Gabin;;;
+262;1;DUT Informatique 2018-2020;3;434;Projet tutoré  Mise en situation professionnelle;M3302;0.0;15.0;0.0;2.0;88;Méthodologie et Projets;UE 33;6.0;6.0;7;Pascal;Nolan;;;
+94;2;DUT Informatique 2016-2018;3;103;Bonus Sport;BSPORTS3;0.0;0.0;0.0;1.0;6;SPORT CULTURE 3;UE34;;;36;Navarro;Dorian;;;
+204;16;DUT Informatique 2018-2020;2;268;Bonus Lv2;BLANGS2;0.0;0.0;0.0;0.03;68;SPORT-CULTURE;UE 23;;;41;Faure;Nicolas;;;
+162;16;DUT Informatique 2018-2020;2;249;Gestion de projet informatique;M2204;15.0;15.0;0.0;1.5;65;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;4;Lopes;Maxence;;;
+299;19;DUT Informatique 2020-2022;1;7;Mathématiques discrètes;M1201;10.0;18.0;17.0;2.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;41;Faure;Nicolas;;;
+122;14;DUT Informatique 2017-2019;2;26;Communiquer en anglais;M2206;0.0;23.0;22.0;2.5;17;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;51;Leonard;Dimitri;;;
+62;9;DUT Informatique 2016-2018;2;22;Analyse et méthodes numériques;M2202;8.0;12.0;10.0;2.0;17;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;15;Morel;Mathieu;;;
+180;15;DUT Informatique 2017-2019;4;361;Programmation web - client riche;M4103C;0.0;30.0;0.0;1.5;49;Compléments d'informatique;UE 41;10.0;10.0;46;Riou;Ethan;;;
+127;11;DUT Informatique 2016-2018;4;199;Programmation web - client riche;M4103C;0.0;30.0;0.0;1.5;36;Compléments d'informatique;UE 41;10.0;10.0;46;Riou;Ethan;;;
+117;14;DUT Informatique 2017-2019;2;21;Graphes et langages;M2201;11.0;16.0;18.0;2.5;17;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;41;Faure;Nicolas;;;
+185;15;DUT Informatique 2017-2019;4;365;Analyse;M4108C;0.0;0.0;0.0;1.5;49;Compléments d'informatique;UE 41;10.0;10.0;41;Faure;Nicolas;;;
+309;20;DUT Informatique 2020-2022;2;394;Expression-Communication - Communication, information et argumentation;M2205;0.0;15.0;15.0;1.5;93;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;31;Breton;Simon;;;
+349;17;DUT Informatique 2020-2022;3;435;PPP - Préciser son projet;M3303;0.0;10.0;10.0;1.0;88;Méthodologie et Projets;UE 33;6.0;6.0;31;Breton;Simon;;;
+341;17;DUT Informatique 2020-2022;3;433;Méthodologie de la production d'applications;M3301;0.0;60.0;0.0;3.0;88;Méthodologie et Projets;UE 33;6.0;6.0;27;Gautier;Yohan;;;
+97;2;DUT Informatique 2016-2018;3;91;Modélisations mathématiques;M3202C;0.0;30.0;0.0;1.5;28;Culture scientifique, sociale et humaine avancées;UE 32;12.5;12.5;15;Morel;Mathieu;;;
+197;16;DUT Informatique 2018-2020;2;269;Malus Assiduité2;MASSID2;0.0;0.0;0.0;0.0;68;SPORT-CULTURE;UE 23;;;41;Faure;Nicolas;;;
+187;15;DUT Informatique 2017-2019;4;369;Expression-communication - Communiquer dans les organisations;M4203;0.0;15.0;15.0;2.0;51;Compléments de culture scientifique, sociale et humaine;UE 42;8.0;8.0;31;Breton;Simon;;;
+114;14;DUT Informatique 2017-2019;2;18;Introduction aux IHM;M2105;0.0;45.0;0.0;2.5;16;Approfondissements en informatique;UE 21;16.0;16.0;45;Pages;Antoine;;;
+156;8;DUT Informatique 2019-2021;1;44;Bonus Sport;BSPORTS1;0.0;0.0;0.0;1.0;89;SPORT-CULTURE;UE 13;;;41;Faure;Nicolas;;;
+386;24;DUT Informatique 2020-2022;4;388;Programmation fonctionnelle;M4107C;0.0;0.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;40;Marques;Clément;;;
+249;1;DUT Informatique 2018-2020;3;428;Probabilités et statistiques;M3201;0.0;45.0;0.0;2.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;16;Lemonnier;Pierre;;;
+126;14;DUT Informatique 2017-2019;2;74;Malus Assiduité2;MASSID2;0.0;0.0;0.0;0.0;18;SPORT-CULTURE;UE 23;;;41;Faure;Nicolas;;;
+316;22;DUT Informatique 2019-2021;4;405;Bonus Sport;BSPORTS4;0.0;0.0;0.0;1.0;97;SPORT CULTURE 4;UE 44;;;22;Gonçalves;Gabin;;;
+336;17;DUT Informatique 2020-2022;3;420;Bases de données avancées;M3106C;0.0;30.0;0.0;1.5;86;Informatique avancée;UE 31;12.0;12.0;27;Gautier;Yohan;;;
+132;11;DUT Informatique 2016-2018;4;207;Droit des TIC;M4201;0.0;30.0;0.0;2.0;38;Compléments de culture scientifique, sociale et humaine;UE 42;8.0;8.0;30;Guilbert;Simon;;;
+378;24;DUT Informatique 2020-2022;4;397;Droit des TIC;M4201;0.0;30.0;0.0;2.0;94;Compléments de culture scientifique, sociale et humaine;UE 42;8.0;8.0;30;Guilbert;Simon;;;
+67;9;DUT Informatique 2016-2018;2;41;Bonus Sport;BSPORTS2;0.0;0.0;0.0;1.0;18;SPORT-CULTURE;UE 23;;;41;Faure;Nicolas;;;
+224;3;DUT Informatique 2018-2020;4;387;Projet tutoré  Compléments;M4106;0.0;0.0;0.0;2.5;92;Compléments d'informatique;UE 41;10.0;10.0;19;Bodin;Louis;;;
+50;13;DUT Informatique 2017-2019;1;44;Bonus Sport;BSPORTS1;0.0;0.0;0.0;1.0;89;SPORT-CULTURE;UE 13;;;41;Faure;Nicolas;;;
+51;13;DUT Informatique 2017-2019;1;3;Structures de données et algorithmique fondamentaux;M1103;10.0;22.0;14.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;24;Combes;Killian;;;
+69;10;DUT Informatique 2016-2018;1;42;Bonus LV2;BLANGS1;0.0;0.0;0.0;0.03;89;SPORT-CULTURE;UE 13;;;41;Faure;Nicolas;;;
+334;20;DUT Informatique 2020-2022;2;310;Bases de la conception orientée objet;M2104;8.0;16.0;20.0;2.5;91;Approfondissements en informatique;UE 21;16.0;16.0;39;Toussaint;Simon;;;
+203;16;DUT Informatique 2018-2020;2;246;Graphes et langages;M2201;11.0;16.0;18.0;2.5;65;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;41;Faure;Nicolas;;;
+385;24;DUT Informatique 2020-2022;4;398;Recherche opérationnelle et aide à la décision;M4202C;0.0;30.0;0.0;2.0;94;Compléments de culture scientifique, sociale et humaine;UE 42;8.0;8.0;16;Lemonnier;Pierre;;;
+273;21;DUT Informatique 2019-2021;3;420;Bases de données avancées;M3106C;0.0;30.0;0.0;1.5;86;Informatique avancée;UE 31;12.0;12.0;27;Gautier;Yohan;;;
+42;10;DUT Informatique 2016-2018;1;8;Algèbre linéaire;M1202;6.0;12.0;12.0;2.0;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;15;Morel;Mathieu;;;
+90;2;DUT Informatique 2016-2018;3;105;Malus Assiduité3;MASSID3;0.0;0.0;0.0;0.0;6;SPORT CULTURE 3;UE34;;;36;Navarro;Dorian;;;
+59;9;DUT Informatique 2016-2018;2;19;Programmation et administration des bases de données;M2106;15.0;0.0;30.0;2.5;16;Approfondissements en informatique;UE 21;16.0;16.0;17;Gaudin;Benjamin;;;
+192;15;DUT Informatique 2017-2019;4;377;Malus Assiduité4;MASSID4;0.0;0.0;0.0;0.0;54;SPORT CULTURE 4;UE 44;;;22;Gonçalves;Gabin;;;
+338;17;DUT Informatique 2020-2022;3;441;Malus Assiduité3;MASSID3;0.0;0.0;0.0;0.0;90;SPORT CULTURE 3;UE34;;;22;Gonçalves;Gabin;;;
+271;21;DUT Informatique 2019-2021;3;418;Programmation web coté serveur;M3104;0.0;45.0;0.0;2.5;86;Informatique avancée;UE 31;12.0;12.0;52;Renard;Nicolas;;;
+350;17;DUT Informatique 2020-2022;3;432;Communication professionnelle en anglais;M3206;0.0;45.0;0.0;2.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;51;Leonard;Dimitri;;;
+116;14;DUT Informatique 2017-2019;2;20;Projet tutoré - Description et planification de projet;M2107;0.0;0.0;0.0;2.0;16;Approfondissements en informatique;UE 21;16.0;16.0;4;Lopes;Maxence;;;
+387;24;DUT Informatique 2020-2022;4;399;Expression-communication - Communiquer dans les organisations;M4203;0.0;15.0;15.0;2.0;94;Compléments de culture scientifique, sociale et humaine;UE 42;8.0;8.0;31;Breton;Simon;;;
+6;6;DUT Informatique 2015-2017;3;28;Principes des systèmes d'exploitation;M3101;0.0;45.0;0.0;2.5;19;Informatique avancée;UE 31;12.0;12.0;25;Bayle;Mohamed;;;
+246;12;DUT Informatique 2019-2021;2;358;Bonus Lv2;BLANGS2;0.0;0.0;0.0;0.03;96;SPORT-CULTURE;UE 23;;;22;Gonçalves;Gabin;;;
+29;13;DUT Informatique 2017-2019;1;12;Anglais et Informatique;M1206;0.0;15.0;15.0;1.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;51;Leonard;Dimitri;;;
+41;10;DUT Informatique 2016-2018;1;7;Mathématiques discrètes;M1201;10.0;18.0;17.0;2.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;41;Faure;Nicolas;;;
+141;4;DUT Informatique 2018-2020;1;7;Mathématiques discrètes;M1201;10.0;18.0;17.0;2.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;41;Faure;Nicolas;;;
+171;5;DUT Informatique 2017-2019;3;230;Méthodologie de la production d'applications;M3301;0.0;60.0;0.0;3.0;60;Méthodologie et Projets;UE 33;6.0;6.0;27;Gautier;Yohan;;;
+380;24;DUT Informatique 2020-2022;4;406;Bonus LV2;BLANGS4;0.0;0.0;0.0;0.03;97;SPORT CULTURE 4;UE 44;;;22;Gonçalves;Gabin;;;
+247;12;DUT Informatique 2019-2021;2;404;Malus Assiduité2;MASSID2;0.0;0.0;0.0;0.0;96;SPORT-CULTURE;UE 23;;;22;Gonçalves;Gabin;;;
+347;17;DUT Informatique 2020-2022;3;431;Expression-Communication - Communication professionnelle;M3205;0.0;15.0;15.0;1.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;31;Breton;Simon;;;
+242;12;DUT Informatique 2019-2021;2;394;Expression-Communication - Communication, information et argumentation;M2205;0.0;15.0;15.0;1.5;93;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;31;Breton;Simon;;;
+138;11;DUT Informatique 2016-2018;4;195;Bonus LV2;BLANGS4;0.0;0.0;0.0;0.03;41;SPORT CULTURE 4;UE 44;;;36;Navarro;Dorian;;;
+190;15;DUT Informatique 2017-2019;4;359;Administration système et réseau;M4101C;0.0;30.0;0.0;1.5;49;Compléments d'informatique;UE 41;10.0;10.0;5;Marques;Jordan;;;
+16;6;DUT Informatique 2015-2017;3;38;Expression-Communication - Communication professionnelle;M3205;0.0;15.0;15.0;1.5;20;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;42;Gonçalves;Mattéo;;;
+54;9;DUT Informatique 2016-2018;2;14;Architecture et programmation des mécanismes de base d'un système informatique.;M2101;8.0;8.0;14.0;1.5;16;Approfondissements en informatique;UE 21;16.0;16.0;8;Boyer;Jérémy;;;
+342;17;DUT Informatique 2020-2022;3;429;Modélisations mathématiques;M3202C;0.0;30.0;0.0;1.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;15;Morel;Mathieu;;;
+103;2;DUT Informatique 2016-2018;3;90;Probabilités et statistiques;M3201;0.0;45.0;0.0;2.5;28;Culture scientifique, sociale et humaine avancées;UE 32;12.5;12.5;16;Lemonnier;Pierre;;;
+236;12;DUT Informatique 2019-2021;2;309;Bases de la programmation orientée objets;M2103;8.0;23.0;30.0;3.5;91;Approfondissements en informatique;UE 21;16.0;16.0;34;Vallee;Mattéo;;;
+208;16;DUT Informatique 2018-2020;2;250;Expression-Communication - Communication, information et argumentation;M2205;0.0;15.0;15.0;1.5;65;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;31;Breton;Simon;;;
+323;22;DUT Informatique 2019-2021;4;400;Travailler en anglais;M4204;0.0;15.0;15.0;2.0;94;Compléments de culture scientifique, sociale et humaine;UE 42;8.0;8.0;51;Leonard;Dimitri;;;
+174;5;DUT Informatique 2017-2019;3;226;Modélisations mathématiques;M3202C;0.0;30.0;0.0;1.5;70;Culture scientifique, sociale et humaine avancées;UE 32;12.5;12.5;15;Morel;Mathieu;;;
+257;1;DUT Informatique 2018-2020;3;432;Communication professionnelle en anglais;M3206;0.0;45.0;0.0;2.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;51;Leonard;Dimitri;;;
+222;12;DUT Informatique 2019-2021;2;310;Bases de la conception orientée objet;M2104;8.0;16.0;20.0;2.5;91;Approfondissements en informatique;UE 21;16.0;16.0;26;Garnier;Mehdi;;;
+275;21;DUT Informatique 2019-2021;3;429;Modélisations mathématiques;M3202C;0.0;30.0;0.0;1.5;98;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;15;Morel;Mathieu;;;
+92;2;DUT Informatique 2016-2018;3;98;Projet tutoré  Mise en situation professionnelle;M3302;0.0;15.0;0.0;2.0;4;Méthodologie et Projets;UE 33;6.0;6.0;7;Pascal;Nolan;;;
+23;9;DUT Informatique 2016-2018;2;74;Malus Assiduité2;MASSID2;0.0;0.0;0.0;0.0;18;SPORT-CULTURE;UE 23;;;41;Faure;Nicolas;;;
+44;10;DUT Informatique 2016-2018;1;10;Fonctionnement des organisations;M1204;15.0;30.0;0.0;2.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;9;Da silva;Fabrice;;;
+58;9;DUT Informatique 2016-2018;2;18;Introduction aux IHM;M2105;0.0;45.0;0.0;2.5;16;Approfondissements en informatique;UE 21;16.0;16.0;36;Navarro;Dorian;;;
+290;20;DUT Informatique 2020-2022;2;393;Gestion de projet informatique;M2204;15.0;15.0;0.0;1.5;93;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;4;Lopes;Maxence;;;
+206;16;DUT Informatique 2018-2020;2;242;Bases de la conception orientée objet;M2104;8.0;16.0;20.0;2.5;63;Approfondissements en informatique;UE 21;16.0;16.0;39;Toussaint;Simon;;;
+111;14;DUT Informatique 2017-2019;2;15;Architecture des réseaux;M2102;8.0;8.0;14.0;1.5;16;Approfondissements en informatique;UE 21;16.0;16.0;5;Marques;Jordan;;;
+237;12;DUT Informatique 2019-2021;2;381;Projet tutoré - Description et planification de projet;M2107;0.0;0.0;0.0;2.0;91;Approfondissements en informatique;UE 21;16.0;16.0;4;Lopes;Maxence;;;
+372;24;DUT Informatique 2020-2022;4;387;Projet tutoré  Compléments;M4106;0.0;0.0;0.0;2.5;92;Compléments d'informatique;UE 41;10.0;10.0;39;Toussaint;Simon;;;
+49;13;DUT Informatique 2017-2019;1;7;Mathématiques discrètes;M1201;10.0;18.0;17.0;2.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;41;Faure;Nicolas;;;
+22;6;DUT Informatique 2015-2017;3;63;Bonus LV2;BLANGS3;0.0;0.0;0.0;0.03;22;SPORT CULTURE 3;UE34;;;36;Navarro;Dorian;;;
+45;10;DUT Informatique 2016-2018;1;11;Expression-Communication - Fondamentaux de la communication;M1205;0.0;15.0;15.0;2.0;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;42;Gonçalves;Mattéo;;;
+225;12;DUT Informatique 2019-2021;2;379;Introduction aux IHM;M2105;0.0;45.0;0.0;2.5;91;Approfondissements en informatique;UE 21;16.0;16.0;42;Gonçalves;Mattéo;;;
+199;16;DUT Informatique 2018-2020;2;252;PPP - Identifier ses compétences;M2207;0.0;10.0;10.0;1.0;65;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;31;Breton;Simon;;;
+60;9;DUT Informatique 2016-2018;2;20;Projet tutoré - Description et planification de projet;M2107;0.0;0.0;0.0;2.0;16;Approfondissements en informatique;UE 21;16.0;16.0;4;Lopes;Maxence;;;
+327;22;DUT Informatique 2019-2021;4;398;Recherche opérationnelle et aide à la décision;M4202C;0.0;30.0;0.0;2.0;94;Compléments de culture scientifique, sociale et humaine;UE 42;8.0;8.0;16;Lemonnier;Pierre;;;
+124;14;DUT Informatique 2017-2019;2;41;Bonus Sport;BSPORTS2;0.0;0.0;0.0;1.0;18;SPORT-CULTURE;UE 23;;;41;Faure;Nicolas;;;
+229;3;DUT Informatique 2018-2020;4;385;Conception et développement d'applications mobiles;M4104C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;18;Maillet;Tom;;;
+245;12;DUT Informatique 2019-2021;2;403;Bonus Sport;BSPORTS2;0.0;0.0;0.0;1.0;96;SPORT-CULTURE;UE 23;;;22;Gonçalves;Gabin;;;
+43;10;DUT Informatique 2016-2018;1;9;Environnement économique;M1203;15.0;15.0;0.0;1.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;9;Da silva;Fabrice;;;
+166;5;DUT Informatique 2017-2019;3;236;Bonus Sport;BSPORTS3;0.0;0.0;0.0;1.0;62;SPORT CULTURE 3;UE34;;;22;Gonçalves;Gabin;;;
+291;20;DUT Informatique 2020-2022;2;309;Bases de la programmation orientée objets;M2103;8.0;23.0;30.0;3.5;91;Approfondissements en informatique;UE 21;16.0;16.0;34;Vallee;Mattéo;;;
+201;16;DUT Informatique 2018-2020;2;247;Analyse et méthodes numériques;M2202;8.0;12.0;10.0;2.0;65;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;15;Morel;Mathieu;;;
+61;9;DUT Informatique 2016-2018;2;21;Graphes et langages;M2201;11.0;16.0;18.0;2.5;17;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;14;Thibault;Léo;;;
+169;5;DUT Informatique 2017-2019;3;229;Communication professionnelle en anglais;M3206;0.0;45.0;0.0;2.5;70;Culture scientifique, sociale et humaine avancées;UE 32;12.5;12.5;51;Leonard;Dimitri;;;
+14;6;DUT Informatique 2015-2017;3;36;Ateliers de création d'entreprise;M4201C;0.0;30.0;0.0;1.5;20;Culture scientifique, sociale et humaine avancées;UE 32;12.0;12.0;30;Guilbert;Simon;;;
+344;17;DUT Informatique 2020-2022;3;440;Bonus LV2;BLANGS3;0.0;0.0;0.0;0.03;90;SPORT CULTURE 3;UE34;;;22;Gonçalves;Gabin;;;
+147;4;DUT Informatique 2018-2020;1;8;Algèbre linéaire;M1202;6.0;12.0;12.0;2.0;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;15;Morel;Mathieu;;;
+210;3;DUT Informatique 2018-2020;4;389;Analyse;M4108C;0.0;0.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;41;Faure;Nicolas;;;
+157;8;DUT Informatique 2019-2021;1;42;Bonus LV2;BLANGS1;0.0;0.0;0.0;0.03;89;SPORT-CULTURE;UE 13;;;41;Faure;Nicolas;;;
+154;8;DUT Informatique 2019-2021;1;8;Algèbre linéaire;M1202;6.0;12.0;12.0;2.0;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;15;Morel;Mathieu;;;
+35;10;DUT Informatique 2016-2018;1;1;Introduction aux systèmes informatiques;M1101;15.0;15.0;30.0;3.5;85;Bases de l'informatique;UE 11;17.0;17.0;19;Bodin;Louis;;;
+173;5;DUT Informatique 2017-2019;3;225;Probabilités et statistiques;M3201;0.0;45.0;0.0;2.5;70;Culture scientifique, sociale et humaine avancées;UE 32;12.5;12.5;16;Lemonnier;Pierre;;;
+375;24;DUT Informatique 2020-2022;4;405;Bonus Sport;BSPORTS4;0.0;0.0;0.0;1.0;97;SPORT CULTURE 4;UE 44;;;22;Gonçalves;Gabin;;;
+188;15;DUT Informatique 2017-2019;4;370;Travailler en anglais;M4204;0.0;15.0;15.0;2.0;51;Compléments de culture scientifique, sociale et humaine;UE 42;8.0;8.0;51;Leonard;Dimitri;;;
+306;19;DUT Informatique 2020-2022;1;44;Bonus Sport;BSPORTS1;0.0;0.0;0.0;1.0;89;SPORT-CULTURE;UE 13;;;41;Faure;Nicolas;;;
+345;17;DUT Informatique 2020-2022;3;419;Conception et programmation objet avancées;M3105;0.0;45.0;0.0;2.5;86;Informatique avancée;UE 31;12.0;12.0;39;Toussaint;Simon;;;
+308;20;DUT Informatique 2020-2022;2;379;Introduction aux IHM;M2105;0.0;45.0;0.0;2.5;91;Approfondissements en informatique;UE 21;16.0;16.0;34;Vallee;Mattéo;;;
+150;4;DUT Informatique 2018-2020;1;3;Structures de données et algorithmique fondamentaux;M1103;10.0;22.0;14.0;2.5;85;Bases de l'informatique;UE 11;17.0;17.0;24;Combes;Killian;;;
+331;22;DUT Informatique 2019-2021;4;386;Compléments d’informatique en vue d’une insertion immédiate;M4105C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;39;Toussaint;Simon;;;
+63;9;DUT Informatique 2016-2018;2;24;Gestion de projet informatique;M2204;15.0;15.0;0.0;1.5;17;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;4;Lopes;Maxence;;;
+183;15;DUT Informatique 2017-2019;4;364;Projet tutoré  Compléments;M4106;0.0;0.0;0.0;2.5;49;Compléments d'informatique;UE 41;10.0;10.0;39;Toussaint;Simon;;;
+9;6;DUT Informatique 2015-2017;3;31;Programmation web coté serveur;M3104;0.0;45.0;0.0;2.5;19;Informatique avancée;UE 31;12.0;12.0;52;Renard;Nicolas;;;
+260;1;DUT Informatique 2018-2020;3;439;Bonus Sport;BSPORTS3;0.0;0.0;0.0;1.0;90;SPORT CULTURE 3;UE34;;;22;Gonçalves;Gabin;;;
+118;14;DUT Informatique 2017-2019;2;22;Analyse et méthodes numériques;M2202;8.0;12.0;10.0;2.0;17;Approfondissements en culture scientifique, sociale et humaine;UE 22;14.0;14.0;15;Morel;Mathieu;;;
+272;21;DUT Informatique 2019-2021;3;419;Conception et programmation objet avancées;M3105;0.0;45.0;0.0;2.5;86;Informatique avancée;UE 31;12.0;12.0;39;Toussaint;Simon;;;
+130;11;DUT Informatique 2016-2018;4;203;Programmation fonctionnelle;M4107C;0.0;0.0;0.0;1.5;36;Compléments d'informatique;UE 41;10.0;10.0;19;Bodin;Louis;;;
+223;3;DUT Informatique 2018-2020;4;386;Compléments d’informatique en vue d’une insertion immédiate;M4105C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;19;Bodin;Louis;;;
+283;21;DUT Informatique 2019-2021;3;439;Bonus Sport;BSPORTS3;0.0;0.0;0.0;1.0;90;SPORT CULTURE 3;UE34;;;22;Gonçalves;Gabin;;;
+231;3;DUT Informatique 2018-2020;4;402;Stage professionnel;M4301;0.0;0.0;0.0;12.0;95;Mise en situation professionnelle;UE 43;12.0;12.0;8;Boyer;Jérémy;;;
+217;8;DUT Informatique 2019-2021;1;7;Mathématiques discrètes;M1201;10.0;18.0;17.0;2.5;87;Bases de culture scientifique, sociale et humaine;UE 12;13.0;13.0;41;Faure;Nicolas;;;
+383;24;DUT Informatique 2020-2022;4;386;Compléments d’informatique en vue d’une insertion immédiate;M4105C;0.0;30.0;0.0;1.5;92;Compléments d'informatique;UE 41;10.0;10.0;39;Toussaint;Simon;;;
+212;3;DUT Informatique 2018-2020;4;398;Recherche opérationnelle et aide à la décision;M4202C;0.0;30.0;0.0;2.0;94;Compléments de culture scientifique, sociale et humaine;UE 42;8.0;8.0;16;Lemonnier;Pierre;;;
+328;22;DUT Informatique 2019-2021;4;397;Droit des TIC;M4201;0.0;30.0;0.0;2.0;94;Compléments de culture scientifique, sociale et humaine;UE 42;8.0;8.0;30;Guilbert;Simon;;;
+263;1;DUT Informatique 2018-2020;3;417;Algorithmique avancée;M3103;0.0;30.0;0.0;1.5;86;Informatique avancée;UE 31;12.0;12.0;33;Pasquier;Bastien;;;
+7;6;DUT Informatique 2015-2017;3;29;Services réseaux;M3102;0.0;30.0;0.0;1.5;19;Informatique avancée;UE 31;12.0;12.0;5;Marques;Jordan;;;
