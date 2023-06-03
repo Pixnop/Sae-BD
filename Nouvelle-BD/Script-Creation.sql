@@ -234,18 +234,18 @@ CREATE TABLE UtilisateursRoles(
                                   FOREIGN KEY(NomRole) REFERENCES Roles(NomRole)
 );
 
-CREATE TABLE Etre_absent(
-                            Dates VARCHAR(50),
-                            IdCours VARCHAR(50),
-                            Matin VARCHAR(50),
-                            Justifiee VARCHAR(50),
-                            MotifAbsence VARCHAR(50),
-                            EstAbsent VARCHAR(50),
-                            IdEtudiant VARCHAR(100) NOT NULL,
-                            PRIMARY KEY(Dates, IdCours),
-                            FOREIGN KEY(Dates) REFERENCES Dates(Dates),
-                            FOREIGN KEY(IdCours) REFERENCES Cours(IdCours),
-                            FOREIGN KEY(IdEtudiant) REFERENCES Etudiants(IdEtudiant)
+CREATE TABLE EtreAbsent(
+                           Dates VARCHAR(50),
+                           IdCours VARCHAR(50),
+                           Matin VARCHAR(50),
+                           Justifiee VARCHAR(50),
+                           MotifAbsence VARCHAR(50),
+                           EstAbsent VARCHAR(50),
+                           IdEtudiant VARCHAR(100) NOT NULL,
+                           PRIMARY KEY(Dates, IdCours),
+                           FOREIGN KEY(Dates) REFERENCES Dates(Dates),
+                           FOREIGN KEY(IdCours) REFERENCES Cours(IdCours),
+                           FOREIGN KEY(IdEtudiant) REFERENCES Etudiants(IdEtudiant)
 );
 
 CREATE TABLE EtudiantCours(
@@ -273,10 +273,10 @@ CREATE TABLE AssoBacAnnee(
 );
 
 CREATE TABLE etre_intervenant(
-                                 IdModule VARCHAR(50),
+                                 IdCours VARCHAR(50),
                                  IdUtilisateur VARCHAR(50),
-                                 PRIMARY KEY(IdModule, IdUtilisateur),
-                                 FOREIGN KEY(IdModule) REFERENCES Modules(IdModule),
+                                 PRIMARY KEY(IdCours, IdUtilisateur),
+                                 FOREIGN KEY(IdCours) REFERENCES Cours(IdCours),
                                  FOREIGN KEY(IdUtilisateur) REFERENCES Utilisateurs(IdUtilisateur)
 );
 
