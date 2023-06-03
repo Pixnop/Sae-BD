@@ -149,11 +149,6 @@ WHERE CodePostallycee IN (SELECT CodePostallycee
                           FROM fievetl.Postale);
 commit;
 
-SELECT COUNT(DISTINCT CodePostallycee)
-FROM fievetl.etudiants_data
-where CodePostallycee IS NOT NULL;
-commit;
-
 INSERT INTO fievetl.bac
 SELECT DISTINCT bac
 FROM fievetl.etudiants_data
