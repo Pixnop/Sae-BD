@@ -338,6 +338,12 @@ WHERE te3.rn = 1
                   WHERE c.idCours = te3.idCours);
 commit;
 
+--Coursv2--
+INSERT INTO FIEVETL.Cours(idCours, idSemestre, idModule)
+SELECT te3.idCours, te3.idSemestre, te3.idModule
+FROM FIEVETL.COURS_ENSEIGNANTS_DATA te3
+WHERE idCours IS NOT NULL AND idCours in (SELECT idCours FROM FIEVETL.COURS_ENSEIGNANTS_DATA MINUS SELECT idCours FROM FIEVETL.COURS);
+
 -- Evaluations
 INSERT INTO FIEVETL.Evaluations
 SELECT DISTINCT IDEVALUATION, COEFFICIENT, IDUTILISATEUR, IDCOURS
