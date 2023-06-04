@@ -265,36 +265,8 @@ WHERE te3.rn = 1;
 commit;
 
 --Module
-INSERT INTO FIEVETL.Modules (idModule, heureCM, heureTD, heureTP, coefficient, nomModule, codeModule, idUE,
-                             IdUtilisateur)
-SELECT te3.idModule,
-       te3.heures_CM,
-       te3.heures_TD,
-       te3.heures_TP,
-       te3.coefficientmodule,
-       te3.nomModule,
-       te3.codeModule,
-       te3.idUE,
-       te3.idintervenant
-FROM (SELECT idModule,
-             heures_CM,
-             heures_TD,
-             heures_TP,
-             coefficientmodule,
-             nomModule,
-             codeModule,
-             idUE,
-             idintervenant,
-             ROW_NUMBER() OVER (PARTITION BY idModule ORDER BY idModule) AS rn
-      FROM fievetl.cours_enseignants_data
-      WHERE idModule IS NOT NULL) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.Modules m
-                  WHERE m.idModule = te3.idModule) AND IDINTERVENANT IS NOT NULL AND IDUE IS NOT NULL;
-commit;
 
-INSERT INTO FIEVETL.Modules (idModule, heureCM, heureTD, heureTP, coefficient, nomModule, codeModule, idUE,
+INSERT INTO FIEVETL.Modules (idModule, heureCM, heureTD, heureTP, coefficient, nomModule, codeModule,
                              IdUtilisateur)
 SELECT te3.idModule,
        te3.heures_CM,
@@ -303,10 +275,11 @@ SELECT te3.idModule,
        te3.coefficientmodule,
        te3.nomModule,
        te3.codeModule,
-       te3.idUE,
        te3.idintervenant
 FROM FIEVETL.COURS_ENSEIGNANTS_DATA te3
-WHERE IDMODULE IS NOT NULL AND IDINTERVENANT IS NOT NULL AND IDUE IS NOT NULL;
+WHERE IDMODULE IS NOT NULL AND IDINTERVENANT IS NOT NULL
+  AND IDMODULE IN (SELECT IDMODULE FROM FIEVETL.COURS_ENSEIGNANTS_DATA MINUS SELECT IDMODULE FROM FIEVETL.MODULES);
+commit;
 
 --cours--
 INSERT INTO FIEVETL.Cours (idCours, idSemestre, idModule)
@@ -394,6 +367,13 @@ SELECT ec.idEtudiant, ec.idCours
 FROM FIEVETL.ETUDIANT_COURS_DATA ec
 WHERE IDETUDIANT IS NOT NULL AND IDCOURS IS NOT NULL;
 COMMIT;
+
+--AssoModule
+INSERT INTO FIEVETL.ASSOMODULE
+SELECT DISTINCT ed.IDMODULE, ed.IDUE
+FROM FIEVETL.COURS_ENSEIGNANTS_DATA ed
+WHERE IDMODULE IS NOT NULL AND IDUE IS NOT NULL
+  AND WHERE IDMODULE IN (SELECT IDMODULE FROM FIEVETL.MODULES_DATA MINUS SELECT IDMODULE FROM FIEVETL.ASSOMODULE);
 
 --Enseignement--
 INSERT INTO FIEVETL.Enseignement (idCours, idUtilisateur)
