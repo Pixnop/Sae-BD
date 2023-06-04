@@ -233,18 +233,18 @@ CREATE TABLE UtilisateursRoles(
                                   FOREIGN KEY(NomRole) REFERENCES Roles(NomRole)
 );
 
-CREATE TABLE EtreAbsent(
-                           Dates VARCHAR(50),
-                           IdCours VARCHAR(50),
-                           Matin VARCHAR(50),
-                           Justifiee VARCHAR(50),
-                           MotifAbsence VARCHAR(50),
-                           EstAbsent VARCHAR(50),
-                           IdEtudiant VARCHAR(100) NOT NULL,
-                           PRIMARY KEY(Dates, IdCours),
-                           FOREIGN KEY(Dates) REFERENCES Dates(Dates),
-                           FOREIGN KEY(IdCours) REFERENCES Cours(IdCours),
-                           FOREIGN KEY(IdEtudiant) REFERENCES Etudiants(IdEtudiant)
+CREATE TABLE Etre_absent(
+                            Dates VARCHAR(100),
+                            IdCours VARCHAR(100),
+                            Matin VARCHAR(100),
+                            Justifiee VARCHAR(100),
+                            MotifAbsence VARCHAR(100),
+                            EstAbsent VARCHAR(100),
+                            IdEtudiant VARCHAR(100) NOT NULL,
+                            PRIMARY KEY(Dates, IdCours),
+                            FOREIGN KEY(Dates) REFERENCES Dates(Dates),
+                            FOREIGN KEY(IdCours) REFERENCES Cours(IdCours),
+                            FOREIGN KEY(IdEtudiant) REFERENCES Etudiants(IdEtudiant)
 );
 
 CREATE TABLE EtudiantCours(

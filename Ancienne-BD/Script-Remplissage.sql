@@ -183,12 +183,7 @@ WHERE promotion IN (SELECT promotion
                     FROM fievetl.Promotion);
 commit;
 
-INSERT INTO fievetl.Utilisateurs
-SELECT DISTINCT IdUtilisateur, Prenom, nom, Email, typeenseignant, numbureau
-FROM fievetl.utilisateurs_data
-WHERE IdUtilisateur NOT IN (SELECT DISTINCT IdUtilisateur FROM fievetl.Utilisateurs)
-  AND IdUtilisateur IS NOT NULL;
-commit;
+
 
 INSERT INTO fievetl.Pays
 SELECT DISTINCT paysdomicile
