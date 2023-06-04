@@ -57,6 +57,14 @@ WHERE IdSemestre IN (SELECT IdSemestre FROM fievetl.Etudiant_Semestre_data  MINU
   AND IdSemestre IS NOT NULL;
 commit;
 
+INSERT INTO fievetl.Semestre
+SELECT DISTINCT IdSemestre, Numerosemestre, null, null, PROMOTION
+FROM fievetl.ETUDIANT_COURS_DATA
+WHERE IdSemestre IN (SELECT IdSemestre FROM fievetl.ETUDIANT_COURS_DATA
+                                       MINUS SELECT IdSemestre FROM fievetl.Semestre )
+  AND IdSemestre IS NOT NULL;
+commit;
+
 --UE
 INSERT INTO fievetl.UE
 SELECT DISTINCT IDUE, NomUE, codeUE, coefficientfUE, ECTS
