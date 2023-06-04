@@ -14,6 +14,17 @@
           </option>
           <option name="outLayout" value="File per object by schema.groovy" />
         </State>
+        <State>
+          <option name="id" value="e75f99d8-488f-414d-8504-2d2d94a55ccb" />
+          <option name="name" value="DDL data source" />
+          <option name="dbmsName" value="ORACLE" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/Ancienne-BD/Script-Inteij.sql" />
+            </array>
+          </option>
+          <option name="outLayout" value="File per object by schema.groovy" />
+        </State>
       </list>
     </option>
   </component>

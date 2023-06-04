@@ -81,6 +81,32 @@ WHERE typeadresse NOT IN (SELECT DISTINCT typeadresse FROM fievetl.TypeDomicile)
   AND typeadresse IS NOT NULL;
 commit;
 
+
+--Postale
+INSERT INTO fievetl.Postale
+SELECT DISTINCT CodePostalDomicile
+FROM fievetl.etudiants_data
+WHERE (CodePostalDomicile) in (
+    SELECT CodePostalDomicile
+    FROM fievetl.etudiants_data
+    MINUS
+    SELECT CodePostale
+    FROM fievetl.Postale
+) AND ETUDIANTS_DATA.CODEPOSTALDOMICILE IS NOT NULL;
+commit;
+
+
+
+INSERT INTO fievetl.Postale
+SELECT DISTINCT CodePostalDomicile
+FROM fievetl.etudiants_data
+WHERE CodePostalDomicile in (SELECT CodePostalDomicile
+                             FROM fievetl.etudiants_data
+                             minus
+                             SELECT CodePostale
+                             FROM fievetl.Postale) AND ETUDIANTS_DATA.CODEPOSTALDOMICILE IS NOT NULL;
+commit;
+
 --typeEnseignant
 INSERT INTO fievetl.TypeEnseignant
 SELECT DISTINCT typeenseignant
@@ -169,29 +195,6 @@ WHERE IdUtilisateur NOT IN (SELECT DISTINCT IdUtilisateur FROM fievetl.Utilisate
 commit;
 
 
---Postale
-INSERT INTO fievetl.Postale
-SELECT DISTINCT CodePostalDomicile, VILLEDOMICILE
-FROM fievetl.etudiants_data
-WHERE (CodePostalDomicile, VILLEDOMICILE) in (
-    SELECT CodePostalDomicile, VILLEDOMICILE
-    FROM fievetl.etudiants_data
-    MINUS
-    SELECT CodePostale, NomVille
-    FROM fievetl.Postale
-) AND ETUDIANTS_DATA.CODEPOSTALDOMICILE IS NOT NULL;
-commit;
-
-
-INSERT INTO fievetl.Postale
-SELECT DISTINCT CodePostalDomicile, VILLELYCEE
-FROM fievetl.etudiants_data
-WHERE CodePostalDomicile in (SELECT CodePostalDomicile
-                             FROM fievetl.etudiants_data
-                             minus
-                             SELECT CodePostale
-                             FROM fievetl.Postale);
-commit;
 
 --lycees--
 INSERT INTO FIEVETL.lycees (CODELYCEE, NOMLYCEE, CodePostale, NomVille)
