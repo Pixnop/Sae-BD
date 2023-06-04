@@ -281,16 +281,18 @@ commit;
 --Module
 INSERT INTO FIEVETL.Modules (idModule, heureCM, heureTD, heureTP, coefficient, nomModule, codeModule,
                              IdUtilisateur)
-SELECT te3.idModule,
+SELECT Distinct te3.idModule,
        te3.heures_CM,
        te3.heures_TD,
        te3.heures_TP,
        te3.coefficientmodule,
        te3.nomModule,
        te3.codeModule,
-       te3.IDENSEIGNANTRESPONSABLE
+       te3.idenseignantresponsable
 FROM FIEVETL.COURS_ENSEIGNANTS_DATA te3
-WHERE te3.IDMODULE IS NOT NULL AND te3.IDENSEIGNANTRESPONSABLE IS NOT NULL;
+WHERE te3.IDMODULE IS NOT NULL AND te3.IDENSEIGNANTRESPONSABLE IS NOT NULL
+  AND te3.IDMODULE IN (SELECT DISTINCT idModule FROM FIEVETL.COURS_ENSEIGNANTS_DATA MINUS SELECT DISTINCT idModule FROM FIEVETL.Modules )
+    AND te3.IDENSEIGNANTRESPONSABLE IN (SELECT DISTINCT te3.IDENSEIGNANTRESPONSABLE FROM FIEVETL.COURS_ENSEIGNANTS_DATA MINUS SELECT DISTINCT idUtilisateur FROM FIEVETL.MODULES);
 commit;
 
 --cours--
