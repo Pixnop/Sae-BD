@@ -30,19 +30,20 @@ public class grantAll {
                 Cours = (IdCours VARCHAR(50), #IdSemestre, #IdModule);
                 Evaluations = (IdEvaluation VARCHAR(50), Coefficient VARCHAR(50), #IdUtilisateur, #IdCours*);
                 Domicile = (AdresseDomicile VARCHAR(50), #TypeDeDomicile, #CodePostale, #NomVille);
-                Etudiants = (IdEtudiant VARCHAR(100), PrenomEtudiant VARCHAR(100), NomEtudiant VARCHAR(100), Civilité VARCHAR(100), NomNationalite VARCHAR(50), DateNaissance VARCHAR(100), Boursier VARCHAR(100), IdAdmission VARCHAR(100), EmailEtudiant VARCHAR(100), MailPerso VARCHAR(100), NumeroFix VARCHAR(100), EtatInscription VARCHAR(50), NumeroPortable VARCHAR(100), #IdGroupe*, #AdresseDomicile, #NomVille);
+                Etudiants = (IdEtudiant VARCHAR(100), PrenomEtudiant VARCHAR(100), NomEtudiant VARCHAR(100), Civilité VARCHAR(100), NomNationalite VARCHAR(50), DateNaissance VARCHAR(100), Boursier VARCHAR(100), EmailEtudiant VARCHAR(100), MailPerso VARCHAR(100), NumeroFix VARCHAR(100), EtatInscription VARCHAR(50), NumeroPortable VARCHAR(100), #IdGroupe*, #AdresseDomicile, #NomVille);
                 Admissions = (IdAdmission DECIMAL(15,10), NoteFrancais VARCHAR(50), NoteAnglais VARCHAR(50), NotePhysique VARCHAR(50), NoteMath VARCHAR(50), #NomSpecialite*, #AppelationBac*, #IdEtudiant);
                 AvoirEtudie = (#CodeLycee, #IdAdmission);
                 AssoAnneeAdmission = (#IdAdmission, #Annee);
                 EtudierSemestre = (#IdEtudiant, #IdSemestre, EtatInscription VARCHAR(50));
                 UtilisateursRoles = (#IdUtilisateur, #NomRole);
-                EtreAbsent = (#Dates, #IdCours, Matin VARCHAR(50), Justifiee VARCHAR(50), MotifAbsence VARCHAR(50), EstAbsent VARCHAR(50), #IdEtudiant);
+                Etre_absent = (#Dates, #IdCours, Matin VARCHAR(50), Justifiee VARCHAR(50), MotifAbsence VARCHAR(50), EstAbsent VARCHAR(50), #IdEtudiant);
                 EtudiantCours = (#IdEtudiant, #IdCours);
                 Enseignement = (#IdCours, #IdUtilisateur);
                 AssoBacAnnee = (#IdAdmission, #Annee);
                 etre_intervenant = (#IdCours, #IdUtilisateur);
                 noter = (#IdEtudiant, #IdEvaluation, note VARCHAR(50));
-                EtreForme = (#CodeTypeFormation, #IdSemestre);                             
+                EtreForme = (#CodeTypeFormation, #IdSemestre);
+                                           
                 """
                 ;
 

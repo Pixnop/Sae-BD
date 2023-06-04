@@ -1,4 +1,4 @@
-"idutilisateur";"nom";"prenom";"email";"typeenseignant";"numbureau";"telephonebureau";"role"
+"idutilisateur";"nom";"prenom";"email";"typeenseignant";"numbureau";"telephonebureau";role
 1;;;admin@umontpellier.fr;;;;SuperAdmin
 36;Navarro;Dorian;dorian.navarro@umontpellier.fr;MCF;A153;"2517";Admin
 36;Navarro;Dorian;dorian.navarro@umontpellier.fr;MCF;A153;"2517";RespPe

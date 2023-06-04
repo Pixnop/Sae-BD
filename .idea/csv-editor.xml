@@ -3,42 +3,7 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="C:\Users\fievet\Downloads\absences.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="C:\Users\fievet\Downloads\cours_enseignants.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="C:\Users\fievet\Downloads\etudiants.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="C:\Users\fievet\Downloads\groupes.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="C:\Users\fievet\Downloads\inscriptions_etudiant_semestre.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value=";" />
-            </Attribute>
-          </value>
-        </entry>
-        <entry key="C:\Users\fievet\Downloads\utilisateurs.csv">
+        <entry key="\donnée\etudiants.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
@@ -46,6 +11,13 @@
           </value>
         </entry>
         <entry key="\donnée\inscriptions_etudiant_cours.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\donnée\notes.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
