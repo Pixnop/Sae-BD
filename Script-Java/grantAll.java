@@ -42,8 +42,7 @@ public class grantAll {
                 AssoBacAnnee = (#IdAdmission, #Annee);
                 etre_intervenant = (#IdCours, #IdUtilisateur);
                 noter = (#IdEtudiant, #IdEvaluation, note VARCHAR(50));
-                EtreForme = (#CodeTypeFormation, #IdSemestre);
-                                           
+                EtreForme = (#CodeTypeFormation, #IdSemestre);                   
                 """
                 ;
 
