@@ -1,19 +1,19 @@
 
 CREATE OR REPLACE VIEW Vue_Classement_Semestre (IdSemestre, IdEtudiant, NomEtudiant, PrenomEtudiant )AS
 SELECT S.IdSemestre, E.IdEtudiant, E.NomEtudiant,E.PrenomEtudiant, SUM(N.note * EV.Coefficient) AS TotalNote
-FROM Etudiants E
-        JOIN EtudierSemestre ES ON E.IdEtudiant = ES.IdEtudiant
-        JOIN Semestre S ON ES.idSemestre = S.IdSemestre
-        JOIN EtudiantCours EC ON E.IdEtudiant = EC.IdEtudiant
-        JOIN Cours C ON EC.IdCours = C.IdCours
-        LEFT JOIN Evaluations EV ON C.IdCours = EV.IdCours
-        LEFT JOIN Noter N ON E.IdEtudiant = N.IdEtudiant AND EV.IdEvaluation = N.IdEvaluation
+FROM fievetl.Etudiants E
+        JOIN fievetl.EtudierSemestre ES ON E.IdEtudiant = ES.IdEtudiant
+        JOIN fievetl.Semestre S ON ES.idSemestre = S.IdSemestre
+        JOIN fievetl.EtudiantCours EC ON E.IdEtudiant = EC.IdEtudiant
+        JOIN fievetl.Cours C ON EC.IdCours = C.IdCours
+        LEFT JOIN fievetl.Evaluations EV ON C.IdCours = EV.IdCours
+        LEFT JOIN fievetl.Noter N ON E.IdEtudiant = N.IdEtudiant AND EV.IdEvaluation = N.IdEvaluation
 GROUP BY (S.IdSemestre, E.IdEtudiant, E.NomEtudiant, E.PrenomEtudiant)
 ORDER BY TotalNote DESC;
 
 
-CREATE OR REPLACE VIEW Vue_Signe_Astrologique (idEtudiants, SigneAstro) AS
-SELECT idEtudiant, DateOfBirth,
+CREATE OR REPLACE VIEW Vue_Signe_Astrologique (IdEtudiant, SigneAstro) AS
+SELECT IdEtudiant, DateOfBirth,
     CASE
         WHEN MONTH(DateOfBirth) = 1 AND DAY(DateOfBirth) >= 20 OR MONTH(DateOfBirth) = 2 AND DAY(DateOfBirth) <= 18 THEN 'Aquarius'
         WHEN MONTH(DateOfBirth) = 2 AND DAY(DateOfBirth) >= 19 OR MONTH(DateOfBirth) = 3 AND DAY(DateOfBirth) <= 20 THEN 'Pisces'
@@ -32,28 +32,28 @@ FROM Etudiants;
 
 
 CREATE OR REPLACE VIEW Vue_Moyenne_Module_SigneAstro AS
-SELECT M.IdModule, M.NomModule, S.SigneAstro, AVG(N.note) AS Moyenne
-FROM Modules M
-         JOIN Cours C ON M.IdModule = C.IdModule
-         JOIN Evaluations E ON C.IdCours = E.IdCours
-         JOIN Noter N ON E.IdEvaluation = N.idEvaluation
-         JOIN Etudiants Et ON E.IdUtilisateur = Et.IdEtudiant
+SELECT M.IdModule, S.SigneAstro, AVG(N.note) AS Moyenne
+FROM fievetl.Modules M
+         JOIN fievetl.Cours C ON M.IdModule = C.IdModule
+         JOIN fievetl.Evaluations E ON C.IdCours = E.IdCours
+         JOIN fievetl.Noter N ON E.IdEvaluation = N.idEvaluation
+         JOIN fievetl.Etudiants Et ON E.IdUtilisateur = Et.IdEtudiant
          JOIN Vue_Signe_Astrologique S ON Et.IdEtudiant = S.IdEtudiant
 GROUP BY M.IdModule, S.SigneAstro;
 
 CREATE OR REPLACE VIEW Vue_Moyenne_Module_Bac AS
 SELECT M.IdModule, M.NomModule, A.AppelationBac, AVG(n.note) AS AverageGrade
-FROM Modules M
-         JOIN Cours C ON M.IdModule = C.IdModule
-         JOIN Evaluations E ON C.IdCours = E.IdCours
-         JOIN noter N ON E.IdEvaluation = N.IdEvaluation
-         JOIN Admissions A ON N.IdEtudiant = A.IdEtudiant
+FROM fievetl.Modules M
+         JOIN fievetl.Cours C ON M.IdModule = C.IdModule
+         JOIN fievetl.Evaluations E ON C.IdCours = E.IdCours
+         JOIN fievetl.noter N ON E.IdEvaluation = N.IdEvaluation
+         JOIN fievetl.Admissions A ON N.IdEtudiant = A.IdEtudiant
 GROUP BY M.IdModule, M.NomModule, A.AppelationBac;
 
 
 CREATE OR REPLACE VIEW Vue_Moyenne_Enseignant AS
 SELECT u.IdUtilisateur, u.NomUtilisateur, AVG(n.note) AS AverageGrade
-FROM Utilisateurs u
-         JOIN Evaluations e ON u.IdUtilisateur = e.IdUtilisateur
-         JOIN noter n ON e.IdEvaluation = n.IdEvaluation
+FROM fievetl.Utilisateurs u
+         JOIN fievetl.Evaluations e ON u.IdUtilisateur = e.IdUtilisateur
+         JOIN fievetl.noter n ON e.IdEvaluation = n.IdEvaluation
 GROUP BY u.IdUtilisateur, u.NomUtilisateur;
