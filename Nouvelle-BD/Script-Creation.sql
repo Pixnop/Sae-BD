@@ -157,7 +157,7 @@ CREATE TABLE Modules(
                         Coefficient VARCHAR(100),
                         NomModule VARCHAR(100),
                         CodeModule VARCHAR(100),
-                        IdUtilisateur VARCHAR(100) NOT NULL,
+                        IdUtilisateur VARCHAR(100),
                         PRIMARY KEY(IdModule),
                         FOREIGN KEY(IdUtilisateur) REFERENCES Utilisateurs(IdUtilisateur)
 );
