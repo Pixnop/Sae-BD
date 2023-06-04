@@ -53,7 +53,7 @@ commit;
 INSERT INTO fievetl.Semestre
 SELECT DISTINCT IdSemestre, Numerosemestre, DateDebutSemestre, DateFinSemestre,PROMOTION
 FROM fievetl.Etudiant_Semestre_data
-WHERE IdSemestre NOT IN (SELECT DISTINCT IdSemestre FROM fievetl.Semestre)
+WHERE IdSemestre NOT IN (SELECT IdSemestre FROM fievetl.Semestre)
   AND IdSemestre IS NOT NULL;
 commit;
 
@@ -293,6 +293,20 @@ WHERE te3.rn = 1
                   FROM FIEVETL.Modules m
                   WHERE m.idModule = te3.idModule) AND IDINTERVENANT IS NOT NULL AND IDUE IS NOT NULL;
 commit;
+
+INSERT INTO FIEVETL.Modules (idModule, heureCM, heureTD, heureTP, coefficient, nomModule, codeModule, idUE,
+                             IdUtilisateur)
+SELECT te3.idModule,
+       te3.heures_CM,
+       te3.heures_TD,
+       te3.heures_TP,
+       te3.coefficientmodule,
+       te3.nomModule,
+       te3.codeModule,
+       te3.idUE,
+       te3.idintervenant
+FROM FIEVETL.COURS_ENSEIGNANTS_DATA te3
+WHERE IDMODULE IS NOT NULL AND IDINTERVENANT IS NOT NULL AND IDUE IS NOT NULL;
 
 --cours--
 INSERT INTO FIEVETL.Cours (idCours, idSemestre, idModule)
