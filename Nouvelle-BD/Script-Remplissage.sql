@@ -71,6 +71,7 @@ FROM fievetl.NOTES_DATA
 WHERE IdSemestre IN (SELECT IdSemestre FROM NOTES_DATA
                                        MINUS SELECT IdSemestre FROM fievetl.Semestre )
   AND IdSemestre IS NOT NULL;
+commit;
 
 INSERT INTO fievetl.Semestre
 SELECT DISTINCT IdSemestre, NUMSEMESTRE, null, null, PROMOTION
@@ -78,6 +79,7 @@ FROM fievetl.Absences_DATA
 WHERE IdSemestre IN (SELECT IdSemestre FROM Absences_DATA
                                        MINUS SELECT IdSemestre FROM fievetl.Semestre )
   AND IdSemestre IS NOT NULL;
+commit;
 
 INSERT INTO fievetl.Semestre
 SELECT DISTINCT IdSemestre, NUMEROSEMESTRE, null, null, PROMOTION
@@ -85,6 +87,7 @@ FROM fievetl.ETUDIANT_COURS_DATA
 WHERE IdSemestre IN (SELECT IdSemestre FROM ETUDIANT_COURS_DATA
                                        MINUS SELECT IdSemestre FROM fievetl.Semestre )
   AND IdSemestre IS NOT NULL;
+commit;
 --UE
 INSERT INTO fievetl.UE
 SELECT DISTINCT IDUE, NomUE, codeUE, coefficientfUE, ECTS
