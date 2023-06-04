@@ -186,7 +186,7 @@ commit;
 INSERT INTO fievetl.Utilisateurs
 SELECT DISTINCT IdUtilisateur, Prenom, nom, Email, typeenseignant, numbureau
 FROM fievetl.utilisateurs_data
-WHERE IdUtilisateur NOT IN (SELECT DISTINCT IdUtilisateur FROM fievetl.Utilisateurs)
+WHERE IdUtilisateur IN (SELECT DISTINCT IdUtilisateur FROM fievetl.utilisateurs_data MINUS SELECT DISTINCT IdUtilisateur FROM fievetl.Utilisateurs)
   AND IdUtilisateur IS NOT NULL;
 commit;
 
