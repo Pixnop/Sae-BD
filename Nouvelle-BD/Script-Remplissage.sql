@@ -58,9 +58,9 @@ WHERE IdSemestre IN (SELECT IdSemestre FROM fievetl.Etudiant_Semestre_data  MINU
 commit;
 
 INSERT INTO fievetl.Semestre
-SELECT DISTINCT IdSemestre, Numerosemestre, null, null, PROMOTION
-FROM fievetl.ETUDIANT_COURS_DATA
-WHERE IdSemestre IN (SELECT IdSemestre FROM fievetl.ETUDIANT_COURS_DATA
+SELECT DISTINCT IdSemestre, NUMSEMESTRE, null, null, PROMOTION
+FROM fievetl.COURS_ENSEIGNANTS_DATA
+WHERE IdSemestre IN (SELECT IdSemestre FROM COURS_ENSEIGNANTS_DATA
                                        MINUS SELECT IdSemestre FROM fievetl.Semestre )
   AND IdSemestre IS NOT NULL;
 commit;
@@ -314,26 +314,9 @@ WHERE te3.rn = 1
                   WHERE m.idModule = te3.idModule);
     commit;
 
-INSERT INTO FIEVETL.MODULES (idModule, heureCM, heureTD, heureTP, coefficient,
-                             nomModule, codeModule, IdUtilisateur)
-SELECT te3.idModule,
-        null,
-        null,
-        null,
-        null,
-       te3.nomModule,
-       null,
-       NULL
-FROM FIEVETL.ETUDIANT_COURS_DATA te3
-WHERE te3.idModule IS NOT NULL
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.Modules m
-                  WHERE m.idModule = te3.idModule);
-commit;
-
 --cours--
 INSERT INTO FIEVETL.Cours (idCours, idSemestre, idModule)
-SELECT te3.idCours, te3.idSemestre, te3.idModule
+SELECT DISTINCT te3.idCours, te3.idSemestre, te3.idModule
 FROM (SELECT idCours,
              idSemestre,
              idModule,
@@ -345,15 +328,6 @@ WHERE te3.rn = 1
                   FROM FIEVETL.Cours c
                   WHERE c.idCours = te3.idCours);
 commit;
-
---Coursv2--
-INSERT INTO FIEVETL.Cours(idCours, idSemestre, idModule)
-SELECT te3.idCours, te3.idSemestre, te3.idModule
-FROM FIEVETL.COURS_ENSEIGNANTS_DATA te3
-WHERE idCours IS NOT NULL AND idModule IS NOT NULL AND idSemestre IS NOT NULL
-  AND idCours in (SELECT idCours FROM FIEVETL.COURS_ENSEIGNANTS_DATA MINUS SELECT idCours FROM FIEVETL.COURS)
-  AND IDMODULE in (SELECT idModule FROM FIEVETL.COURS_ENSEIGNANTS_DATA MINUS SELECT idModule FROM FIEVETL.COURS)
-    AND IDSEMESTRE in (SELECT idSemestre FROM FIEVETL.COURS_ENSEIGNANTS_DATA MINUS SELECT idSemestre FROM FIEVETL.COURS);
 
 -- Evaluations
 INSERT INTO FIEVETL.Evaluations
