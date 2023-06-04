@@ -53,7 +53,7 @@ commit;
 INSERT INTO fievetl.Semestre
 SELECT DISTINCT IdSemestre, Numerosemestre, DateDebutSemestre, DateFinSemestre,PROMOTION
 FROM fievetl.Etudiant_Semestre_data
-WHERE IdSemestre NOT IN (SELECT IdSemestre FROM fievetl.Semestre)
+WHERE IdSemestre IN (SELECT IdSemestre FROM fievetl.Etudiant_Semestre_data  MINUS SELECT IdSemestre FROM fievetl.Semestre )
   AND IdSemestre IS NOT NULL;
 commit;
 
