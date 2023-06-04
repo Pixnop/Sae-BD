@@ -95,17 +95,13 @@ WHERE (CodePostalDomicile) in (
 ) AND ETUDIANTS_DATA.CODEPOSTALDOMICILE IS NOT NULL;
 commit;
 
-
-
 INSERT INTO fievetl.Postale
-SELECT DISTINCT CodePostalDomicile
-FROM fievetl.etudiants_data
-WHERE CodePostalDomicile in (SELECT CodePostalDomicile
-                             FROM fievetl.etudiants_data
-                             minus
-                             SELECT CodePostale
-                             FROM fievetl.Postale) AND ETUDIANTS_DATA.CODEPOSTALDOMICILE IS NOT NULL;
-commit;
+SELECT DISTINCT CODEPOSTALLYCEE
+FROM fievetl.etudiants_data ed
+WHERE (CODEPOSTALLYCEE) in (
+    SELECT CODEPOSTALLYCEE
+    FROM fievetl.etudiants_data --minus qui empeche l'insertion de valeurs
+) AND ed.CODEPOSTALLYCEE IS NOT NULL;
 
 --typeEnseignant
 INSERT INTO fievetl.TypeEnseignant
@@ -267,6 +263,7 @@ FROM (SELECT CODELYCEE,
       WHERE CODELYCEE IS NOT NULL AND CODEPOSTALLYCEE IS NOT NULL AND VILLELYCEE IS NOT NULL) te3
 WHERE te3.rn = 1;
 commit;
+
 --Module
 INSERT INTO FIEVETL.Modules (idModule, heureCM, heureTD, heureTP, coefficient, nomModule, codeModule, idUE,
                              IdUtilisateur)
@@ -294,7 +291,7 @@ FROM (SELECT idModule,
 WHERE te3.rn = 1
   AND NOT EXISTS (SELECT 1
                   FROM FIEVETL.Modules m
-                  WHERE m.idModule = te3.idModule);
+                  WHERE m.idModule = te3.idModule) AND IDINTERVENANT IS NOT NULL AND IDUE IS NOT NULL;
 commit;
 
 --cours--

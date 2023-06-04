@@ -18,19 +18,19 @@ public class grantAll {
                 UE = (IdUe VARCHAR(50), CodeUE VARCHAR(100), NomUE VARCHAR(100), CoefficientUE VARCHAR(50), NombreECTS VARCHAR(50));
                 Bureau = (NumBureau VARCHAR(50), TelephoneBureau VARCHAR(50));
                 TypeDomicile = (TypeDeDomicile VARCHAR(50));
+                Postale = (CodePostale INT);
                 TypeEnseignant = (TypeEnseignant VARCHAR(50));
                 Roles = (NomRole VARCHAR(50));
                 Pays = (NomPays VARCHAR(50));
                 Annee = (Annee INT);
                 Villes = (NomVille VARCHAR(100), #NomPays*, #NomDepartement*);
                 Utilisateurs = (IdUtilisateur VARCHAR(50), PrenomUtilisateur VARCHAR(50), NomUtilisateur VARCHAR(50), MailUtilisateur VARCHAR(50), #TypeEnseignant*, #NumBureau*);
-                Postale = (CodePostale INT, #NomVille*);
+                Domicile = (AdresseDomicile VARCHAR(50), #TypeDeDomicile, #CodePostale, #NomVille);
+                Etudiants = (IdEtudiant VARCHAR(100), PrenomEtudiant VARCHAR(100), NomEtudiant VARCHAR(100), Civilité VARCHAR(100), NomNationalite VARCHAR(50), DateNaissance VARCHAR(100), Boursier VARCHAR(100), IdAdmission VARCHAR(100), EmailEtudiant VARCHAR(100), MailPerso VARCHAR(100), NumeroFix VARCHAR(100), EtatInscription VARCHAR(50), NumeroPortable VARCHAR(100), #IdGroupe*, #AdresseDomicile, #NomVille);
                 Lycees = (CodeLycee VARCHAR(100), NomLycee VARCHAR(100), #CodePostale*, #NomVille*);
                 Modules = (IdModule VARCHAR(50), HeureCM VARCHAR(50), HeureTD VARCHAR(50), HeureTP VARCHAR(50), Coefficient VARCHAR(50), NomModule VARCHAR(50), CodeModule VARCHAR(50), #IdUe, #IdUtilisateur);
                 Cours = (IdCours VARCHAR(50), #IdSemestre, #IdModule);
                 Evaluations = (IdEvaluation VARCHAR(50), Coefficient VARCHAR(50), #IdUtilisateur, #IdCours*);
-                Domicile = (AdresseDomicile VARCHAR(50), #TypeDeDomicile, #CodePostale, #NomVille);
-                Etudiants = (IdEtudiant VARCHAR(100), PrenomEtudiant VARCHAR(100), NomEtudiant VARCHAR(100), Civilité VARCHAR(100), NomNationalite VARCHAR(50), DateNaissance VARCHAR(100), Boursier VARCHAR(100), EmailEtudiant VARCHAR(100), MailPerso VARCHAR(100), NumeroFix VARCHAR(100), EtatInscription VARCHAR(50), NumeroPortable VARCHAR(100), #IdGroupe*, #AdresseDomicile, #NomVille);
                 Admissions = (IdAdmission DECIMAL(15,10), NoteFrancais VARCHAR(50), NoteAnglais VARCHAR(50), NotePhysique VARCHAR(50), NoteMath VARCHAR(50), #NomSpecialite*, #AppelationBac*, #IdEtudiant);
                 AvoirEtudie = (#CodeLycee, #IdAdmission);
                 AssoAnneeAdmission = (#IdAdmission, #Annee);
@@ -40,9 +40,11 @@ public class grantAll {
                 EtudiantCours = (#IdEtudiant, #IdCours);
                 Enseignement = (#IdCours, #IdUtilisateur);
                 AssoBacAnnee = (#IdAdmission, #Annee);
+                AssoVilleCodePostal = (#NomVille, #CodePostale);
                 etre_intervenant = (#IdCours, #IdUtilisateur);
                 noter = (#IdEtudiant, #IdEvaluation, note VARCHAR(50));
-                EtreForme = (#CodeTypeFormation, #IdSemestre);                   
+                EtreForme = (#CodeTypeFormation, #IdSemestre);
+                                
                 """
                 ;
 
