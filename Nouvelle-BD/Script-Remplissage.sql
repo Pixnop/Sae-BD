@@ -194,7 +194,66 @@ WHERE IdUtilisateur NOT IN (SELECT DISTINCT IdUtilisateur FROM fievetl.Utilisate
   AND IdUtilisateur IS NOT NULL;
 commit;
 
+--domicile--
+INSERT INTO FIEVETL.domicile (adresseDomicile, TypedeDomicile, CodePostale, nomVille)
+SELECT te3.domicile, te3.typeadresse, te3.codePostalDomicile, te3.villedomicile
+FROM (SELECT domicile,
+             typeadresse,
+             codePostalDomicile,
+             villedomicile,
+             ROW_NUMBER() OVER (PARTITION BY domicile ORDER BY domicile) AS rn
+      FROM fievetl.Etudiants_data
+      WHERE domicile IS NOT NULL) te3
+WHERE te3.rn = 1
+  AND NOT EXISTS (SELECT 1
+                  FROM FIEVETL.domicile d
+                  WHERE d.adresseDomicile = te3.domicile);
+commit;
 
+
+--etudiants--
+INSERT INTO fievetl.Etudiants (IdEtudiant, prenomEtudiant, NomEtudiant, civilité,NOMNATIONALITE,DATENAISSANCE, boursier, EmailEtudiant,
+                               mailPerso, numeroFix,ETATINSCRIPTION, numeroPortable,idGroupe,
+                               Adressedomicile,nomVille)
+SELECT te3.idetudiant,
+       te3.prenom,
+       te3.nom,
+       te3.civilite,
+       te3.nationalite,
+       te3.date_naissance,
+       te3.boursier,
+       te3.email,
+       te3.emailperso,
+       te3.telephone,
+       te3.ETATINSCRIPTION,
+       te3.telephonemobile,
+       te3.idGroupe,
+       te3.domicile,
+       te3.lieu_naissance
+FROM (SELECT ed.idetudiant,
+             ed.prenom,
+             ed.nom,
+             ed.civilite,
+             ed.NATIONALITE,
+             ed.date_naissance,
+             ed.boursier,
+             ed.email,
+             ed.emailperso,
+             ed.telephone,
+             es.ETATINSCRIPTION,
+             ed.telephonemobile,
+             gd.idGroupe,
+             ed.domicile,
+             ed.lieu_naissance,
+             ROW_NUMBER() OVER (PARTITION BY ed.idetudiant ORDER BY ed.idetudiant) AS rn
+      FROM fievetl.ETudiants_data ed
+               JOIN fievetl.Groupes_data gd ON ed.idetudiant = gd.IDetudiant
+               JOIN fievetl.Etudiant_semestre_data es ON ed.idetudiant = es.IDetudiant) te3
+WHERE te3.rn = 1
+  AND NOT EXISTS (SELECT 1
+                  FROM fievetl.Etudiants e
+                  WHERE e.IdEtudiant = te3.IdEtudiant);
+COMMIT;
 
 --lycees--
 INSERT INTO FIEVETL.lycees (CODELYCEE, NOMLYCEE, CodePostale, NomVille)
@@ -261,66 +320,8 @@ WHERE IDEVALUATION IS NOT NULL AND IDEVALUATION NOT IN (SELECT DISTINCT IDEVALUA
 commit;
 
 
---domicile--
-INSERT INTO FIEVETL.domicile (adresseDomicile, TypedeDomicile, CodePostale, nomVille)
-SELECT te3.domicile, te3.typeadresse, te3.codePostalDomicile, te3.villedomicile
-FROM (SELECT domicile,
-             typeadresse,
-             codePostalDomicile,
-             villedomicile,
-             ROW_NUMBER() OVER (PARTITION BY domicile ORDER BY domicile) AS rn
-      FROM fievetl.Etudiants_data
-      WHERE domicile IS NOT NULL) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.domicile d
-                  WHERE d.adresseDomicile = te3.domicile);
-commit;
 
---etudiants--
-INSERT INTO fievetl.Etudiants (IdEtudiant, prenomEtudiant, NomEtudiant, civilité,NOMNATIONALITE,DATENAISSANCE, boursier, EmailEtudiant,
-                               mailPerso, numeroFix,ETATINSCRIPTION, numeroPortable,idGroupe,
-                               Adressedomicile,nomVille)
-SELECT te3.idetudiant,
-       te3.prenom,
-       te3.nom,
-       te3.civilite,
-       te3.nationalite,
-       te3.date_naissance,
-       te3.boursier,
-       te3.email,
-       te3.emailperso,
-       te3.telephone,
-       te3.ETATINSCRIPTION,
-       te3.telephonemobile,
-       te3.idGroupe,
-       te3.domicile,
-       te3.lieu_naissance
-FROM (SELECT ed.idetudiant,
-             ed.prenom,
-             ed.nom,
-             ed.civilite,
-             ed.NATIONALITE,
-             ed.date_naissance,
-             ed.boursier,
-             ed.email,
-             ed.emailperso,
-             ed.telephone,
-             es.ETATINSCRIPTION,
-             ed.telephonemobile,
-             gd.idGroupe,
-             ed.domicile,
-             ed.lieu_naissance,
-             ROW_NUMBER() OVER (PARTITION BY ed.idetudiant ORDER BY ed.idetudiant) AS rn
-      FROM fievetl.ETudiants_data ed
-               JOIN fievetl.Groupes_data gd ON ed.idetudiant = gd.IDetudiant
-               JOIN fievetl.Etudiant_semestre_data es ON ed.idetudiant = es.IDetudiant) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM fievetl.Etudiants e
-                  WHERE e.IdEtudiant = te3.IdEtudiant);
 
-COMMIT;
 --Admissions
 INSERT INTO FIEVETL.ADMISSIONS
 SELECT ed.idadmission, ed.Francais, ed.Anglais, ed.physique, ed.math, ed.specialite, ed.bac, ed.idEtudiant
@@ -403,6 +404,20 @@ SELECT DISTINCT ed.IDADMISSION, ed.ANNEE_BAC
 FROM FIEVETL.ETUDIANTS_DATA ed
 WHERE BAC IS NOT NULL;
 COMMIT;
+
+
+--AssoVilleCodePostale
+INSERT INTO FIEVETL.ASSOVILLECODEPOSTAL
+SELECT DISTINCT ed.VILLEDOMICILE, ed.CODEPOSTALDOMICILE
+FROM FIEVETL.ETUDIANTS_DATA ed
+WHERE CODEPOSTALDOMICILE IS NOT NULL AND VILLEDOMICILE IS NOT NULL;
+
+INSERT INTO FIEVETL.ASSOVILLECODEPOSTAL
+SELECT DISTINCT ed.VILLELYCEE, ed.CODEPOSTALLYCEE
+FROM FIEVETL.ETUDIANTS_DATA ed
+WHERE CODEPOSTALLYCEE IS NOT NULL AND VILLELYCEE IS NOT NULL;
+
+
 
 -- Etre_intervenant
 INSERT INTO FIEVETL.etre_intervenant (IdCours, idUtilisateur)
