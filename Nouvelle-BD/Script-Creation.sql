@@ -157,10 +157,8 @@ CREATE TABLE Modules(
                         Coefficient VARCHAR(100),
                         NomModule VARCHAR(100),
                         CodeModule VARCHAR(100),
-                        IdUe VARCHAR(100) NOT NULL,
-                        IdUtilisateur VARCHAR(100) NOT NULL,
+                        IdUtilisateur VARCHAR(100),
                         PRIMARY KEY(IdModule),
-                        FOREIGN KEY(IdUe) REFERENCES UE(IdUe),
                         FOREIGN KEY(IdUtilisateur) REFERENCES Utilisateurs(IdUtilisateur)
 );
 
@@ -252,6 +250,14 @@ CREATE TABLE EtudiantCours(
                               PRIMARY KEY(IdEtudiant, IdCours),
                               FOREIGN KEY(IdEtudiant) REFERENCES Etudiants(IdEtudiant),
                               FOREIGN KEY(IdCours) REFERENCES Cours(IdCours)
+);
+
+CREATE TABLE AssoModule(
+                           IdModule VARCHAR(100),
+                           IdUe VARCHAR(100),
+                           PRIMARY KEY(IdModule, IdUe),
+                           FOREIGN KEY(IdModule) REFERENCES Modules(IdModule),
+                           FOREIGN KEY(IdUe) REFERENCES UE(IdUe)
 );
 
 CREATE TABLE Enseignement(
