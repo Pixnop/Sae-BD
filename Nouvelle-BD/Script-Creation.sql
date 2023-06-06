@@ -114,7 +114,7 @@ CREATE TABLE Admissions(
                            FOREIGN KEY(AppelationBac) REFERENCES Bac(AppelationBac)
 );
 
-CREATE TABLE Temps(
+CREATE TABLE Matin(
                       Matin VARCHAR(100),
                       PRIMARY KEY(Matin)
 );
@@ -234,16 +234,16 @@ CREATE TABLE UtilisateursRoles(
 CREATE TABLE EtreAbsent(
                            IdEtudiant VARCHAR(100),
                            Dates VARCHAR(100),
-                           IdCours VARCHAR(100),
                            Matin VARCHAR(100),
                            Justifiee VARCHAR(100),
                            MotifAbsence VARCHAR(100),
                            EstAbsent VARCHAR(100),
-                           PRIMARY KEY(IdEtudiant, Dates, IdCours, Matin),
+                           IdCours VARCHAR(100),
+                           PRIMARY KEY(IdEtudiant, Dates, Matin),
                            FOREIGN KEY(IdEtudiant) REFERENCES Etudiants(IdEtudiant),
                            FOREIGN KEY(Dates) REFERENCES Dates(Dates),
-                           FOREIGN KEY(IdCours) REFERENCES Cours(IdCours),
-                           FOREIGN KEY(Matin) REFERENCES Temps(Matin)
+                           FOREIGN KEY(Matin) REFERENCES Matin(Matin),
+                           FOREIGN KEY(IdCours) REFERENCES Cours(IdCours)
 );
 
 CREATE TABLE EtudiantCours(

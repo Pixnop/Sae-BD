@@ -241,21 +241,21 @@ commit;
 
 --Admissions
 INSERT INTO FIEVETL.ADMISSIONS
-SELECT ed.idadmission, ed.Francais, ed.Anglais, ed.physique, ed.math, ed.specialite, ed.bac
+SELECT DISTINCT ed.idadmission, ed.Francais, ed.Anglais, ed.physique, ed.math, ed.specialite, ed.bac
 FROM FIEVETL.ETUDIANTS_DATA ed
 WHERE IDADMISSION is not null AND IDADMISSION IN (
     SELECT DISTINCT IDADMISSION FROM FIEVETL.ETUDIANTS_DATA MINUS SELECT DISTINCT IDADMISSION FROM FIEVETL.ADMISSIONS);
 commit;
 
 --Temps
-INSERT INTO fievetl.Temps (MATIN)
+INSERT INTO fievetl.MATIN (MATIN)
 SELECT DISTINCT MATIN
 FROM fievetl.Absences_data
 WHERE MATIN IN (SELECT MATIN
                 FROM fievetl.Absences_data
                 minus
                 SELECT MATIN
-                FROM fievetl.Temps);
+                FROM fievetl.MATIN);
 
 --Villes
 INSERT INTO fievetl.Villes
@@ -338,7 +338,7 @@ commit;
 
 --etudiants--
 INSERT INTO fievetl.Etudiants (IdEtudiant, prenomEtudiant, NomEtudiant, civilité,NOMNATIONALITE,DATENAISSANCE, boursier, EmailEtudiant,
-                               mailPerso, numeroFix,ETATINSCRIPTION, numeroPortable,IdAdmission_1,idGroupe,
+                               mailPerso, numeroFix,ETATINSCRIPTION, numeroPortable,IdAdmission,idGroupe,
                                Adressedomicile,nomVille)
 SELECT te3.idetudiant,
        te3.prenom,
@@ -391,25 +391,29 @@ FROM (SELECT CODELYCEE,
              villelycee,
              ROW_NUMBER() OVER (PARTITION BY CODELYCEE ORDER BY CODELYCEE) AS rn
       FROM fievetl.etudiants_data
-      WHERE CODELYCEE IS NOT NULL AND CODEPOSTALLYCEE IS NOT NULL AND VILLELYCEE IS NOT NULL) te3
-WHERE te3.rn = 1;
+      WHERE CODELYCEE IS NOT NULL) te3
+WHERE te3.rn = 1 and not exists (select 1 from FIEVETL.lycees l where l.CODELYCEE = te3.CODELYCEE);
 commit;
 
 --cours--
-INSERT INTO FIEVETL.Cours (idCours, IDUTILISATEUR, idSemestre, idModule)
-SELECT DISTINCT te3.idCours, te3.IDENSEIGNANTRESPONSABLE, te3.idSemestre, te3.idModule
-FROM (SELECT idCours,
-    IDENSEIGNANTRESPONSABLE,
-             idSemestre,
-             idModule,
-             ROW_NUMBER() OVER (PARTITION BY idCours ORDER BY idCours) AS rn
-      FROM fievetl.cours_enseignants_data
-      WHERE idCours IS NOT NULL) te3
+INSERT INTO FIEVETL.EtreAbsent (IdEtudiant, Dates, Matin, Justifiee, MotifAbsence, EstAbsent, IdCours)
+SELECT DISTINCT te3.idEtudiant, te3.JOURABSENCE, te3.Matin, te3.ESTJUST, te3.MotifAbsence, te3.ESTABS, te3.IdCours
+FROM (
+         SELECT idEtudiant, JOURABSENCE, Matin, ESTJUST, MotifAbsence, ESTABS, IdCours,
+                ROW_NUMBER() OVER (PARTITION BY idEtudiant, JOURABSENCE, Matin ORDER BY idEtudiant) AS rn
+         FROM fievetl.Absences_data
+         WHERE idEtudiant IS NOT NULL
+     ) te3
 WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.Cours c
-                  WHERE c.idCours = te3.idCours);
-commit;
+  AND NOT EXISTS (
+    SELECT 1
+    FROM FIEVETL.EtreAbsent ea
+    WHERE ea.IdEtudiant = te3.idEtudiant
+      AND ea.Dates = te3.JOURABSENCE
+      AND ea.Matin = te3.Matin
+);
+
+COMMIT;
 
 INSERT INTO FIEVETL.Cours (IDCOURS, IDUTILISATEUR, IDSEMESTRE, IDMODULE)
 SELECT DISTINCT IDCOURS, null ,IDSEMESTRE, IDMODULE
@@ -444,8 +448,9 @@ commit;
 INSERT INTO FIEVETL.ASSOANNEEADMISSION
 SELECT DISTINCT ed.idadmission, ed.ANNEEADMISSION
 FROM FIEVETL.ETUDIANTS_DATA ed
-WHERE IDADMISSION IS NOT NULL;
-
+WHERE IDADMISSION IS NOT NULL AND ANNEEADMISSION IS NOT NULL AND IDADMISSION
+      IN (SELECT DISTINCT IDADMISSION FROM FIEVETL.ETUDIANTS_DATA MINUS SELECT DISTINCT IDADMISSION FROM FIEVETL.ASSOANNEEADMISSION);
+commit;
 
 --EtudierSemestre
 INSERT INTO FIEVETL.ETUDIERSEMESTRE
@@ -457,27 +462,15 @@ WHERE esd.IDETUDIANT IS NOT NULL;
 INSERT INTO FIEVETL.UTILISATEURSROLES
 SELECT Distinct ur.idutilisateur, ur.role
 FROM FIEVETL.UTILISATEURS_DATA ur
-WHERE IDUTILISATEUR IS NOT NULL;
+WHERE IDUTILISATEUR IS NOT NULL and role is not null;
 
 
 --etre_absent--
-INSERT INTO FIEVETL.EtreAbsent (IdEtudiant, Dates, IdCours, Matin, Justifiee, MotifAbsence, EstAbsent)
-SELECT te3.idEtudiant, te3.jourabsence, te3.idCours, te3.matin, te3.estjust, te3.motifabsence, te3.estabs
-FROM (SELECT ad.jourabsence,
-             ad.idCours,
-             ad.matin,
-             ad.estjust,
-             ad.motifabsence,
-             ad.estabs,
-             ad.idEtudiant,
-             ROW_NUMBER() OVER (PARTITION BY ad.idEtudiant, ad.jourabsence, ad.idCours ORDER BY ad.idEtudiant, ad.jourabsence, ad.idCours) AS rn
-      FROM fievetl.Absences_data ad) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.EtreAbsent ea
-                  WHERE ea.idetudiant = te3.idetudiant
-                    AND ea.dates = te3.JOURABSENCE
-                    AND ea.idcours = te3.idcours);
+INSERT INTO FIEVETL.EtreAbsent (IdEtudiant, Dates, Matin, Justifiee, MotifAbsence, EstAbsent, IdCours)
+SELECT DISTINCT te3.idEtudiant, te3.JOURABSENCE, te3.Matin, te3.ESTJUST, te3.MotifAbsence, te3.ESTABS, te3.IdCours
+FROM fievetl.Absences_data te3
+WHERE te3.idEtudiant IS NOT NULL;
+
 COMMIT;
 
 
