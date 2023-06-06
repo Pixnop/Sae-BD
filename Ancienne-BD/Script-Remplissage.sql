@@ -1,606 +1,836 @@
-INSERT INTO fievetl.nationalite
-SELECT DISTINCT nationalite
-FROM fievetl.etudiants_data
-WHERE nationalite NOT IN (SELECT DISTINCT nationalite FROM fievetl.nationalite);
-commit;
+CREATE TABLE "FIEVETL"."ABSENCES_DATA"
+(	"IDETUDIANT" VARCHAR2(100),
+     "NOM" VARCHAR2(100),
+     "PRENOM" VARCHAR2(100),
+     "IDCOURS" VARCHAR2(100),
+     "IDMODULE" VARCHAR2(100),
+     "NOMMODULE" VARCHAR2(100),
+     "IDSEMESTRE" VARCHAR2(100),
+     "PROMOTION" VARCHAR2(100),
+     "NUMSEMESTRE" VARCHAR2(100),
+     "JOURABSENCE" VARCHAR2(100),
+     "ESTABS" VARCHAR2(100),
+     "ESTJUST" VARCHAR2(100),
+     "MATIN" VARCHAR2(100),
+     "MOTIFABSENCE" VARCHAR2(100)
+) SEGMENT CREATION IMMEDIATE
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO fievetl.inscription
-SELECT DISTINCT etatinscription
-FROM fievetl.Etudiant_Semestre_data
-WHERE etatinscription NOT IN (SELECT DISTINCT etatinscription FROM fievetl.inscription);
-commit;
+CREATE TABLE "FIEVETL"."ADMISSIONS"
+(	"IDADMISSION" VARCHAR2(50),
+     "NOTEFRANCAIS" VARCHAR2(50),
+     "NOTEANGLAIS" VARCHAR2(50),
+     "NOTEPHYSIQUE" VARCHAR2(50),
+     "NOTEMATH" VARCHAR2(50),
+     "NOMSPECIALITE" VARCHAR2(50),
+     "APPELATIONBAC" VARCHAR2(50),
+     "IDETUDIANT" VARCHAR2(100) NOT NULL ENABLE,
+     PRIMARY KEY ("IDADMISSION")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE,
+     UNIQUE ("IDETUDIANT")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO fievetl.groupes
-SELECT DISTINCT idgroupe, nomgroupe
-FROM fievetl.groupes_data
-WHERE idgroupe NOT IN (SELECT DISTINCT idgroupe FROM fievetl.groupes)
-  AND idgroupe IS NOT NULL;
-commit;
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977554" ON "FIEVETL"."ADMISSIONS" ("IDETUDIANT")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977553" ON "FIEVETL"."ADMISSIONS" ("IDADMISSION")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
+CREATE TABLE "FIEVETL"."ANNEE"
+(	"ANNEE" NUMBER(*,0),
+     PRIMARY KEY ("ANNEE")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO fievetl.bac
-SELECT DISTINCT bac
-FROM fievetl.etudiants_data
-WHERE bac NOT IN (SELECT DISTINCT bac FROM fievetl.bac)
-  AND bac IS NOT NULL;
-commit;
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977518" ON "FIEVETL"."ANNEE" ("ANNEE")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO fievetl.annee
-SELECT DISTINCT annee_bac
-FROM fievetl.etudiants_data
-WHERE annee_bac IN (SELECT annee_bac
-                    FROM fievetl.etudiants_data
-                    minus
-                    SELECT ANNEE
-                    FROM fievetl.annee);
-commit;
+CREATE TABLE "FIEVETL"."ASSOANNEEADMISSION"
+(	"IDADMISSION" VARCHAR2(50),
+     "ANNEE" NUMBER(*,0),
+     PRIMARY KEY ("IDADMISSION", "ANNEE")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO fievetl.annee
-SELECT DISTINCT ANNEEADMISSION
-FROM fievetl.etudiants_data
-WHERE ANNEEADMISSION IN (SELECT ANNEEADMISSION
-                         FROM fievetl.etudiants_data
-                         minus
-                         SELECT ANNEE
-                         FROM fievetl.annee);
-commit;
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977561" ON "FIEVETL"."ASSOANNEEADMISSION" ("IDADMISSION", "ANNEE")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO fievetl.TypeFormation
-SELECT DISTINCT CodeTypeFormation, NomTypeFormation
-FROM fievetl.Etudiant_Semestre_data
-WHERE CodeTypeFormation NOT IN (SELECT DISTINCT CodeTypeFormation FROM fievetl.TypeFormation)
-  AND CodeTypeFormation IS NOT NULL;
-commit;
+CREATE TABLE "FIEVETL"."ASSOBACANNEE"
+(	"IDADMISSION" VARCHAR2(50),
+     "ANNEE" NUMBER(*,0),
+     PRIMARY KEY ("IDADMISSION", "ANNEE")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO fievetl.roles
-SELECT DISTINCT role
-FROM fievetl.utilisateurs_data
-WHERE role NOT IN (SELECT DISTINCT role FROM fievetl.roles)
-  AND role IS NOT NULL;
-commit;
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977586" ON "FIEVETL"."ASSOBACANNEE" ("IDADMISSION", "ANNEE")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO fievetl.Dates
-SELECT DISTINCT jourAbsence
-FROM fievetl.Absences_DATA
-WHERE jourAbsence IN (SELECT jourAbsence
-                      FROM fievetl.Absences_DATA
-                      minus
-                      SELECT dateS
-                      FROM fievetl.Dates);
-Commit;
+CREATE TABLE "FIEVETL"."ASSOMODULE"
+(	"IDMODULE" VARCHAR2(50),
+     "IDUE" VARCHAR2(50),
+     PRIMARY KEY ("IDMODULE", "IDUE")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO fievetl.Dates
-SELECT DISTINCT datedebutsemestre
-FROM fievetl.Etudiant_Semestre_data
-WHERE datedebutsemestre in (SELECT datedebutsemestre
-                            FROM fievetl.Etudiant_Semestre_data
-                            minus
-                            SELECT dateS
-                            FROM fievetl.Dates)
-  AND datedebutsemestre IS NOT NULL;
-Commit;
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977580" ON "FIEVETL"."ASSOMODULE" ("IDMODULE", "IDUE")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO fievetl.Dates
-SELECT DISTINCT datefinsemestre
-FROM fievetl.Etudiant_Semestre_data
-WHERE datefinsemestre IN (SELECT datefinsemestre
-                          FROM fievetl.Etudiant_Semestre_data
-                          minus
-                          SELECT dateS
-                          FROM fievetl.Dates);
-Commit;
+CREATE TABLE "FIEVETL"."ASSOVILLECODEPOSTAL"
+(	"NOMVILLE" VARCHAR2(100),
+     "CODEPOSTALE" NUMBER(*,0),
+     PRIMARY KEY ("NOMVILLE", "CODEPOSTALE")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO fievetl.Dates
-SELECT DISTINCT date_naissance
-FROM fievetl.Etudiants_data
-WHERE date_naissance IN (SELECT date_naissance
-                         FROM fievetl.Etudiants_data
-                         minus
-                         SELECT dateS
-                         FROM fievetl.Dates);
-commit;
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977589" ON "FIEVETL"."ASSOVILLECODEPOSTAL" ("NOMVILLE", "CODEPOSTALE")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
+CREATE TABLE "FIEVETL"."AVOIRETUDIE"
+(	"CODELYCEE" VARCHAR2(100),
+     "IDADMISSION" VARCHAR2(50),
+     PRIMARY KEY ("CODELYCEE", "IDADMISSION")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO fievetl.Semestre
-SELECT DISTINCT IdSemestre, Numerosemestre, DateDebutSemestre, DateFinSemestre
-FROM fievetl.Etudiant_Semestre_data
-WHERE IdSemestre NOT IN (SELECT DISTINCT IdSemestre FROM fievetl.Semestre)
-  AND IdSemestre IS NOT NULL;
-commit;
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977558" ON "FIEVETL"."AVOIRETUDIE" ("CODELYCEE", "IDADMISSION")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO fievetl.Bureau
-SELECT DISTINCT numBureau, telephonebureau
-FROM fievetl.utilisateurs_data
-WHERE numBureau NOT IN (SELECT DISTINCT numBureau FROM fievetl.Bureau)
-  AND numBureau IS NOT NULL;
-commit;
+CREATE TABLE "FIEVETL"."BAC"
+(	"APPELATIONBAC" VARCHAR2(50),
+     PRIMARY KEY ("APPELATIONBAC")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO fievetl.departement
-SELECT DISTINCT dept_naissance
-FROM fievetl.etudiants_data
-WHERE dept_naissance NOT IN (SELECT DISTINCT dept_naissance FROM fievetl.departement)
-  AND dept_naissance IS NOT NULL;
-commit;
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977505" ON "FIEVETL"."BAC" ("APPELATIONBAC")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO fievetl.UE
-SELECT DISTINCT IDUE, NomUE, codeUE, coefficientfUE, ECTS
-FROM fievetl.Cours_enseignants_data
-WHERE IDUE NOT IN (SELECT DISTINCT IDUE FROM fievetl.UE)
-  AND IDUE IS NOT NULL;
-commit;
+CREATE TABLE "FIEVETL"."BUREAU"
+(	"NUMBUREAU" VARCHAR2(50),
+     "TELEPHONEBUREAU" VARCHAR2(50),
+     PRIMARY KEY ("NUMBUREAU")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO fievetl.Postale
-SELECT DISTINCT CodePostalDomicile
-FROM fievetl.etudiants_data
-WHERE CodePostalDomicile in (SELECT CodePostalDomicile
-                             FROM fievetl.etudiants_data
-                             minus
-                             SELECT CodePostale
-                             FROM fievetl.Postale);
-commit;
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977512" ON "FIEVETL"."BUREAU" ("NUMBUREAU")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO fievetl.Postale
-SELECT DISTINCT CodePostallycee
-FROM fievetl.etudiants_data
-WHERE CodePostallycee IN (SELECT CodePostallycee
-                          FROM fievetl.etudiants_data
-                          minus
-                          SELECT CodePostale
-                          FROM fievetl.Postale);
-commit;
+CREATE TABLE "FIEVETL"."COURS"
+(	"IDCOURS" VARCHAR2(50),
+     "IDUTILISATEUR" VARCHAR2(50),
+     "IDSEMESTRE" VARCHAR2(50) NOT NULL ENABLE,
+     "IDMODULE" VARCHAR2(50) NOT NULL ENABLE,
+     PRIMARY KEY ("IDCOURS")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO fievetl.bac
-SELECT DISTINCT bac
-FROM fievetl.etudiants_data
-WHERE bac NOT IN (SELECT DISTINCT bac FROM fievetl.bac)
-  AND bac IS NOT NULL;
-commit;
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977546" ON "FIEVETL"."COURS" ("IDCOURS")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO fievetl.TypeEnseignant
-SELECT DISTINCT typeenseignant
-FROM fievetl.utilisateurs_data
-WHERE typeenseignant NOT IN (SELECT DISTINCT typeenseignant FROM fievetl.TypeEnseignant)
-  AND typeenseignant IS NOT NULL;
-commit;
+CREATE TABLE "FIEVETL"."COURS_ENSEIGNANTS_DATA"
+(	"IDCOURS" VARCHAR2(100),
+     "IDSEMESTRE" VARCHAR2(100),
+     "PROMOTION" VARCHAR2(100),
+     "NUMSEMESTRE" VARCHAR2(100),
+     "IDMODULE" VARCHAR2(100),
+     "NOMMODULE" VARCHAR2(100),
+     "CODEMODULE" VARCHAR2(100),
+     "HEURES_CM" VARCHAR2(100),
+     "HEURES_TD" VARCHAR2(100),
+     "HEURES_TP" VARCHAR2(100),
+     "COEFFICIENTMODULE" VARCHAR2(100),
+     "IDUE" VARCHAR2(100),
+     "NOMUE" VARCHAR2(100),
+     "CODEUE" VARCHAR2(100),
+     "COEFFICIENTFUE" VARCHAR2(100),
+     "ECTS" VARCHAR2(100),
+     "IDENSEIGNANTRESPONSABLE" VARCHAR2(100),
+     "NOMENSEIGNANTRESPONSABLE" VARCHAR2(100),
+     "PRENOMENSEIGNANTRESPONSABLE" VARCHAR2(100),
+     "IDINTERVENANT" VARCHAR2(100),
+     "NOMINTERVENANT" VARCHAR2(100),
+     "PRENOMINTERVENANT" VARCHAR2(100)
+) SEGMENT CREATION IMMEDIATE
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO fievetl.Promotion
-SELECT DISTINCT Promotion
-FROM fievetl.Etudiant_Semestre_data
-WHERE Promotion IN (SELECT Promotion
-                    FROM fievetl.Etudiant_Semestre_data
-                    minus
-                    SELECT Promotion
-                    FROM fievetl.Promotion);
-commit;
+CREATE TABLE "FIEVETL"."DATES"
+(	"DATES" VARCHAR2(50),
+     PRIMARY KEY ("DATES")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO fievetl.Promotion
-SELECT DISTINCT promotion
-FROM fievetl.groupes_data
-WHERE promotion IN (SELECT promotion
-                    FROM fievetl.groupes_data
-                    minus
-                    SELECT Promotion
-                    FROM fievetl.Promotion);
-commit;
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977506" ON "FIEVETL"."DATES" ("DATES")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
+CREATE TABLE "FIEVETL"."DEPARTEMENT"
+(	"NOMDEPARTEMENT" VARCHAR2(50),
+     PRIMARY KEY ("NOMDEPARTEMENT")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977504" ON "FIEVETL"."DEPARTEMENT" ("NOMDEPARTEMENT")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO fievetl.Pays
-SELECT DISTINCT paysdomicile
-FROM fievetl.etudiants_data
-WHERE paysdomicile NOT IN (SELECT DISTINCT paysdomicile FROM fievetl.Pays)
-  AND paysdomicile IS NOT NULL;
-commit;
+CREATE TABLE "FIEVETL"."DOMICILE"
+(	"ADRESSEDOMICILE" VARCHAR2(50),
+     "TYPEDEDOMICILE" VARCHAR2(50) NOT NULL ENABLE,
+     "CODEPOSTALE" NUMBER(*,0) NOT NULL ENABLE,
+     "NOMVILLE" VARCHAR2(100) NOT NULL ENABLE,
+     PRIMARY KEY ("ADRESSEDOMICILE")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977529" ON "FIEVETL"."DOMICILE" ("ADRESSEDOMICILE")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO fievetl.note
-SELECT DISTINCT math
-FROM fievetl.etudiants_data
-WHERE math IN (SELECT math
-               FROM fievetl.etudiants_data
-               minus
-               SELECT NOTE
-               FROM fievetl.note);
-commit;
+CREATE TABLE "FIEVETL"."ENSEIGNEMENT"
+(	"IDCOURS_ENSEIGNANT" VARCHAR2(50),
+     "IDUTILISATEUR" VARCHAR2(50),
+     PRIMARY KEY ("IDCOURS_ENSEIGNANT", "IDUTILISATEUR")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO fievetl.note
-SELECT DISTINCT physique
-FROM fievetl.etudiants_data
-WHERE physique IN (SELECT physique
-                   FROM fievetl.etudiants_data
-                   minus
-                   SELECT NOTE
-                   FROM fievetl.note);
-commit;
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977583" ON "FIEVETL"."ENSEIGNEMENT" ("IDCOURS_ENSEIGNANT", "IDUTILISATEUR")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO fievetl.note
-SELECT DISTINCT anglais
-FROM fievetl.etudiants_data
-WHERE anglais IN (SELECT anglais
-                  FROM fievetl.etudiants_data
-                  minus
-                  SELECT NOTE
-                  FROM fievetl.note);
-commit;
+CREATE TABLE "FIEVETL"."ETREABSENT"
+(	"IDETUDIANT" VARCHAR2(100),
+     "DATES" VARCHAR2(50),
+     "IDCOURS" VARCHAR2(50),
+     "MATIN" VARCHAR2(50),
+     "JUSTIFIEE" VARCHAR2(50),
+     "MOTIFABSENCE" VARCHAR2(50),
+     "ESTABSENT" VARCHAR2(50),
+     PRIMARY KEY ("IDETUDIANT", "DATES", "IDCOURS", "MATIN")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO fievetl.note
-SELECT DISTINCT francais
-FROM fievetl.etudiants_data
-WHERE francais in (SELECT francais
-                   FROM fievetl.etudiants_data
-                   minus
-                   SELECT NOTE
-                   FROM fievetl.note);
-commit;
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977570" ON "FIEVETL"."ETREABSENT" ("IDETUDIANT", "DATES", "IDCOURS", "MATIN")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO fievetl.TypeDomicile
-SELECT DISTINCT typeadresse
-FROM fievetl.etudiants_data
-WHERE typeadresse NOT IN (SELECT DISTINCT typeadresse FROM fievetl.TypeDomicile)
-  AND typeadresse IS NOT NULL;
-commit;
+CREATE TABLE "FIEVETL"."ETREFORME"
+(	"CODETYPEFORMATION" VARCHAR2(50),
+     "IDSEMESTRE" VARCHAR2(50),
+     PRIMARY KEY ("CODETYPEFORMATION", "IDSEMESTRE")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO fievetl.matiere
-VALUES ('Math');
-commit;
-INSERT INTO fievetl.matiere
-VALUES ('Physique');
-commit;
-INSERT INTO fievetl.matiere
-VALUES ('Anglais');
-commit;
-INSERT INTO fievetl.matiere
-VALUES ('Francais');
-commit;
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977595" ON "FIEVETL"."ETREFORME" ("CODETYPEFORMATION", "IDSEMESTRE")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO fievetl.Villes
-SELECT DISTINCT lieu_Naissance, null, DEPT_NAISSANCE
-FROM fievetl.etudiants_data
-WHERE lieu_Naissance in (select lieu_Naissance
-                         from fievetl.etudiants_data
-                         minus
-                         select nomVille
-                         from fievetl.Villes)
-  AND lieu_Naissance IS NOT NULL;
-commit;
+CREATE TABLE "FIEVETL"."ETREINTERVENANT"
+(	"IDCOURS_INTERVENANT" VARCHAR2(50),
+     "IDUTILISATEUR" VARCHAR2(50),
+     PRIMARY KEY ("IDCOURS_INTERVENANT", "IDUTILISATEUR")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO fievetl.Villes
-SELECT DISTINCT Villelycee, null, null
-FROM fievetl.etudiants_data
-WHERE VILLELYCEE in (select VILLELYCEE
-                     from fievetl.etudiants_data
-                     minus
-                     select nomVille
-                     from fievetl.Villes)
-  AND Villelycee IS NOT NULL;
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977592" ON "FIEVETL"."ETREINTERVENANT" ("IDCOURS_INTERVENANT", "IDUTILISATEUR")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO fievetl.Villes
-SELECT DISTINCT VilleDomicile, paysdomicile, null
-FROM fievetl.etudiants_data
-WHERE VILLEDOMICILE in (select VILLEDOMICILE
-                        from fievetl.etudiants_data
-                        minus
-                        select nomVille
-                        from fievetl.Villes)
-  AND VilleDomicile IS NOT NULL;
-commit;
+CREATE TABLE "FIEVETL"."ETUDIANTCOURS"
+(	"IDETUDIANT" VARCHAR2(100),
+     "IDEVALUATION" VARCHAR2(50),
+     "NOTE" VARCHAR2(50),
+     "IDCOURS" VARCHAR2(50) NOT NULL ENABLE,
+     PRIMARY KEY ("IDETUDIANT", "IDEVALUATION")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO FIEVETL.lycees (CODELYCEE, NOMLYCEE, CodePostale, NomVille)
-SELECT te3.CODELYCEE, te3.NOMLYCEE, te3.codepostallycee, te3.villelycee
-FROM (SELECT CODELYCEE,
-             NOMLYCEE,
-             codepostallycee,
-             villelycee,
-             ROW_NUMBER() OVER (PARTITION BY CODELYCEE ORDER BY CODELYCEE) AS rn
-      FROM fievetl.etudiants_data
-      WHERE CODELYCEE IS NOT NULL) te3
-WHERE te3.rn = 1;
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977576" ON "FIEVETL"."ETUDIANTCOURS" ("IDETUDIANT", "IDEVALUATION")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO FIEVETL.Modules (idModule, heureCM, heureTD, heureTP, coefficient, nomModule, codeModule, idUE,
-                             IdUtilisateur)
-SELECT te3.idModule,
-       te3.heures_CM,
-       te3.heures_TD,
-       te3.heures_TP,
-       te3.coefficientmodule,
-       te3.nomModule,
-       te3.codeModule,
-       te3.idUE,
-       te3.idintervenant
-FROM (SELECT idModule,
-             heures_CM,
-             heures_TD,
-             heures_TP,
-             coefficientmodule,
-             nomModule,
-             codeModule,
-             idUE,
-             idintervenant,
-             ROW_NUMBER() OVER (PARTITION BY idModule ORDER BY idModule) AS rn
-      FROM fievetl.cours_enseignants_data
-      WHERE idModule IS NOT NULL) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.Modules m
-                  WHERE m.idModule = te3.idModule);
-commit;
+CREATE TABLE "FIEVETL"."ETUDIANTS"
+(	"IDETUDIANT" VARCHAR2(100),
+     "PRENOMETUDIANT" VARCHAR2(100),
+     "NOMETUDIANT" VARCHAR2(100),
+     "CIVILITÉ" VARCHAR2(100),
+     "NOMNATIONALITE" VARCHAR2(50) NOT NULL ENABLE,
+     "DATENAISSANCE" VARCHAR2(100),
+     "BOURSIER" VARCHAR2(100),
+     "IDADMISSION" VARCHAR2(100),
+     "EMAILETUDIANT" VARCHAR2(100),
+     "MAILPERSO" VARCHAR2(100),
+     "NUMEROFIX" VARCHAR2(100) NOT NULL ENABLE,
+     "ETATINSCRIPTION" VARCHAR2(50),
+     "NUMEROPORTABLE" VARCHAR2(100),
+     "IDGROUPE" VARCHAR2(50),
+     "ADRESSEDOMICILE" VARCHAR2(50) NOT NULL ENABLE,
+     "NOMVILLE" VARCHAR2(100) NOT NULL ENABLE,
+     PRIMARY KEY ("IDETUDIANT")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO FIEVETL.Cours (idCours, idSemestre, idModule)
-SELECT te3.idCours, te3.idSemestre, te3.idModule
-FROM (SELECT idCours,
-             idSemestre,
-             idModule,
-             ROW_NUMBER() OVER (PARTITION BY idCours ORDER BY idCours) AS rn
-      FROM fievetl.cours_enseignants_data
-      WHERE idCours IS NOT NULL) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.Cours c
-                  WHERE c.idCours = te3.idCours);
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977537" ON "FIEVETL"."ETUDIANTS" ("IDETUDIANT")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO FIEVETL.UtilisateursRoles (idUtilisateur, nomRole)
-SELECT te3.IdUtilisateur, te3.role
-FROM (SELECT IdUtilisateur,
-             role,
-             ROW_NUMBER() OVER (PARTITION BY IdUtilisateur, role ORDER BY IdUtilisateur, role) AS rn
-      FROM fievetl.Utilisateurs_data
-      WHERE IdUtilisateur IS NOT NULL
-        AND role IS NOT NULL) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.UtilisateursRoles ur
-                  WHERE ur.idUtilisateur = te3.IdUtilisateur
-                    AND ur.nomRole = te3.role);
+CREATE TABLE "FIEVETL"."ETUDIANTS_DATA"
+(	"IDETUDIANT" VARCHAR2(100),
+     "NOM" VARCHAR2(100),
+     "PRENOM" VARCHAR2(100),
+     "CIVILITE" VARCHAR2(100),
+     "DATE_NAISSANCE" VARCHAR2(100),
+     "LIEU_NAISSANCE" VARCHAR2(100),
+     "DEPT_NAISSANCE" VARCHAR2(100),
+     "NATIONALITE" VARCHAR2(100),
+     "EMAIL" VARCHAR2(100),
+     "EMAILPERSO" VARCHAR2(100),
+     "DOMICILE" VARCHAR2(100),
+     "CODEPOSTALDOMICILE" VARCHAR2(100),
+     "VILLEDOMICILE" VARCHAR2(100),
+     "PAYSDOMICILE" VARCHAR2(100),
+     "TELEPHONE" VARCHAR2(100),
+     "TELEPHONEMOBILE" VARCHAR2(100),
+     "TYPEADRESSE" VARCHAR2(100),
+     "BOURSIER" VARCHAR2(100),
+     "IDADMISSION" VARCHAR2(100),
+     "ANNEEADMISSION" VARCHAR2(100),
+     "BAC" VARCHAR2(100),
+     "SPECIALITE" VARCHAR2(100),
+     "ANNEE_BAC" VARCHAR2(100),
+     "MATH" VARCHAR2(100),
+     "PHYSIQUE" VARCHAR2(100),
+     "ANGLAIS" VARCHAR2(100),
+     "FRANCAIS" VARCHAR2(100),
+     "CODELYCEE" VARCHAR2(100),
+     "NOMLYCEE" VARCHAR2(100),
+     "VILLELYCEE" VARCHAR2(100),
+     "CODEPOSTALLYCEE" VARCHAR2(100)
+) SEGMENT CREATION IMMEDIATE
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO FIEVETL.Etre_absent (idetudiant, dates, idcours, matin, justifiee, motifabsence, estabsent)
-SELECT te3.idetudiant, te3.jourabsence, te3.idCours, te3.matin, te3.estjust, te3.motifabsence, te3.estabs
-FROM (SELECT ad.idetudiant,
-             ad.jourabsence,
-             ad.idCours,
-             ad.matin,
-             ad.estjust,
-             ad.motifabsence,
-             ad.estabs,
-             ROW_NUMBER() OVER (PARTITION BY ad.idetudiant, ad.jourabsence, ad.idCours ORDER BY ad.idetudiant, ad.jourabsence, ad.idCours) AS rn
-      FROM fievetl.Absences_data ad) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.Etre_absent ea
-                  WHERE ea.idetudiant = te3.idetudiant
-                    AND ea.dates = te3.jourabsence
-                    AND ea.idcours = te3.idCours);
+CREATE TABLE "FIEVETL"."ETUDIANT_COURS_DATA"
+(	"IDETUDIANT" VARCHAR2(100),
+     "NOM" VARCHAR2(100),
+     "PRENOM" VARCHAR2(100),
+     "IDCOURS" VARCHAR2(100),
+     "IDMODULE" VARCHAR2(100),
+     "NOMMODULE" VARCHAR2(100),
+     "IDSEMESTRE" VARCHAR2(100),
+     "NUMEROSEMESTRE" VARCHAR2(100),
+     "PROMOTION" VARCHAR2(100)
+) SEGMENT CREATION IMMEDIATE
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO FIEVETL.CoursEvaluation (idCours, idEvaluation)
-SELECT te3.idCours, te3.idEvaluation
-FROM (SELECT nd.idCours,
-             nd.idEvaluation,
-             ROW_NUMBER() OVER (PARTITION BY nd.idCours, nd.idEvaluation ORDER BY nd.idCours, nd.idEvaluation) AS rn
-      FROM fievetl.notes_data nd) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.CoursEvaluation ce
-                  WHERE ce.idCours = te3.idCours
-                    AND ce.idEvaluation = te3.idEvaluation);
+CREATE TABLE "FIEVETL"."ETUDIANT_SEMESTRE_DATA"
+(	"IDETUDIANT" VARCHAR2(100),
+     "NOM" VARCHAR2(100),
+     "PRENOM" VARCHAR2(100),
+     "ETATINSCRIPTION" VARCHAR2(100),
+     "IDSEMESTRE" VARCHAR2(100),
+     "NUMEROSEMESTRE" VARCHAR2(100),
+     "PROMOTION" VARCHAR2(100),
+     "DATEDEBUTSEMESTRE" VARCHAR2(100),
+     "DATEFINSEMESTRE" VARCHAR2(100),
+     "CODETYPEFORMATION" VARCHAR2(100),
+     "NOMTYPEFORMATION" VARCHAR2(100)
+) SEGMENT CREATION IMMEDIATE
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO FIEVETL.EtudiantCours (idetudiant, idcours)
-SELECT te3.idetudiant, te3.idCours
-FROM (SELECT nc.idetudiant,
-             nc.idCours,
-             ROW_NUMBER() OVER (PARTITION BY nc.idetudiant, nc.idCours ORDER BY nc.idetudiant, nc.idCours) AS rn
-      FROM fievetl.notes_data nc) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.EtudiantCours ec
-                  WHERE ec.idetudiant = te3.idetudiant
-                    AND ec.idcours = te3.idCours);
+CREATE TABLE "FIEVETL"."ETUDIERSEMESTRE"
+(	"IDETUDIANT" VARCHAR2(100),
+     "IDSEMESTRE" VARCHAR2(50),
+     "ETATINSCRIPTION" VARCHAR2(50),
+     PRIMARY KEY ("IDETUDIANT", "IDSEMESTRE")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO FIEVETL.domicile (adresseDomicile, TypedeDomicile, CodePostale, nomVille)
-SELECT te3.domicile, te3.typeadresse, te3.codePostalDomicile, te3.villedomicile
-FROM (SELECT domicile,
-             typeadresse,
-             codePostalDomicile,
-             villedomicile,
-             ROW_NUMBER() OVER (PARTITION BY domicile ORDER BY domicile) AS rn
-      FROM fievetl.Etudiants_data
-      WHERE domicile IS NOT NULL) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.domicile d
-                  WHERE d.adresseDomicile = te3.domicile);
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977564" ON "FIEVETL"."ETUDIERSEMESTRE" ("IDETUDIANT", "IDSEMESTRE")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO FIEVETL.UtilisateursRoles (idUtilisateur, nomRole)
-SELECT IdUtilisateur, role
-FROM fievetl.Utilisateurs_data;
+CREATE TABLE "FIEVETL"."EVALUATIONS"
+(	"IDEVALUATION" VARCHAR2(50),
+     "COEFFICIENT" VARCHAR2(50),
+     "IDUTILISATEUR" VARCHAR2(50),
+     PRIMARY KEY ("IDEVALUATION")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO fievetl.Etudiants (IdEtudiant, prenomEtudiant, NomEtudiant, civilité, boursier, idAdmission, EmailEtudiant,
-                               mailPerso, numeroFix, numeroPortable, appelationBac, nomSpecialite, Annee, ANNEE_1,
-                               codeLycee, Adressedomicile, nomnationalite, nomVille, idGroupe, NomPromotion,
-                               etatinscription)
-SELECT te3.idetudiant,
-       te3.prenom,
-       te3.nom,
-       te3.civilite,
-       te3.boursier,
-       te3.idadmission,
-       te3.email,
-       te3.emailperso,
-       te3.telephone,
-       te3.telephonemobile,
-       te3.bac,
-       te3.specialite,
-       te3.annee_bac,
-       te3.anneeadmission,
-       te3.codepostalLycee,
-       te3.domicile,
-       te3.nationalite,
-       te3.lieu_naissance,
-       te3.idGroupe,
-       te3.promotion,
-       te3.etatinscription
-FROM (SELECT ed.idetudiant,
-             ed.prenom,
-             ed.nom,
-             ed.civilite,
-             ed.boursier,
-             ed.idadmission,
-             ed.email,
-             ed.emailperso,
-             ed.telephone,
-             ed.telephonemobile,
-             ed.bac,
-             ed.specialite,
-             ed.annee_bac,
-             ed.anneeadmission,
-             ed.codepostalLycee,
-             ed.domicile,
-             ed.nationalite,
-             ed.lieu_naissance,
-             gd.idGroupe,
-             es.promotion,
-             es.etatinscription,
-             ROW_NUMBER() OVER (PARTITION BY ed.idetudiant ORDER BY ed.idetudiant) AS rn
-      FROM fievetl.ETudiants_data ed
-               JOIN fievetl.Groupes_data gd ON ed.idetudiant = gd.IDetudiant
-               JOIN fievetl.Etudiant_semestre_data es ON ed.idetudiant = es.IDetudiant) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM fievetl.Etudiants e
-                  WHERE e.IdEtudiant = te3.IdEtudiant);
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977550" ON "FIEVETL"."EVALUATIONS" ("IDEVALUATION")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO FIEVETL.Etre_absent (idetudiant, dates, idcours, matin, justifiee, motifabsence, estabsent)
-SELECT te3.idetudiant, te3.JOURABSENCE, te3.idCours, te3.matin, te3.estjust, te3.motifabsence, te3.estabs
-FROM (SELECT ad.idEtudiant,
-             ad.jourabsence,
-             ad.idCours,
-             ad.matin,
-             ad.estjust,
-             ad.motifabsence,
-             ad.estabs,
-             ROW_NUMBER() OVER (PARTITION BY ad.idEtudiant, ad.jourabsence, ad.idCours ORDER BY ad.idEtudiant, ad.jourabsence, ad.idCours) AS rn
-      FROM fievetl.Absences_data ad) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.Etre_absent ea
-                  WHERE ea.idetudiant = te3.idetudiant
-                    AND ea.dates = te3.JOURABSENCE
-                    AND ea.idcours = te3.idcours);
+CREATE TABLE "FIEVETL"."GROUPES"
+(	"IDGROUPE" VARCHAR2(50),
+     "NOMGROUPE" VARCHAR2(50),
+     PRIMARY KEY ("IDGROUPE")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO FIEVETL.EtudiantCours (idetudiant, idcours)
-SELECT te3.idetudiant, te3.idcours
-FROM (SELECT nd.idetudiant,
-             nd.idCours,
-             ROW_NUMBER() OVER (PARTITION BY nd.idetudiant, nd.idCours ORDER BY nd.idetudiant, nd.idCours) AS rn
-      FROM fievetl.notes_data nd) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.EtudiantCours ec
-                  WHERE ec.idetudiant = te3.idetudiant
-                    AND ec.idcours = te3.idcours);
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977509" ON "FIEVETL"."GROUPES" ("IDGROUPE")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO FIEVETL.CoursEvaluation (idCours, idEvaluation)
-SELECT te3.idCours, te3.idEvaluation
-FROM (SELECT nd.idCours,
-             nd.idEvaluation,
-             ROW_NUMBER() OVER (PARTITION BY nd.idCours, nd.idEvaluation ORDER BY nd.idCours, nd.idEvaluation) AS rn
-      FROM fievetl.notes_data nd) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.CoursEvaluation ce
-                  WHERE ce.idCours = te3.idCours
-                    AND ce.idEvaluation = te3.idEvaluation);
+CREATE TABLE "FIEVETL"."GROUPES_DATA"
+(	"IDETUDIANT" VARCHAR2(100),
+     "NOM" VARCHAR2(100),
+     "PRENOM" VARCHAR2(100),
+     "IDGROUPE" VARCHAR2(100),
+     "NOMGROUPE" VARCHAR2(100),
+     "IDSEMESTRE" VARCHAR2(100),
+     "NUMEROSEMESTRE" VARCHAR2(100),
+     "PROMOTION" VARCHAR2(100)
+) SEGMENT CREATION IMMEDIATE
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO FIEVETL.Enseignement (idCours, idUtilisateur)
-SELECT te3.idCours, te3.idIntervenant
-FROM (SELECT ced.idCours,
-             ced.idIntervenant,
-             ROW_NUMBER() OVER (PARTITION BY ced.idCours, ced.idIntervenant ORDER BY ced.idCours, ced.idIntervenant) AS rn
-      FROM fievetl.cours_enseignants_data ced) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.Enseignement e
-                  WHERE e.idCours = te3.idCours
-                    AND e.idUtilisateur = te3.idIntervenant);
+CREATE TABLE "FIEVETL"."LYCEES"
+(	"CODELYCEE" VARCHAR2(100),
+     "NOMLYCEE" VARCHAR2(100),
+     "CODEPOSTALE" NUMBER(*,0),
+     "NOMVILLE" VARCHAR2(100),
+     PRIMARY KEY ("CODELYCEE")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO FIEVETL.AssoVilleCodePostal (nomVille, codePostale)
-SELECT te3.villeDomicile, te3.codePostalDomicile
-FROM (SELECT villeDomicile,
-             codePostalDomicile,
-             ROW_NUMBER() OVER (PARTITION BY villeDomicile, codePostalDomicile ORDER BY villeDomicile, codePostalDomicile) AS rn
-      FROM fievetl.Etudiants_data) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.AssoVilleCodePostal avc
-                  WHERE avc.nomVille = te3.villeDomicile
-                    AND avc.codePostale = te3.codePostalDomicile);
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977541" ON "FIEVETL"."LYCEES" ("CODELYCEE")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO FIEVETL.AssoVilleCodePostal (nomVille, codePostale)
-SELECT te3.villelycee, te3.codepostallycee
-FROM (SELECT villelycee,
-             codepostallycee,
-             ROW_NUMBER() OVER (PARTITION BY villelycee, codepostallycee ORDER BY villelycee, codepostallycee) AS rn
-      FROM fievetl.Etudiants_data) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.AssoVilleCodePostal avc
-                  WHERE avc.nomVille = te3.villelycee
-                    AND avc.codePostale = te3.codepostallycee);
+CREATE TABLE "FIEVETL"."MODULES"
+(	"IDMODULE" VARCHAR2(50),
+     "HEURECM" VARCHAR2(50),
+     "HEURETD" VARCHAR2(50),
+     "HEURETP" VARCHAR2(50),
+     "COEFFICIENT" VARCHAR2(50),
+     "NOMMODULE" VARCHAR2(50),
+     "CODEMODULE" VARCHAR2(50),
+     PRIMARY KEY ("IDMODULE")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO FIEVETL.AssoVilleCodePostal (nomVille, codePostale)
-SELECT te3.villeDomicile, te3.codePostalDomicile
-FROM (SELECT villeDomicile,
-             codePostalDomicile,
-             ROW_NUMBER() OVER (PARTITION BY villeDomicile, codePostalDomicile ORDER BY villeDomicile, codePostalDomicile) AS rn
-      FROM fievetl.Etudiants_data) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.AssoVilleCodePostal avc
-                  WHERE avc.nomVille = te3.villeDomicile
-                    AND avc.codePostale = te3.codePostalDomicile);
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977507" ON "FIEVETL"."MODULES" ("IDMODULE")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO FIEVETL.etre_intervenant (idModule, idUtilisateur)
-SELECT te3.idModule, te3.idIntervenant
-FROM (SELECT idModule,
-             idIntervenant,
-             ROW_NUMBER() OVER (PARTITION BY idModule, idIntervenant ORDER BY idModule, idIntervenant) AS rn
-      FROM fievetl.cours_enseignants_data) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.etre_intervenant ei
-                  WHERE ei.idModule = te3.idModule
-                    AND ei.idUtilisateur = te3.idIntervenant);
+CREATE TABLE "FIEVETL"."NOTES_DATA"
+(	"IDETUDIANT" VARCHAR2(100),
+     "NOM" VARCHAR2(100),
+     "PRENOM" VARCHAR2(100),
+     "NOTE" VARCHAR2(100),
+     "IDEVALUATION" VARCHAR2(100),
+     "COEFFICIENT" VARCHAR2(100),
+     "NOTE_MAX" VARCHAR2(100),
+     "IDCOURS" VARCHAR2(100),
+     "IDMODULE" VARCHAR2(100),
+     "NOMMODULE" VARCHAR2(100),
+     "IDSEMESTRE" VARCHAR2(100),
+     "PROMOTION" VARCHAR2(100),
+     "NUMSEMESTRE" VARCHAR2(100),
+     "IDUTILISATEUR" VARCHAR2(100),
+     "NOMUTILISATEUR" VARCHAR2(100),
+     "PRENOMUTILISATEUR" VARCHAR2(100)
+) SEGMENT CREATION IMMEDIATE
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "ANNEE1" ;
+;
 
-INSERT INTO FIEVETL.noter (idEtudiant, idEvaluation, note)
-SELECT te3.idEtudiant, te3.idEvaluation, te3.note
-FROM (SELECT idEtudiant,
-             idEvaluation,
-             note,
-             ROW_NUMBER() OVER (PARTITION BY idEtudiant, idEvaluation ORDER BY idEtudiant, idEvaluation) AS rn
-      FROM fievetl.notes_data) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.noter n
-                  WHERE n.idEtudiant = te3.idEtudiant
-                    AND n.idEvaluation = te3.idEvaluation);
+CREATE TABLE "FIEVETL"."PAYS"
+(	"NOMPAYS" VARCHAR2(50),
+     PRIMARY KEY ("NOMPAYS")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
 
-INSERT INTO FIEVETL.bacNote (IdEtudiant, matiere, note)
-SELECT te3.IdEtudiant, te3.matiere, te3.note
-FROM (SELECT IdEtudiant,
-             matiere,
-             note,
-             ROW_NUMBER() OVER (PARTITION BY IdEtudiant, matiere ORDER BY IdEtudiant, matiere) AS rn
-      FROM (SELECT IdEtudiant, 'Francais' AS matiere, Francais AS note
-            FROM fievetl.etudiants_data
-            UNION ALL
-            SELECT IdEtudiant, 'Anglais' AS matiere, anglais AS note
-            FROM fievetl.etudiants_data
-            UNION ALL
-            SELECT IdEtudiant, 'Physique' AS matiere, physique AS note
-            FROM fievetl.etudiants_data
-            UNION ALL
-            SELECT IdEtudiant, 'Math' AS matiere, math AS note
-            FROM fievetl.etudiants_data) data) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (SELECT 1
-                  FROM FIEVETL.bacNote b
-                  WHERE b.IdEtudiant = te3.IdEtudiant
-                    AND b.matiere = te3.matiere);
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977517" ON "FIEVETL"."PAYS" ("NOMPAYS")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
+
+CREATE TABLE "FIEVETL"."POSTALE"
+(	"CODEPOSTALE" NUMBER(*,0),
+     PRIMARY KEY ("CODEPOSTALE")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
+
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977514" ON "FIEVETL"."POSTALE" ("CODEPOSTALE")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
+
+CREATE TABLE "FIEVETL"."ROLES"
+(	"NOMROLE" VARCHAR2(50),
+     PRIMARY KEY ("NOMROLE")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
+
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977516" ON "FIEVETL"."ROLES" ("NOMROLE")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
+
+CREATE TABLE "FIEVETL"."SEMESTRE"
+(	"IDSEMESTRE" VARCHAR2(50),
+     "NUMEROSEMESTRE" VARCHAR2(50),
+     "DATEDEBUT" VARCHAR2(50),
+     "DATEFIN" VARCHAR2(50),
+     "NOMPROMOTION" VARCHAR2(50),
+     PRIMARY KEY ("IDSEMESTRE")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
+
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977510" ON "FIEVETL"."SEMESTRE" ("IDSEMESTRE")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
+
+CREATE TABLE "FIEVETL"."SPECIALITES"
+(	"NOMSPECIALITE" VARCHAR2(50),
+     PRIMARY KEY ("NOMSPECIALITE")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
+
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977503" ON "FIEVETL"."SPECIALITES" ("NOMSPECIALITE")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
+
+CREATE TABLE "FIEVETL"."TEMPS"
+(	"MATIN" VARCHAR2(50),
+     PRIMARY KEY ("MATIN")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
+
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977519" ON "FIEVETL"."TEMPS" ("MATIN")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
+
+CREATE TABLE "FIEVETL"."TYPEDOMICILE"
+(	"TYPEDEDOMICILE" VARCHAR2(50),
+     PRIMARY KEY ("TYPEDEDOMICILE")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
+
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977513" ON "FIEVETL"."TYPEDOMICILE" ("TYPEDEDOMICILE")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
+
+CREATE TABLE "FIEVETL"."TYPEENSEIGNANT"
+(	"TYPEENSEIGNANT" VARCHAR2(50),
+     PRIMARY KEY ("TYPEENSEIGNANT")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
+
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977515" ON "FIEVETL"."TYPEENSEIGNANT" ("TYPEENSEIGNANT")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
+
+CREATE TABLE "FIEVETL"."TYPEFORMATION"
+(	"CODETYPEFORMATION" VARCHAR2(50),
+     "NOMTYPEFORMATION" VARCHAR2(50),
+     PRIMARY KEY ("CODETYPEFORMATION")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
+
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977508" ON "FIEVETL"."TYPEFORMATION" ("CODETYPEFORMATION")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
+
+CREATE TABLE "FIEVETL"."UE"
+(	"IDUE" VARCHAR2(50),
+     "CODEUE" VARCHAR2(100),
+     "NOMUE" VARCHAR2(100),
+     "COEFFICIENTUE" VARCHAR2(50),
+     "NOMBREECTS" VARCHAR2(50),
+     PRIMARY KEY ("IDUE")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
+
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977511" ON "FIEVETL"."UE" ("IDUE")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
+
+CREATE TABLE "FIEVETL"."UTILISATEURS"
+(	"IDUTILISATEUR" VARCHAR2(50),
+     "PRENOMUTILISATEUR" VARCHAR2(50),
+     "NOMUTILISATEUR" VARCHAR2(50),
+     "MAILUTILISATEUR" VARCHAR2(50),
+     "TYPEENSEIGNANT" VARCHAR2(50),
+     "NUMBUREAU" VARCHAR2(50),
+     PRIMARY KEY ("IDUTILISATEUR")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
+
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977523" ON "FIEVETL"."UTILISATEURS" ("IDUTILISATEUR")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
+
+CREATE TABLE "FIEVETL"."UTILISATEURSROLES"
+(	"IDUTILISATEUR" VARCHAR2(50),
+     "NOMROLE" VARCHAR2(50),
+     PRIMARY KEY ("IDUTILISATEUR", "NOMROLE")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
+
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977567" ON "FIEVETL"."UTILISATEURSROLES" ("IDUTILISATEUR", "NOMROLE")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
+
+CREATE TABLE "FIEVETL"."UTILISATEURS_DATA"
+(	"IDUTILISATEUR" VARCHAR2(100),
+     "NOM" VARCHAR2(100),
+     "PRENOM" VARCHAR2(100),
+     "EMAIL" VARCHAR2(100),
+     "TYPEENSEIGNANT" VARCHAR2(100),
+     "NUMBUREAU" VARCHAR2(100),
+     "TELEPHONEBUREAU" VARCHAR2(100),
+     "ROLE" VARCHAR2(100)
+) SEGMENT CREATION IMMEDIATE
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "ANNEE1" ;
+;
+
+CREATE TABLE "FIEVETL"."VILLES"
+(	"NOMVILLE" VARCHAR2(100),
+     "NOMPAYS" VARCHAR2(50),
+     "NOMDEPARTEMENT" VARCHAR2(50),
+     PRIMARY KEY ("NOMVILLE")
+         USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255
+         TABLESPACE "ANNEE1"  ENABLE
+) SEGMENT CREATION DEFERRED
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "ANNEE1" ;
+
+CREATE UNIQUE INDEX "FIEVETL"."SYS_C00977520" ON "FIEVETL"."VILLES" ("NOMVILLE")
+    PCTFREE 10 INITRANS 2 MAXTRANS 255
+  TABLESPACE "ANNEE1" ;
+;
