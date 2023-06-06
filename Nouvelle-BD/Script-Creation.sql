@@ -194,7 +194,7 @@ CREATE TABLE Cours(
 );
 
 CREATE TABLE EtreAbsent(
-                           idAbsence INT,
+                           idAbsence NUMBER(10) NOT NULL,
                            Justifiee VARCHAR(100),
                            MotifAbsence VARCHAR(100),
                            EstAbsent VARCHAR(100),
