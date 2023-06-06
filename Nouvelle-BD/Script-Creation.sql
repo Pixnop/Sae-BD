@@ -307,3 +307,17 @@ CREATE TABLE EtreForme(
                           FOREIGN KEY(CodeTypeFormation) REFERENCES TypeFormation(CodeTypeFormation),
                           FOREIGN KEY(IdSemestre) REFERENCES Semestre(IdSemestre)
 );
+
+CREATE SEQUENCE seq_idAbsence
+    START WITH 1
+    INCREMENT BY 1;
+
+CREATE OR REPLACE TRIGGER trg_idAbsence
+    BEFORE INSERT ON FIEVETL.EtreAbsent
+    FOR EACH ROW
+BEGIN
+    SELECT seq_idAbsence.nextval
+    INTO :new.idAbsence
+    FROM dual;
+END;
+/
