@@ -1,14 +1,3 @@
-CREATE SEQUENCE idBidonAbsence
-    START WITH 1
-    INCREMENT BY 1
-    NOMAXVALUE;
-
-CREATE OR REPLACE TRIGGER TriggerAbsence
-    BEFORE INSERT ON FIEVETL.EtreAbsent
-    FOR EACH ROW
-BEGIN
-    SELECT idBidonAbsence.NEXTVAL INTO : NEW.IdAbsence FROM DUAL;
-END;
 
 --specialites
 INSERT INTO FIEVETL.SPECIALITES
@@ -259,15 +248,6 @@ WHERE IDADMISSION is not null AND IDADMISSION IN (
     SELECT DISTINCT IDADMISSION FROM FIEVETL.ETUDIANTS_DATA MINUS SELECT DISTINCT IDADMISSION FROM FIEVETL.ADMISSIONS);
 commit;
 
---Temps
-INSERT INTO fievetl.MATIN (MATIN)
-SELECT DISTINCT MATIN
-FROM fievetl.Absences_data
-WHERE MATIN IN (SELECT MATIN
-                FROM fievetl.Absences_data
-                minus
-                SELECT MATIN
-                FROM fievetl.MATIN);
 
 --Villes
 INSERT INTO fievetl.Villes
@@ -407,26 +387,32 @@ FROM (SELECT CODELYCEE,
 WHERE te3.rn = 1 and not exists (select 1 from FIEVETL.lycees l where l.CODELYCEE = te3.CODELYCEE);
 commit;
 
---cours--
-INSERT INTO FIEVETL.EtreAbsent (IdEtudiant, Dates, Matin, Justifiee, MotifAbsence, EstAbsent, IdCours)
-SELECT DISTINCT te3.idEtudiant, te3.JOURABSENCE, te3.Matin, te3.ESTJUST, te3.MotifAbsence, te3.ESTABS, te3.IdCours
+--EtreAbsent--
+CREATE SEQUENCE idBidonAbsence
+    START WITH 1
+    INCREMENT BY 1
+    NOMAXVALUE;
+
+CREATE OR REPLACE TRIGGER TriggerAbsence
+    BEFORE INSERT ON FIEVETL.EtreAbsent
+    FOR EACH ROW
+BEGIN
+    SELECT idBidonAbsence.NEXTVAL INTO : NEW.IdAbsence FROM DUAL;
+END;
+commit;
+
+INSERT INTO FIEVETL.EtreAbsent (IDABSENCE, Justifiee, MotifAbsence, EstAbsent, Matin, IdCours, IdEtudiant, Dates)
+SELECT DISTINCT idBidonAbsence.nextval,te3.ESTJUST ,te3.MotifAbsence, te3.ESTABS, te3.Matin, te3.IdCours,te3.IDETUDIANT, te3.JOURABSENCE
 FROM (
-         SELECT idEtudiant, JOURABSENCE, Matin, ESTJUST, MotifAbsence, ESTABS, IdCours,
-                ROW_NUMBER() OVER (PARTITION BY idEtudiant, JOURABSENCE, Matin ORDER BY idEtudiant) AS rn
+         SELECT idBidonAbsence.nextval,ESTJUST ,MotifAbsence, ESTABS, Matin, IdCours,IDETUDIANT, JOURABSENCE
          FROM fievetl.Absences_data
          WHERE idEtudiant IS NOT NULL
-     ) te3
-WHERE te3.rn = 1
-  AND NOT EXISTS (
-    SELECT 1
-    FROM FIEVETL.EtreAbsent ea
-    WHERE ea.IdEtudiant = te3.idEtudiant
-      AND ea.Dates = te3.JOURABSENCE
-      AND ea.Matin = te3.Matin
-);
+     ) te3;
 
 COMMIT;
 
+
+--Cours--
 INSERT INTO FIEVETL.Cours (IDCOURS, IDUTILISATEUR, IDSEMESTRE, IDMODULE)
 SELECT DISTINCT IDCOURS, null ,IDSEMESTRE, IDMODULE
 FROM fievetl.NOTES_DATA
