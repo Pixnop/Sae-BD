@@ -4,18 +4,7 @@
     <option name="dataSources">
       <list>
         <State>
-          <option name="id" value="88a247c8-97ce-47c8-964a-dedb9ceda626" />
-          <option name="name" value="DDL data source" />
-          <option name="dbmsName" value="ORACLE" />
-          <option name="urls">
-            <array>
-              <option value="file://$PROJECT_DIR$/Ancienne-BD/Script-Inteij.sql" />
-            </array>
-          </option>
-          <option name="outLayout" value="File per object by schema.groovy" />
-        </State>
-        <State>
-          <option name="id" value="e75f99d8-488f-414d-8504-2d2d94a55ccb" />
+          <option name="id" value="9d64c661-ba7b-461b-b6d3-a31e39ea19d6" />
           <option name="name" value="DDL data source" />
           <option name="dbmsName" value="ORACLE" />
           <option name="urls">

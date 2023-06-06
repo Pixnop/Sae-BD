@@ -18,6 +18,17 @@ CREATE TABLE Dates(
                       PRIMARY KEY(Dates)
 );
 
+CREATE TABLE Modules(
+                        IdModule VARCHAR(100),
+                        HeureCM VARCHAR(100),
+                        HeureTD VARCHAR(100),
+                        HeureTP VARCHAR(100),
+                        Coefficient VARCHAR(100),
+                        NomModule VARCHAR(100),
+                        CodeModule VARCHAR(100),
+                        PRIMARY KEY(IdModule)
+);
+
 CREATE TABLE TypeFormation(
                               CodeTypeFormation VARCHAR(100),
                               NomTypeFormation VARCHAR(100),
@@ -82,6 +93,11 @@ CREATE TABLE Pays(
 CREATE TABLE Annee(
                       Annee VARCHAR(100),
                       PRIMARY KEY(Annee)
+);
+
+CREATE TABLE Temps(
+                      Matin VARCHAR(100),
+                      PRIMARY KEY(Matin)
 );
 
 CREATE TABLE Villes(
@@ -149,24 +165,13 @@ CREATE TABLE Lycees(
                        FOREIGN KEY(NomVille) REFERENCES Villes(NomVille)
 );
 
-CREATE TABLE Modules(
-                        IdModule VARCHAR(100),
-                        HeureCM VARCHAR(100),
-                        HeureTD VARCHAR(100),
-                        HeureTP VARCHAR(100),
-                        Coefficient VARCHAR(100),
-                        NomModule VARCHAR(100),
-                        CodeModule VARCHAR(100),
-                        IdUtilisateur VARCHAR(100),
-                        PRIMARY KEY(IdModule),
-                        FOREIGN KEY(IdUtilisateur) REFERENCES Utilisateurs(IdUtilisateur)
-);
-
 CREATE TABLE Cours(
                       IdCours VARCHAR(100),
+                      IdUtilisateur VARCHAR(100),
                       IdSemestre VARCHAR(100) NOT NULL,
                       IdModule VARCHAR(100) NOT NULL,
                       PRIMARY KEY(IdCours),
+                      FOREIGN KEY(IdUtilisateur) REFERENCES Utilisateurs(IdUtilisateur),
                       FOREIGN KEY(IdSemestre) REFERENCES Semestre(IdSemestre),
                       FOREIGN KEY(IdModule) REFERENCES Modules(IdModule)
 );
@@ -230,18 +235,19 @@ CREATE TABLE UtilisateursRoles(
                                   FOREIGN KEY(NomRole) REFERENCES Roles(NomRole)
 );
 
-CREATE TABLE Etre_absent(
-                            Dates VARCHAR(100),
-                            IdCours VARCHAR(100),
-                            Matin VARCHAR(100),
-                            Justifiee VARCHAR(100),
-                            MotifAbsence VARCHAR(100),
-                            EstAbsent VARCHAR(100),
-                            IdEtudiant VARCHAR(100) NOT NULL,
-                            PRIMARY KEY(Dates, IdCours),
-                            FOREIGN KEY(Dates) REFERENCES Dates(Dates),
-                            FOREIGN KEY(IdCours) REFERENCES Cours(IdCours),
-                            FOREIGN KEY(IdEtudiant) REFERENCES Etudiants(IdEtudiant)
+CREATE TABLE EtreAbsent(
+                           IdEtudiant VARCHAR(100),
+                           Dates VARCHAR(100),
+                           IdCours VARCHAR(100),
+                           Matin VARCHAR(100),
+                           Justifiee VARCHAR(100),
+                           MotifAbsence VARCHAR(100),
+                           EstAbsent VARCHAR(100),
+                           PRIMARY KEY(IdEtudiant, Dates, IdCours, Matin),
+                           FOREIGN KEY(IdEtudiant) REFERENCES Etudiants(IdEtudiant),
+                           FOREIGN KEY(Dates) REFERENCES Dates(Dates),
+                           FOREIGN KEY(IdCours) REFERENCES Cours(IdCours),
+                           FOREIGN KEY(Matin) REFERENCES Temps(Matin)
 );
 
 CREATE TABLE EtudiantCours(
@@ -261,10 +267,10 @@ CREATE TABLE AssoModule(
 );
 
 CREATE TABLE Enseignement(
-                             IdCours VARCHAR(100),
+                             IdCours_Enseignant VARCHAR(100),
                              IdUtilisateur VARCHAR(100),
-                             PRIMARY KEY(IdCours, IdUtilisateur),
-                             FOREIGN KEY(IdCours) REFERENCES Cours(IdCours),
+                             PRIMARY KEY(IdCours_Enseignant, IdUtilisateur),
+                             FOREIGN KEY(IdCours_Enseignant) REFERENCES Cours(IdCours),
                              FOREIGN KEY(IdUtilisateur) REFERENCES Utilisateurs(IdUtilisateur)
 );
 
@@ -284,12 +290,12 @@ CREATE TABLE AssoVilleCodePostal(
                                     FOREIGN KEY(CodePostale) REFERENCES Postale(CodePostale)
 );
 
-CREATE TABLE etre_intervenant(
-                                 IdCours VARCHAR(100),
-                                 IdUtilisateur VARCHAR(100),
-                                 PRIMARY KEY(IdCours, IdUtilisateur),
-                                 FOREIGN KEY(IdCours) REFERENCES Cours(IdCours),
-                                 FOREIGN KEY(IdUtilisateur) REFERENCES Utilisateurs(IdUtilisateur)
+CREATE TABLE etreIntervenant(
+                                IdCours_Intervenant VARCHAR(100),
+                                IdUtilisateur VARCHAR(100),
+                                PRIMARY KEY(IdCours_Intervenant, IdUtilisateur),
+                                FOREIGN KEY(IdCours_Intervenant) REFERENCES Cours(IdCours),
+                                FOREIGN KEY(IdUtilisateur) REFERENCES Utilisateurs(IdUtilisateur)
 );
 
 CREATE TABLE noter(
