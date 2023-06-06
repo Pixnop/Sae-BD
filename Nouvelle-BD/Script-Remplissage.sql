@@ -113,7 +113,7 @@ commit;
 INSERT INTO fievetl.Semestre
 SELECT DISTINCT IdSemestre, NUMSEMESTRE, null, null, PROMOTION
 FROM fievetl.COURS_ENSEIGNANTS_DATA
-WHERE IdSemestre IN (SELECT IdSemestre FROM COURS_ENSEIGNANTS_DATA
+WHERE IdSemestre IN (SELECT IdSemestre FROM FIEVETL.COURS_ENSEIGNANTS_DATA
                                        MINUS SELECT IdSemestre FROM fievetl.Semestre )
   AND IdSemestre IS NOT NULL;
 commit;
@@ -121,7 +121,7 @@ commit;
 INSERT INTO fievetl.Semestre
 SELECT DISTINCT IdSemestre, NUMSEMESTRE, null, null, PROMOTION
 FROM fievetl.NOTES_DATA
-WHERE IdSemestre IN (SELECT IdSemestre FROM NOTES_DATA
+WHERE IdSemestre IN (SELECT IdSemestre FROM FIEVETL.NOTES_DATA
                                        MINUS SELECT IdSemestre FROM fievetl.Semestre )
   AND IdSemestre IS NOT NULL;
 commit;
@@ -129,7 +129,7 @@ commit;
 INSERT INTO fievetl.Semestre
 SELECT DISTINCT IdSemestre, NUMSEMESTRE, null, null, PROMOTION
 FROM fievetl.Absences_DATA
-WHERE IdSemestre IN (SELECT IdSemestre FROM Absences_DATA
+WHERE IdSemestre IN (SELECT IdSemestre FROM FIEVETL.Absences_DATA
                                        MINUS SELECT IdSemestre FROM fievetl.Semestre )
   AND IdSemestre IS NOT NULL;
 commit;
@@ -137,7 +137,7 @@ commit;
 INSERT INTO fievetl.Semestre
 SELECT DISTINCT IdSemestre, NUMEROSEMESTRE, null, null, PROMOTION
 FROM fievetl.ETUDIANT_COURS_DATA
-WHERE IdSemestre IN (SELECT IdSemestre FROM ETUDIANT_COURS_DATA
+WHERE IdSemestre IN (SELECT IdSemestre FROM FIEVETL.ETUDIANT_COURS_DATA
                                        MINUS SELECT IdSemestre FROM fievetl.Semestre )
   AND IdSemestre IS NOT NULL;
 commit;
