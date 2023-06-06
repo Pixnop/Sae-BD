@@ -179,7 +179,7 @@ CREATE TABLE Cours(
 CREATE TABLE Evaluations(
                             IdEvaluation VARCHAR(100),
                             Coefficient VARCHAR(100),
-                            IdUtilisateur VARCHAR(100) NOT NULL,
+                            IdUtilisateur VARCHAR(100),
                             IdCours VARCHAR(100),
                             PRIMARY KEY(IdEvaluation),
                             FOREIGN KEY(IdUtilisateur) REFERENCES Utilisateurs(IdUtilisateur),
@@ -187,7 +187,7 @@ CREATE TABLE Evaluations(
 );
 
 CREATE TABLE Admissions(
-                           IdAdmission DECIMAL(15,10),
+                           IdAdmission VARCHAR(100),
                            NoteFrancais VARCHAR(100),
                            NoteAnglais VARCHAR(100),
                            NotePhysique VARCHAR(100),
@@ -204,14 +204,14 @@ CREATE TABLE Admissions(
 
 CREATE TABLE AvoirEtudie(
                             CodeLycee VARCHAR(100),
-                            IdAdmission DECIMAL(15,10),
+                            IdAdmission VARCHAR(100),
                             PRIMARY KEY(CodeLycee, IdAdmission),
                             FOREIGN KEY(CodeLycee) REFERENCES Lycees(CodeLycee),
                             FOREIGN KEY(IdAdmission) REFERENCES Admissions(IdAdmission)
 );
 
 CREATE TABLE AssoAnneeAdmission(
-                                   IdAdmission DECIMAL(15,10),
+                                   IdAdmission VARCHAR(100),
                                    Annee VARCHAR(100),
                                    PRIMARY KEY(IdAdmission, Annee),
                                    FOREIGN KEY(IdAdmission) REFERENCES Admissions(IdAdmission),
@@ -275,7 +275,7 @@ CREATE TABLE Enseignement(
 );
 
 CREATE TABLE AssoBacAnnee(
-                             IdAdmission DECIMAL(15,10),
+                             IdAdmission VARCHAR(100),
                              Annee VARCHAR(100),
                              PRIMARY KEY(IdAdmission, Annee),
                              FOREIGN KEY(IdAdmission) REFERENCES Admissions(IdAdmission),
