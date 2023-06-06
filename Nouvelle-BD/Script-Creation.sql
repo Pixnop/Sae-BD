@@ -50,6 +50,12 @@ CREATE TABLE Semestre(
                          PRIMARY KEY(IdSemestre)
 );
 
+CREATE TABLE Evaluations(
+                            IdEvaluation VARCHAR(100),
+                            Coefficient VARCHAR(100),
+                            PRIMARY KEY(IdEvaluation)
+);
+
 CREATE TABLE UE(
                    IdUe VARCHAR(100),
                    CodeUE VARCHAR(100),
@@ -176,14 +182,6 @@ CREATE TABLE Cours(
                       FOREIGN KEY(IdModule) REFERENCES Modules(IdModule)
 );
 
-CREATE TABLE Evaluations(
-                            IdEvaluation VARCHAR(100),
-                            Coefficient VARCHAR(100),
-                            IdUtilisateur VARCHAR(100),
-                            PRIMARY KEY(IdEvaluation),
-                            FOREIGN KEY(IdUtilisateur) REFERENCES Utilisateurs(IdUtilisateur)
-);
-
 CREATE TABLE Admissions(
                            IdAdmission VARCHAR(100),
                            NoteFrancais VARCHAR(100),
@@ -265,6 +263,14 @@ CREATE TABLE AssoModule(
                            PRIMARY KEY(IdModule, IdUe),
                            FOREIGN KEY(IdModule) REFERENCES Modules(IdModule),
                            FOREIGN KEY(IdUe) REFERENCES UE(IdUe)
+);
+
+CREATE TABLE EvaluerParUtilisateur(
+                                      IdEvaluation VARCHAR(100),
+                                      IdUtilisateur VARCHAR(100),
+                                      PRIMARY KEY(IdEvaluation, IdUtilisateur),
+                                      FOREIGN KEY(IdEvaluation) REFERENCES Evaluations(IdEvaluation),
+                                      FOREIGN KEY(IdUtilisateur) REFERENCES Utilisateurs(IdUtilisateur)
 );
 
 CREATE TABLE Enseignement(
