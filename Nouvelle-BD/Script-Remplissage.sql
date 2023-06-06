@@ -239,6 +239,14 @@ WHERE ANNEEADMISSION IN (SELECT ANNEEADMISSION
                          FROM fievetl.annee);
 commit;
 
+--Admissions
+INSERT INTO FIEVETL.ADMISSIONS
+SELECT ed.idadmission, ed.Francais, ed.Anglais, ed.physique, ed.math, ed.specialite, ed.bac
+FROM FIEVETL.ETUDIANTS_DATA ed
+WHERE IDADMISSION is not null AND IDADMISSION IN (
+    SELECT DISTINCT IDADMISSION FROM FIEVETL.ETUDIANTS_DATA MINUS SELECT DISTINCT IDADMISSION FROM FIEVETL.ADMISSIONS);
+commit;
+
 --Temps
 INSERT INTO fievetl.Temps (MATIN)
 SELECT DISTINCT MATIN
@@ -330,7 +338,7 @@ commit;
 
 --etudiants--
 INSERT INTO fievetl.Etudiants (IdEtudiant, prenomEtudiant, NomEtudiant, civilité,NOMNATIONALITE,DATENAISSANCE, boursier, EmailEtudiant,
-                               mailPerso, numeroFix,ETATINSCRIPTION, numeroPortable,idGroupe,
+                               mailPerso, numeroFix,ETATINSCRIPTION, numeroPortable,IdAdmission_1,idGroupe,
                                Adressedomicile,nomVille)
 SELECT te3.idetudiant,
        te3.prenom,
@@ -344,6 +352,7 @@ SELECT te3.idetudiant,
        te3.telephone,
        te3.ETATINSCRIPTION,
        te3.telephonemobile,
+       te3.idAdmission,
        te3.idGroupe,
        te3.domicile,
        te3.lieu_naissance
@@ -359,6 +368,7 @@ FROM (SELECT ed.idetudiant,
              ed.telephone,
              es.ETATINSCRIPTION,
              ed.telephonemobile,
+             ed.idAdmission,
              gd.idGroupe,
              ed.domicile,
              ed.lieu_naissance,
@@ -422,15 +432,6 @@ WHERE IDCOURS IS NOT NULL AND IDSEMESTRE IS NOT NULL AND IDMODULE IS NOT NULL
 AND IDCOURS IN (SELECT DISTINCT IDCOURS FROM FIEVETL.ABSENCES_DATA MINUS SELECT DISTINCT IDCOURS FROM FIEVETL.COURS);
 commit;
 
-
---Admissions
-INSERT INTO FIEVETL.ADMISSIONS
-SELECT ed.idadmission, ed.Francais, ed.Anglais, ed.physique, ed.math, ed.specialite, ed.bac, ed.idEtudiant
-FROM FIEVETL.ETUDIANTS_DATA ed
-WHERE IDADMISSION is not null AND IDETUDIANT is not null AND IDADMISSION IN (
-SELECT DISTINCT IDADMISSION FROM FIEVETL.ETUDIANTS_DATA MINUS SELECT DISTINCT IDADMISSION FROM FIEVETL.ADMISSIONS)
-and IDETUDIANT IN (SELECT DISTINCT IDETUDIANT FROM FIEVETL.ETUDIANTS_DATA MINUS SELECT DISTINCT IDETUDIANT FROM FIEVETL.ADMISSIONS);
-commit;
 
 --AvoirEtudie
 INSERT INTO FIEVETL.AVOIRETUDIE

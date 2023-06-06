@@ -101,6 +101,19 @@ CREATE TABLE Annee(
                       PRIMARY KEY(Annee)
 );
 
+CREATE TABLE Admissions(
+                           IdAdmission VARCHAR(100),
+                           NoteFrancais VARCHAR(100),
+                           NoteAnglais VARCHAR(100),
+                           NotePhysique VARCHAR(100),
+                           NoteMath VARCHAR(100),
+                           NomSpecialite VARCHAR(100),
+                           AppelationBac VARCHAR(100),
+                           PRIMARY KEY(IdAdmission),
+                           FOREIGN KEY(NomSpecialite) REFERENCES Specialites(NomSpecialite),
+                           FOREIGN KEY(AppelationBac) REFERENCES Bac(AppelationBac)
+);
+
 CREATE TABLE Temps(
                       Matin VARCHAR(100),
                       PRIMARY KEY(Matin)
@@ -152,10 +165,13 @@ CREATE TABLE Etudiants(
                           NumeroFix VARCHAR(100) NOT NULL,
                           EtatInscription VARCHAR(100),
                           NumeroPortable VARCHAR(100),
+                          IdAdmission_1 VARCHAR(100),
                           IdGroupe VARCHAR(100),
                           AdresseDomicile VARCHAR(100) NOT NULL,
                           NomVille VARCHAR(100) NOT NULL,
                           PRIMARY KEY(IdEtudiant),
+                          UNIQUE(IdAdmission_1),
+                          FOREIGN KEY(IdAdmission_1) REFERENCES Admissions(IdAdmission),
                           FOREIGN KEY(IdGroupe) REFERENCES Groupes(IdGroupe),
                           FOREIGN KEY(AdresseDomicile) REFERENCES Domicile(AdresseDomicile),
                           FOREIGN KEY(NomVille) REFERENCES Villes(NomVille)
@@ -180,22 +196,6 @@ CREATE TABLE Cours(
                       FOREIGN KEY(IdUtilisateur) REFERENCES Utilisateurs(IdUtilisateur),
                       FOREIGN KEY(IdSemestre) REFERENCES Semestre(IdSemestre),
                       FOREIGN KEY(IdModule) REFERENCES Modules(IdModule)
-);
-
-CREATE TABLE Admissions(
-                           IdAdmission VARCHAR(100),
-                           NoteFrancais VARCHAR(100),
-                           NoteAnglais VARCHAR(100),
-                           NotePhysique VARCHAR(100),
-                           NoteMath VARCHAR(100),
-                           NomSpecialite VARCHAR(100),
-                           AppelationBac VARCHAR(100),
-                           IdEtudiant VARCHAR(100) NOT NULL,
-                           PRIMARY KEY(IdAdmission),
-                           UNIQUE(IdEtudiant),
-                           FOREIGN KEY(NomSpecialite) REFERENCES Specialites(NomSpecialite),
-                           FOREIGN KEY(AppelationBac) REFERENCES Bac(AppelationBac),
-                           FOREIGN KEY(IdEtudiant) REFERENCES Etudiants(IdEtudiant)
 );
 
 CREATE TABLE AvoirEtudie(
