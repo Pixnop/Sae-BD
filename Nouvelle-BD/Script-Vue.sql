@@ -104,7 +104,7 @@ SELECT
     m.IdModule,
     m.NomModule,
     b.APPELATIONBAC,
-    AVG(ec.note) AS MoyenneEtudiants
+    AVG(st.ScoreTotal * 20) AS MoyenneEtudiants
 FROM
     FIEVETL.EtudiantCours ec
         JOIN
@@ -117,10 +117,13 @@ FROM
     FIEVETL.ADMISSIONS a ON e.IDADMISSION = a.IDADMISSION
         JOIN
     FIEVETL.BAC b ON a.APPELATIONBAC = b.APPELATIONBAC
+        JOIN
+    (SELECT * FROM ScoreTotal) st ON e.IdEtudiant = st.IdEtudiant
 GROUP BY
     m.IdModule,
     m.NomModule,
     b.APPELATIONBAC;
+
 
 
 
