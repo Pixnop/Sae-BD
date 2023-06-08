@@ -28,7 +28,7 @@ SELECT IdEtudiant, DateOfBirth,
         WHEN MONTH(DateOfBirth) = 11 AND DAY(DateOfBirth) >= 22 OR MONTH(DateOfBirth) = 12 AND DAY(DateOfBirth) <= 21 THEN 'Sagittarius'
         ELSE 'Capricorn'
     END AS SigneAstro
-FROM Etudiants;
+FROM FIEVETL.ETUDIANTS;
 
 
 CREATE OR REPLACE VIEW Vue_Moyenne_Module_SigneAstro AS
