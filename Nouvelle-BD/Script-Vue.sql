@@ -50,6 +50,51 @@ FROM
     ScoreTotal st;
 
 
+------------------------------
+
+CREATE OR REPLACE VIEW AgeEtudiants AS
+SELECT
+    e.IdEtudiant,
+    e.DateNaissance,
+    (SYSDATE - e.DateNaissance) / 365 AS Age
+FROM
+    FIEVETL.Etudiants e;
+
+CREATE OR REPLACE VIEW SigneAstrologiqueEtudiants AS
+SELECT
+    a.IdEtudiant,
+    CASE
+        WHEN TO_CHAR(a.DateNaissance, 'MMDD') BETWEEN '0321' AND '0419' THEN 'Bélier'
+        WHEN TO_CHAR(a.DateNaissance, 'MMDD') BETWEEN '0420' AND '0520' THEN 'Taureau'
+        WHEN TO_CHAR(a.DateNaissance, 'MMDD') BETWEEN '0521' AND '0620' THEN 'Gémeaux'
+        WHEN TO_CHAR(a.DateNaissance, 'MMDD') BETWEEN '0621' AND '0722' THEN 'Cancer'
+        WHEN TO_CHAR(a.DateNaissance, 'MMDD') BETWEEN '0723' AND '0822' THEN 'Lion'
+        WHEN TO_CHAR(a.DateNaissance, 'MMDD') BETWEEN '0823' AND '0922' THEN 'Vierge'
+        WHEN TO_CHAR(a.DateNaissance, 'MMDD') BETWEEN '0923' AND '1022' THEN 'Balance'
+        WHEN TO_CHAR(a.DateNaissance, 'MMDD') BETWEEN '1023' AND '1121' THEN 'Scorpion'
+        WHEN TO_CHAR(a.DateNaissance, 'MMDD') BETWEEN '1122' AND '1221' THEN 'Sagittaire'
+        WHEN TO_CHAR(a.DateNaissance, 'MMDD') BETWEEN '1222' AND '0119' THEN 'Capricorne'
+        WHEN TO_CHAR(a.DateNaissance, 'MMDD') BETWEEN '0120' AND '0218' THEN 'Verseau'
+        ELSE 'Poissons'
+        END AS SigneAstrologique
+FROM
+    AgeEtudiants a;
+
+CREATE OR REPLACE VIEW ModuleSigneAstrologique AS
+SELECT
+    ec.IdEtudiant,
+    c.IdModule,
+    m.NomModule,
+    s.SigneAstrologique,
+    AVG(ec.note) OVER (PARTITION BY c.IdModule, s.SigneAstrologique) AS MoyenneNote
+FROM
+    FIEVETL.EtudiantCours ec
+        JOIN
+    FIEVETL.Cours c ON ec.IdCours = c.IdCours
+        JOIN
+    FIEVETL.Modules m ON c.IdModule = m.IdModule
+        JOIN
+    SigneAstrologiqueEtudiants s ON ec.IdEtudiant = s.IdEtudiant;
 
 
 
