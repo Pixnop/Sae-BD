@@ -18,7 +18,7 @@ CREATE OR REPLACE VIEW ScoreTotal AS
 SELECT
     e.IdEtudiant,
     es.IdSemestre,
-    avg((ec.note * ev.COEFFICIENT * m.Coefficient * u.COEFFICIENTUE)/(ev.NOTEMAX * ev.COEFFICIENT * m.Coefficient * u.COEFFICIENTUE)) AS ScoreTotal
+    avg((CASE WHEN ec.note >= 0 THEN ec.note ELSE 0 END * ev.COEFFICIENT * m.Coefficient * u.COEFFICIENTUE)/(ev.NOTEMAX * ev.COEFFICIENT * m.Coefficient * u.COEFFICIENTUE)) AS ScoreTotal
 FROM
     FIEVETL.EtudiantCours ec
         JOIN
@@ -50,7 +50,7 @@ FROM
     ScoreTotal st;
 
 
-------------------------------
+------------------------------------------------------------------------------------------------------------------------
 
 CREATE OR REPLACE VIEW AgeEtudiants AS
 SELECT
@@ -97,12 +97,42 @@ FROM
     SigneAstrologiqueEtudiants s ON ec.IdEtudiant = s.IdEtudiant;
 
 
+------------------------------------------------------------------------------------------------------------------------
+
+CREATE OR REPLACE VIEW MoyenneModuleBac AS
+SELECT
+    m.IdModule,
+    m.NomModule,
+    b.APPELATIONBAC,
+    AVG(ec.note) AS MoyenneEtudiants
+FROM
+    FIEVETL.EtudiantCours ec
+        JOIN
+    FIEVETL.Etudiants e ON ec.IdEtudiant = e.IdEtudiant
+        JOIN
+    FIEVETL.Cours c ON ec.IdCours = c.IdCours
+        JOIN
+    FIEVETL.Modules m ON c.IdModule = m.IdModule
+        JOIN
+    FIEVETL.ADMISSIONS a ON e.IDADMISSION = a.IDADMISSION
+        JOIN
+    FIEVETL.BAC b ON a.APPELATIONBAC = b.APPELATIONBAC
+GROUP BY
+    m.IdModule,
+    m.NomModule,
+    b.APPELATIONBAC;
 
 
 
+------------------------------------------------------------------------------------------------------------------------
 
-
-
+CREATE OR REPLACE VIEW MoyenneNotesEnseignant AS
+SELECT U.IdUtilisateur, U.NomUtilisateur, AVG((CASE WHEN EC.note >= 0 THEN EC.note ELSE 0 END / E.NoteMax) * 20) AS MoyenneNotes
+FROM FIEVETL.Utilisateurs U
+         JOIN FIEVETL.EvaluerParUtilisateur EU ON U.IdUtilisateur = EU.IdUtilisateur
+         JOIN FIEVETL.Evaluations E ON EU.IdEvaluation = E.IdEvaluation
+         JOIN FIEVETL.EtudiantCours EC ON E.IdEvaluation = EC.IdEvaluation
+GROUP BY U.IdUtilisateur, U.NomUtilisateur;
 
 
 
