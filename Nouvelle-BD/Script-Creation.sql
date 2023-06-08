@@ -14,7 +14,7 @@ CREATE TABLE Bac(
 );
 
 CREATE TABLE Dates(
-                      Dates VARCHAR(100),
+                      Dates DATE,
                       PRIMARY KEY(Dates)
 );
 
@@ -152,7 +152,7 @@ CREATE TABLE Etudiants(
                           NomEtudiant VARCHAR(100),
                           Civilité VARCHAR(100),
                           NomNationalite VARCHAR(100) NOT NULL,
-                          DateNaissance VARCHAR(100),
+                          DateNaissance DATE,
                           Boursier VARCHAR(100),
                           IdAdmission VARCHAR(100),
                           EmailEtudiant VARCHAR(100),
@@ -194,14 +194,14 @@ CREATE TABLE Cours(
 );
 
 CREATE TABLE EtreAbsent(
-                           idAbsence NUMBER(10) NOT NULL,
+                           idAbsence INT,
                            Justifiee VARCHAR(100),
                            MotifAbsence VARCHAR(100),
                            EstAbsent VARCHAR(100),
                            Matin VARCHAR(100),
                            IdCours VARCHAR(100),
                            IdEtudiant VARCHAR(100) NOT NULL,
-                           Dates VARCHAR(100),
+                           Dates DATE,
                            PRIMARY KEY(idAbsence),
                            FOREIGN KEY(IdCours) REFERENCES Cours(IdCours),
                            FOREIGN KEY(IdEtudiant) REFERENCES Etudiants(IdEtudiant),
