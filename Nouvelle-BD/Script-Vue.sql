@@ -1,9 +1,24 @@
+CREATE VIEW EvaluationsNonZero AS
+SELECT *
+FROM FIEVETL.Evaluations
+WHERE Coefficient > 0;
+
+CREATE VIEW ModulesNonZero AS
+SELECT *
+FROM FIEVETL.Modules
+WHERE Coefficient > 0;
+
+CREATE VIEW UENonZero AS
+SELECT *
+FROM FIEVETL.UE
+WHERE CoefficientUE > 0;
+
 -- Créer une vue pour calculer le score total de chaque étudiant pour chaque semestre
 CREATE OR REPLACE VIEW ScoreTotal AS
 SELECT
     e.IdEtudiant,
     es.IdSemestre,
-    avg(ec.note * m.Coefficient) AS ScoreTotal
+    avg((ec.note * ev.COEFFICIENT * m.Coefficient * u.COEFFICIENTUE)/(ev.NOTEMAX * ev.COEFFICIENT * m.Coefficient * u.COEFFICIENTUE)) AS ScoreTotal
 FROM
     FIEVETL.EtudiantCours ec
         JOIN
@@ -13,7 +28,13 @@ FROM
         JOIN
     FIEVETL.Cours c ON ec.IdCours = c.IdCours
         JOIN
-    FIEVETL.Modules m ON c.IdModule = m.IdModule
+    (SELECT * FROM EvaluationsNonZero) ev ON ec.IDEVALUATION= ev.IDEVALUATION
+        JOIN
+    (SELECT * FROM ModulesNonZero) m ON c.IdModule = m.IdModule
+        JOIN
+    FIEVETL.ASSOMODULE a on m.IDMODULE = a.IDMODULE
+        JOIN
+    (SELECT * FROM UENonZero) u on a.IDUE = u.IDUE
 GROUP BY
     e.IdEtudiant,
     es.IdSemestre;
@@ -23,10 +44,15 @@ CREATE OR REPLACE VIEW ClassementEtudiants AS
 SELECT
     st.IdEtudiant,
     st.IdSemestre,
-    st.ScoreTotal,
+    st.ScoreTotal * 20 AS ScoreTotalSur20,
     RANK() OVER (PARTITION BY st.IdSemestre ORDER BY st.ScoreTotal DESC) AS Classement
 FROM
     ScoreTotal st;
+
+
+
+
+
 
 
 
