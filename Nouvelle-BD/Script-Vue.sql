@@ -1,3 +1,32 @@
+-- Créer une vue pour calculer le score total de chaque étudiant pour chaque semestre
+CREATE OR REPLACE VIEW ScoreTotal AS
+SELECT
+    e.IdEtudiant,
+    es.IdSemestre,
+    avg(ec.note * m.Coefficient) AS ScoreTotal
+FROM
+    FIEVETL.EtudiantCours ec
+        JOIN
+    FIEVETL.Etudiants e ON ec.IdEtudiant = e.IdEtudiant
+        JOIN
+    FIEVETL.EtudierSemestre es ON e.IdEtudiant = es.IdEtudiant
+        JOIN
+    FIEVETL.Cours c ON ec.IdCours = c.IdCours
+        JOIN
+    FIEVETL.Modules m ON c.IdModule = m.IdModule
+GROUP BY
+    e.IdEtudiant,
+    es.IdSemestre;
+
+-- Créer une vue pour calculer le classement des étudiants à chaque semestre
+CREATE OR REPLACE VIEW ClassementEtudiants AS
+SELECT
+    st.IdEtudiant,
+    st.IdSemestre,
+    st.ScoreTotal,
+    RANK() OVER (PARTITION BY st.IdSemestre ORDER BY st.ScoreTotal DESC) AS Classement
+FROM
+    ScoreTotal st;
 
 
 
