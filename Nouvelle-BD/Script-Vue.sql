@@ -1,4 +1,225 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 CREATE OR REPLACE VIEW Vue_Classement_Semestre (IdSemestre, IdEtudiant, NomEtudiant, PrenomEtudiant )AS
 SELECT S.IdSemestre, E.IdEtudiant, E.NomEtudiant,E.PrenomEtudiant, SUM(N.note * EV.Coefficient) AS TotalNote
 FROM fievetl.Etudiants E
@@ -13,19 +234,19 @@ ORDER BY TotalNote DESC;
 
 
 CREATE OR REPLACE VIEW Vue_Signe_Astrologique (IdEtudiant, SigneAstro) AS
-SELECT IdEtudiant, DateOfBirth,
+SELECT IdEtudiant, DATENAISSANCE,
     CASE
-        WHEN MONTH(DateOfBirth) = 1 AND DAY(DateOfBirth) >= 20 OR MONTH(DateOfBirth) = 2 AND DAY(DateOfBirth) <= 18 THEN 'Aquarius'
-        WHEN MONTH(DateOfBirth) = 2 AND DAY(DateOfBirth) >= 19 OR MONTH(DateOfBirth) = 3 AND DAY(DateOfBirth) <= 20 THEN 'Pisces'
-        WHEN MONTH(DateOfBirth) = 3 AND DAY(DateOfBirth) >= 21 OR MONTH(DateOfBirth) = 4 AND DAY(DateOfBirth) <= 19 THEN 'Aries'
-        WHEN MONTH(DateOfBirth) = 4 AND DAY(DateOfBirth) >= 20 OR MONTH(DateOfBirth) = 5 AND DAY(DateOfBirth) <= 20 THEN 'Taurus'
-        WHEN MONTH(DateOfBirth) = 5 AND DAY(DateOfBirth) >= 21 OR MONTH(DateOfBirth) = 6 AND DAY(DateOfBirth) <= 20 THEN 'Gemini'
-        WHEN MONTH(DateOfBirth) = 6 AND DAY(DateOfBirth) >= 21 OR MONTH(DateOfBirth) = 7 AND DAY(DateOfBirth) <= 22 THEN 'Cancer'
-        WHEN MONTH(DateOfBirth) = 7 AND DAY(DateOfBirth) >= 23 OR MONTH(DateOfBirth) = 8 AND DAY(DateOfBirth) <= 22 THEN 'Leo'
-        WHEN MONTH(DateOfBirth) = 8 AND DAY(DateOfBirth) >= 23 OR MONTH(DateOfBirth) = 9 AND DAY(DateOfBirth) <= 22 THEN 'Virgo'
-        WHEN MONTH(DateOfBirth) = 9 AND DAY(DateOfBirth) >= 23 OR MONTH(DateOfBirth) = 10 AND DAY(DateOfBirth) <= 22 THEN 'Libra'
-        WHEN MONTH(DateOfBirth) = 10 AND DAY(DateOfBirth) >= 23 OR MONTH(DateOfBirth) = 11 AND DAY(DateOfBirth) <= 21 THEN 'Scorpio'
-        WHEN MONTH(DateOfBirth) = 11 AND DAY(DateOfBirth) >= 22 OR MONTH(DateOfBirth) = 12 AND DAY(DateOfBirth) <= 21 THEN 'Sagittarius'
+        WHEN MONTH(DATENAISSANCE) = 1 AND DAY(DATENAISSANCE) >= 20 OR MONTH(DATENAISSANCE) = 2 AND DAY(DATENAISSANCE) <= 18 THEN 'Aquarius'
+        WHEN MONTH(DATENAISSANCE) = 2 AND DAY(DATENAISSANCE) >= 19 OR MONTH(DATENAISSANCE) = 3 AND DAY(DATENAISSANCE) <= 20 THEN 'Pisces'
+        WHEN MONTH(DATENAISSANCE) = 3 AND DAY(DATENAISSANCE) >= 21 OR MONTH(DATENAISSANCE) = 4 AND DAY(DATENAISSANCE) <= 19 THEN 'Aries'
+        WHEN MONTH(DATENAISSANCE) = 4 AND DAY(DATENAISSANCE) >= 20 OR MONTH(DATENAISSANCE) = 5 AND DAY(DATENAISSANCE) <= 20 THEN 'Taurus'
+        WHEN MONTH(DATENAISSANCE) = 5 AND DAY(DATENAISSANCE) >= 21 OR MONTH(DATENAISSANCE) = 6 AND DAY(DATENAISSANCE) <= 20 THEN 'Gemini'
+        WHEN MONTH(DATENAISSANCE) = 6 AND DAY(DATENAISSANCE) >= 21 OR MONTH(DATENAISSANCE) = 7 AND DAY(DATENAISSANCE) <= 22 THEN 'Cancer'
+        WHEN MONTH(DATENAISSANCE) = 7 AND DAY(DATENAISSANCE) >= 23 OR MONTH(DATENAISSANCE) = 8 AND DAY(DATENAISSANCE) <= 22 THEN 'Leo'
+        WHEN MONTH(DATENAISSANCE) = 8 AND DAY(DATENAISSANCE) >= 23 OR MONTH(DATENAISSANCE) = 9 AND DAY(DATENAISSANCE) <= 22 THEN 'Virgo'
+        WHEN MONTH(DATENAISSANCE) = 9 AND DAY(DATENAISSANCE) >= 23 OR MONTH(DATENAISSANCE) = 10 AND DAY(DATENAISSANCE) <= 22 THEN 'Libra'
+        WHEN MONTH(DATENAISSANCE) = 10 AND DAY(DATENAISSANCE) >= 23 OR MONTH(DATENAISSANCE) = 11 AND DAY(DATENAISSANCE) <= 21 THEN 'Scorpio'
+        WHEN MONTH(DATENAISSANCE) = 11 AND DAY(DATENAISSANCE) >= 22 OR MONTH(DATENAISSANCE) = 12 AND DAY(DATENAISSANCE) <= 21 THEN 'Sagittarius'
         ELSE 'Capricorn'
     END AS SigneAstro
 FROM FIEVETL.ETUDIANTS;
@@ -57,3 +278,5 @@ FROM fievetl.Utilisateurs u
          JOIN fievetl.Evaluations e ON u.IdUtilisateur = e.IdUtilisateur
          JOIN fievetl.noter n ON e.IdEvaluation = n.IdEvaluation
 GROUP BY u.IdUtilisateur, u.NomUtilisateur;
+
+*/
