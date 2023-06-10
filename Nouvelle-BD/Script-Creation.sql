@@ -14,16 +14,16 @@ CREATE TABLE Bac(
 );
 
 CREATE TABLE Dates(
-                      Dates VARCHAR(100),
+                      Dates DATE,
                       PRIMARY KEY(Dates)
 );
 
 CREATE TABLE Modules(
-                        IdModule VARCHAR(100),
-                        HeureCM VARCHAR(100),
-                        HeureTD VARCHAR(100),
-                        HeureTP VARCHAR(100),
-                        Coefficient VARCHAR(100),
+                        IdModule INT,
+                        HeureCM REAL,
+                        HeureTD REAL,
+                        HeureTP REAL,
+                        Coefficient REAL,
                         NomModule VARCHAR(100),
                         CodeModule VARCHAR(100),
                         PRIMARY KEY(IdModule)
@@ -36,38 +36,39 @@ CREATE TABLE TypeFormation(
 );
 
 CREATE TABLE Groupes(
-                        IdGroupe VARCHAR(100),
+                        IdGroupe INT,
                         NomGroupe VARCHAR(100),
                         PRIMARY KEY(IdGroupe)
 );
 
 CREATE TABLE Semestre(
-                         IdSemestre VARCHAR(100),
-                         NumeroSemestre VARCHAR(100),
-                         DateDebut VARCHAR(100),
-                         DateFin VARCHAR(100),
+                         IdSemestre INT,
+                         NumeroSemestre INT,
+                         DateDebut DATE,
+                         DateFin DATE,
                          NomPromotion VARCHAR(100),
                          PRIMARY KEY(IdSemestre)
 );
 
 CREATE TABLE Evaluations(
-                            IdEvaluation VARCHAR(100),
-                            Coefficient VARCHAR(100),
+                            IdEvaluation INT,
+                            Coefficient REAL,
+                            NoteMax REAL,
                             PRIMARY KEY(IdEvaluation)
 );
 
 CREATE TABLE UE(
-                   IdUe VARCHAR(100),
+                   IdUe INT,
                    CodeUE VARCHAR(100),
                    NomUE VARCHAR(100),
-                   CoefficientUE VARCHAR(100),
-                   NombreECTS VARCHAR(100),
+                   CoefficientUE REAL,
+                   NombreECTS REAL,
                    PRIMARY KEY(IdUe)
 );
 
 CREATE TABLE Bureau(
                        NumBureau VARCHAR(100),
-                       TelephoneBureau VARCHAR(100),
+                       TelephoneBureau INT,
                        PRIMARY KEY(NumBureau)
 );
 
@@ -77,7 +78,7 @@ CREATE TABLE TypeDomicile(
 );
 
 CREATE TABLE Postale(
-                        CodePostale VARCHAR(100),
+                        CodePostale INT,
                         PRIMARY KEY(CodePostale)
 );
 
@@ -97,16 +98,16 @@ CREATE TABLE Pays(
 );
 
 CREATE TABLE Annee(
-                      Annee VARCHAR(100),
+                      Annee INT,
                       PRIMARY KEY(Annee)
 );
 
 CREATE TABLE Admissions(
-                           IdAdmission VARCHAR(100),
-                           NoteFrancais VARCHAR(100),
-                           NoteAnglais VARCHAR(100),
-                           NotePhysique VARCHAR(100),
-                           NoteMath VARCHAR(100),
+                           IdAdmission INT,
+                           NoteFrancais REAL,
+                           NoteAnglais REAL,
+                           NotePhysique REAL,
+                           NoteMath REAL,
                            NomSpecialite VARCHAR(100),
                            AppelationBac VARCHAR(100),
                            PRIMARY KEY(IdAdmission),
@@ -124,7 +125,7 @@ CREATE TABLE Villes(
 );
 
 CREATE TABLE Utilisateurs(
-                             IdUtilisateur VARCHAR(100),
+                             IdUtilisateur INT,
                              PrenomUtilisateur VARCHAR(100),
                              NomUtilisateur VARCHAR(100),
                              MailUtilisateur VARCHAR(100),
@@ -138,7 +139,7 @@ CREATE TABLE Utilisateurs(
 CREATE TABLE Domicile(
                          AdresseDomicile VARCHAR(100),
                          TypeDeDomicile VARCHAR(100) NOT NULL,
-                         CodePostale VARCHAR(100) NOT NULL,
+                         CodePostale INT NOT NULL,
                          NomVille VARCHAR(100) NOT NULL,
                          PRIMARY KEY(AdresseDomicile),
                          FOREIGN KEY(TypeDeDomicile) REFERENCES TypeDomicile(TypeDeDomicile),
@@ -147,12 +148,12 @@ CREATE TABLE Domicile(
 );
 
 CREATE TABLE Etudiants(
-                          IdEtudiant VARCHAR(100),
+                          IdEtudiant INT,
                           PrenomEtudiant VARCHAR(100),
                           NomEtudiant VARCHAR(100),
                           Civilité VARCHAR(100),
                           NomNationalite VARCHAR(100) NOT NULL,
-                          DateNaissance VARCHAR(100),
+                          DateNaissance DATE,
                           Boursier VARCHAR(100),
                           IdAdmission VARCHAR(100),
                           EmailEtudiant VARCHAR(100),
@@ -160,8 +161,8 @@ CREATE TABLE Etudiants(
                           NumeroFix VARCHAR(100) NOT NULL,
                           EtatInscription VARCHAR(100),
                           NumeroPortable VARCHAR(100),
-                          IdAdmission_1 VARCHAR(100),
-                          IdGroupe VARCHAR(100),
+                          IdAdmission_1 INT,
+                          IdGroupe INT,
                           AdresseDomicile VARCHAR(100) NOT NULL,
                           NomVille VARCHAR(100) NOT NULL,
                           PRIMARY KEY(IdEtudiant),
@@ -175,7 +176,7 @@ CREATE TABLE Etudiants(
 CREATE TABLE Lycees(
                        CodeLycee VARCHAR(100),
                        NomLycee VARCHAR(100),
-                       CodePostale VARCHAR(100),
+                       CodePostale INT,
                        NomVille VARCHAR(100),
                        PRIMARY KEY(CodeLycee),
                        FOREIGN KEY(CodePostale) REFERENCES Postale(CodePostale),
@@ -183,10 +184,10 @@ CREATE TABLE Lycees(
 );
 
 CREATE TABLE Cours(
-                      IdCours VARCHAR(100),
-                      IdUtilisateur VARCHAR(100),
-                      IdSemestre VARCHAR(100) NOT NULL,
-                      IdModule VARCHAR(100) NOT NULL,
+                      IdCours INT,
+                      IdUtilisateur INT,
+                      IdSemestre INT NOT NULL,
+                      IdModule INT NOT NULL,
                       PRIMARY KEY(IdCours),
                       FOREIGN KEY(IdUtilisateur) REFERENCES Utilisateurs(IdUtilisateur),
                       FOREIGN KEY(IdSemestre) REFERENCES Semestre(IdSemestre),
@@ -194,14 +195,14 @@ CREATE TABLE Cours(
 );
 
 CREATE TABLE EtreAbsent(
-                           idAbsence NUMBER(10) NOT NULL,
+                           idAbsence INT,
                            Justifiee VARCHAR(100),
                            MotifAbsence VARCHAR(100),
                            EstAbsent VARCHAR(100),
                            Matin VARCHAR(100),
-                           IdCours VARCHAR(100),
-                           IdEtudiant VARCHAR(100) NOT NULL,
-                           Dates VARCHAR(100),
+                           IdCours INT,
+                           IdEtudiant INT NOT NULL,
+                           Dates DATE,
                            PRIMARY KEY(idAbsence),
                            FOREIGN KEY(IdCours) REFERENCES Cours(IdCours),
                            FOREIGN KEY(IdEtudiant) REFERENCES Etudiants(IdEtudiant),
@@ -210,23 +211,23 @@ CREATE TABLE EtreAbsent(
 
 CREATE TABLE AvoirEtudie(
                             CodeLycee VARCHAR(100),
-                            IdAdmission VARCHAR(100),
+                            IdAdmission INT,
                             PRIMARY KEY(CodeLycee, IdAdmission),
                             FOREIGN KEY(CodeLycee) REFERENCES Lycees(CodeLycee),
                             FOREIGN KEY(IdAdmission) REFERENCES Admissions(IdAdmission)
 );
 
 CREATE TABLE AssoAnneeAdmission(
-                                   IdAdmission VARCHAR(100),
-                                   Annee VARCHAR(100),
+                                   IdAdmission INT,
+                                   Annee INT,
                                    PRIMARY KEY(IdAdmission, Annee),
                                    FOREIGN KEY(IdAdmission) REFERENCES Admissions(IdAdmission),
                                    FOREIGN KEY(Annee) REFERENCES Annee(Annee)
 );
 
 CREATE TABLE EtudierSemestre(
-                                IdEtudiant VARCHAR(100),
-                                IdSemestre VARCHAR(100),
+                                IdEtudiant INT,
+                                IdSemestre INT,
                                 EtatInscription VARCHAR(100),
                                 PRIMARY KEY(IdEtudiant, IdSemestre),
                                 FOREIGN KEY(IdEtudiant) REFERENCES Etudiants(IdEtudiant),
@@ -234,7 +235,7 @@ CREATE TABLE EtudierSemestre(
 );
 
 CREATE TABLE UtilisateursRoles(
-                                  IdUtilisateur VARCHAR(100),
+                                  IdUtilisateur INT,
                                   NomRole VARCHAR(100),
                                   PRIMARY KEY(IdUtilisateur, NomRole),
                                   FOREIGN KEY(IdUtilisateur) REFERENCES Utilisateurs(IdUtilisateur),
@@ -242,10 +243,10 @@ CREATE TABLE UtilisateursRoles(
 );
 
 CREATE TABLE EtudiantCours(
-                              IdEtudiant VARCHAR(100),
-                              IdEvaluation VARCHAR(100),
-                              note VARCHAR(100),
-                              IdCours VARCHAR(100) NOT NULL,
+                              IdEtudiant INT,
+                              IdEvaluation INT,
+                              note REAL,
+                              IdCours INT NOT NULL,
                               PRIMARY KEY(IdEtudiant, IdEvaluation),
                               FOREIGN KEY(IdEtudiant) REFERENCES Etudiants(IdEtudiant),
                               FOREIGN KEY(IdEvaluation) REFERENCES Evaluations(IdEvaluation),
@@ -253,32 +254,32 @@ CREATE TABLE EtudiantCours(
 );
 
 CREATE TABLE AssoModule(
-                           IdModule VARCHAR(100),
-                           IdUe VARCHAR(100),
+                           IdModule INT,
+                           IdUe INT,
                            PRIMARY KEY(IdModule, IdUe),
                            FOREIGN KEY(IdModule) REFERENCES Modules(IdModule),
                            FOREIGN KEY(IdUe) REFERENCES UE(IdUe)
 );
 
 CREATE TABLE EvaluerParUtilisateur(
-                                      IdEvaluation VARCHAR(100),
-                                      IdUtilisateur VARCHAR(100),
+                                      IdEvaluation INT,
+                                      IdUtilisateur INT,
                                       PRIMARY KEY(IdEvaluation, IdUtilisateur),
                                       FOREIGN KEY(IdEvaluation) REFERENCES Evaluations(IdEvaluation),
                                       FOREIGN KEY(IdUtilisateur) REFERENCES Utilisateurs(IdUtilisateur)
 );
 
 CREATE TABLE Enseignement(
-                             IdCours_Enseignant VARCHAR(100),
-                             IdUtilisateur VARCHAR(100),
+                             IdCours_Enseignant INT,
+                             IdUtilisateur INT,
                              PRIMARY KEY(IdCours_Enseignant, IdUtilisateur),
                              FOREIGN KEY(IdCours_Enseignant) REFERENCES Cours(IdCours),
                              FOREIGN KEY(IdUtilisateur) REFERENCES Utilisateurs(IdUtilisateur)
 );
 
 CREATE TABLE AssoBacAnnee(
-                             IdAdmission VARCHAR(100),
-                             Annee VARCHAR(100),
+                             IdAdmission INT,
+                             Annee INT,
                              PRIMARY KEY(IdAdmission, Annee),
                              FOREIGN KEY(IdAdmission) REFERENCES Admissions(IdAdmission),
                              FOREIGN KEY(Annee) REFERENCES Annee(Annee)
@@ -286,15 +287,15 @@ CREATE TABLE AssoBacAnnee(
 
 CREATE TABLE AssoVilleCodePostal(
                                     NomVille VARCHAR(100),
-                                    CodePostale VARCHAR(100),
+                                    CodePostale INT,
                                     PRIMARY KEY(NomVille, CodePostale),
                                     FOREIGN KEY(NomVille) REFERENCES Villes(NomVille),
                                     FOREIGN KEY(CodePostale) REFERENCES Postale(CodePostale)
 );
 
 CREATE TABLE etreIntervenant(
-                                IdCours_Intervenant VARCHAR(100),
-                                IdUtilisateur VARCHAR(100),
+                                IdCours_Intervenant INT,
+                                IdUtilisateur INT,
                                 PRIMARY KEY(IdCours_Intervenant, IdUtilisateur),
                                 FOREIGN KEY(IdCours_Intervenant) REFERENCES Cours(IdCours),
                                 FOREIGN KEY(IdUtilisateur) REFERENCES Utilisateurs(IdUtilisateur)
@@ -302,16 +303,21 @@ CREATE TABLE etreIntervenant(
 
 CREATE TABLE EtreForme(
                           CodeTypeFormation VARCHAR(100),
-                          IdSemestre VARCHAR(100),
+                          IdSemestre INT,
                           PRIMARY KEY(CodeTypeFormation, IdSemestre),
                           FOREIGN KEY(CodeTypeFormation) REFERENCES TypeFormation(CodeTypeFormation),
                           FOREIGN KEY(IdSemestre) REFERENCES Semestre(IdSemestre)
 );
 
+
+
+
+------
+
+
 CREATE SEQUENCE seq_idAbsence
     START WITH 1
     INCREMENT BY 1;
-
 CREATE OR REPLACE TRIGGER trg_idAbsence
     BEFORE INSERT ON FIEVETL.EtreAbsent
     FOR EACH ROW
