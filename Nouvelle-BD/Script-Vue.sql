@@ -204,4 +204,64 @@ FROM
 GROUP BY
     m.NomModule;
 
+--Vue donnant la fréquence et le nombre d'effectifs des étudiants par année
 
+
+
+CREATE OR REPLACE VIEW VueEffectifs2019 AS
+SELECT b.APPELATIONBAC, count(*) as effectif2019, count(*) * 100 / (SELECT count(*) FROM FIEVETL.Etudiants e
+    JOIN FIEVETL.ADMISSIONS a on e.IDADMISSION = a.IDADMISSION
+    JOIN FIEVETL.ASSOANNEEADMISSION an on a.IDADMISSION = an.IDADMISSION
+    JOIN FIEVETL.BAC b on a.APPELATIONBAC = b.APPELATIONBAC
+WHERE an.ANNEE = 2019) as frequence2019
+FROM FIEVETL.Etudiants e
+    JOIN FIEVETL.ADMISSIONS a on e.IDADMISSION = a.IDADMISSION
+    JOIN FIEVETL.ASSOANNEEADMISSION an on a.IDADMISSION = an.IDADMISSION
+    JOIN FIEVETL.BAC b on a.APPELATIONBAC = b.APPELATIONBAC
+WHERE an.ANNEE = 2019
+group by b.APPELATIONBAC
+Order by effectif2019 desc;
+
+-- des bacs qui n'existent pas ont été ajoutés car erreur dans la base de données originelle.
+
+CREATE VIEW VueEffectifs202O AS
+SELECT b.APPELATIONBAC, count(*) as effectif2020, count(*) * 100 / (SELECT count(*) FROM FIEVETL.Etudiants e
+     JOIN FIEVETL.ADMISSIONS a on e.IDADMISSION = a.IDADMISSION
+     JOIN FIEVETL.ASSOANNEEADMISSION an on a.IDADMISSION = an.IDADMISSION
+     JOIN FIEVETL.BAC b on a.APPELATIONBAC = b.APPELATIONBAC
+WHERE an.ANNEE = 2020) as frequence2020
+FROM FIEVETL.Etudiants e
+         JOIN FIEVETL.ADMISSIONS a on e.IDADMISSION = a.IDADMISSION
+         JOIN FIEVETL.ASSOANNEEADMISSION an on a.IDADMISSION = an.IDADMISSION
+         JOIN FIEVETL.BAC b on a.APPELATIONBAC = b.APPELATIONBAC
+WHERE an.ANNEE = 2020
+group by b.APPELATIONBAC
+Order by effectif2020 desc;
+
+
+CREATE OR REPLACE VIEW VueEffectifsParAnnee AS
+SELECT COALESCE(v.appelationBac, v1.appelationBac) AS appelationBac,
+       v.effectif2019,
+       v.frequence2019,
+       v1.effectif2020,
+       v1.frequence2020
+FROM VueEffectifs2019 v
+         FULL JOIN VueEffectifs202O v1 ON v.appelationBac = v1.appelationBac
+UNION ALL
+SELECT 'Total' AS appelationBac,
+       SUM(v.effectif2019) AS effectif2019,
+       SUM(v.frequence2019) AS frequence2019,
+       SUM(v1.effectif2020) AS effectif2020,
+       SUM(v1.frequence2020) AS frequence2020
+FROM VueEffectifs2019 v
+         FULL JOIN VueEffectifs202O v1 ON v.appelationBac = v1.appelationBac;
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------
