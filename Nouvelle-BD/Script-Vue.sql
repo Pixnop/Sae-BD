@@ -253,12 +253,96 @@ SELECT 'Total' AS appelationBac,
 FROM VueEffectifs2019 v
          FULL JOIN VueEffectifs202O v1 ON v.appelationBac = v1.appelationBac;
 
+------------------------------------------------------------------------------------------------------------------------
+-- Vue donnant l'effectif par spécialité des etudiants ayant eu un bac de type "S" en 2019 et le total de ces derniers
+
+CREATE OR REPLACE VIEW VueEffectifsParSpecialite2019 AS
+SELECT a.NOMSPECIALITE, count(*) as effectif2019
+FROM FIEVETL.Etudiants e
+    JOIN FIEVETL.ADMISSIONS a on e.IDADMISSION = a.IDADMISSION
+    JOIN FIEVETL.ASSOANNEEADMISSION an on a.IDADMISSION = an.IDADMISSION
+    JOIN FIEVETL.BAC b on a.APPELATIONBAC = b.APPELATIONBAC
+WHERE an.ANNEE = 2019 AND b.APPELATIONBAC = 'S'
+group by a.NOMSPECIALITE
+Order by effectif2019 desc;
 
 
+-- Vue donnant l'effectif par spécialité des etudiants ayant eu un bac de type "S" en 2020
 
-
-
-
-
+CREATE OR REPLACE VIEW VueEffectifsParSpecialite2020 AS
+SELECT a.NOMSPECIALITE, count(*) as effectif2020
+FROM FIEVETL.Etudiants e
+    JOIN FIEVETL.ADMISSIONS a on e.IDADMISSION = a.IDADMISSION
+    JOIN FIEVETL.ASSOANNEEADMISSION an on a.IDADMISSION = an.IDADMISSION
+    JOIN FIEVETL.BAC b on a.APPELATIONBAC = b.APPELATIONBAC
+WHERE an.ANNEE = 2020 AND b.APPELATIONBAC = 'S'
+group by a.NOMSPECIALITE
+Order by effectif2020 desc;
 
 ------------------------------------------------------------------------------------------------------------------------
+-- On s'intéresse aux notes du module M3201 au semestre 3 de 2020
+-- Une Vue donnant les notes en utilisant les classes suivantes : [0.0, 2.0[, [2.0, 5.0[, [5.0, 7.0[, [7.0, 9.0[, [9.0, 11.0[, [11.0, 12.0[, [12.0, 13.0[, [13.0, 14.0[, [14.0, 16.0[, [16.0, 17.0[, [17.0, 18.0[, [18.0, 20.0[
+-- On construit successivement les effectifs, les fréquences, les amplitudes et la valeur de la l'histogramme sur chaque classe
+
+CREATE OR REPLACE VIEW VueNotesM3201S3_2020 AS
+SELECT CASE
+           WHEN n.note < 2 THEN '[0.0, 2.0['
+           WHEN n.note < 5 THEN '[2.0, 5.0['
+           WHEN n.note < 7 THEN '[5.0, 7.0['
+           WHEN n.note < 9 THEN '[7.0, 9.0['
+           WHEN n.note < 11 THEN '[9.0, 11.0['
+           WHEN n.note < 12 THEN '[11.0, 12.0['
+           WHEN n.note < 13 THEN '[12.0, 13.0['
+           WHEN n.note < 14 THEN '[13.0, 14.0['
+           WHEN n.note < 16 THEN '[14.0, 16.0['
+           WHEN n.note < 17 THEN '[16.0, 17.0['
+           WHEN n.note < 18 THEN '[17.0, 18.0['
+           WHEN n.note < 20 THEN '[18.0, 20.0['
+           ELSE '20.0'
+       END AS classe,
+       count(*) as effectif,
+       count(*) * 100 / (SELECT count(*) FROM FIEVETL.EtudiantCours ec
+           JOIN FIEVETL.Cours c on ec.IdCours = c.IdCours
+           JOIN FIEVETL.Etudiants e on ec.IdEtudiant = e.IdEtudiant
+           JOIN FIEVETL.ADMISSIONS a on e.IDADMISSION = a.IDADMISSION
+           JOIN FIEVETL.ASSOANNEEADMISSION an on a.IDADMISSION = an.IDADMISSION
+           JOIN FIEVETL.SEMESTRE s on c.IDSEMESTRE = s.IDSEMESTRE
+       WHERE c.IDCOURS = 'M3201' AND an.ANNEE = 2020 AND s.NUMEROSEMESTRE = 3) as frequence,
+       CASE
+           WHEN n.note < 2 THEN 2
+           WHEN n.note < 5 THEN 3
+           WHEN n.note < 7 THEN 2
+           WHEN n.note < 9 THEN 2
+           WHEN n.note < 11 THEN 2
+           WHEN n.note < 12 THEN 1
+           WHEN n.note < 13 THEN 1
+           WHEN n.note < 14 THEN 1
+           WHEN n.note < 16 THEN 2
+           WHEN n.note < 17 THEN 1
+           WHEN n.note < 18 THEN 1
+           WHEN n.note < 20 THEN 2
+           ELSE 1 END AS amplitude,
+         CASE
+              WHEN n.note < 2 THEN 1
+              WHEN n.note < 5 THEN 2
+              WHEN n.note < 7 THEN 3
+              WHEN n.note < 9 THEN 4
+              WHEN n.note < 11 THEN 5
+              WHEN n.note < 12 THEN 6
+              WHEN n.note < 13 THEN 7
+              WHEN n.note < 14 THEN 8
+              WHEN n.note < 16 THEN 9
+              WHEN n.note < 17 THEN 10
+              WHEN n.note < 18 THEN 11
+              WHEN n.note < 20 THEN 12
+              ELSE 13 END AS valeur
+FROM FIEVETL.EtudiantCours ec
+    JOIN FIEVETL.Cours c on ec.IdCours = c.IdCours
+    JOIN FIEVETL.Etudiants e on ec.IdEtudiant = e.IdEtudiant
+    JOIN FIEVETL.ADMISSIONS a on e.IDADMISSION = a.IDADMISSION
+    JOIN FIEVETL.ASSOANNEEADMISSION an on a.IDADMISSION = an.IDADMISSION
+    JOIN FIEVETL.ETUDIANTCOURS n on  e.IDETUDIANT= n.IDETUDIANT
+    JOIN FIEVETL.SEMESTRE s on c.IDSEMESTRE = s.IDSEMESTRE
+JOIN FIEVETL.MODULES m on c.IDMODULE = m.IDMODULE
+WHERE m.idModule = 'M3201' AND an.ANNEE = 2020 AND s.NUMEROSEMESTRE = 3
+Order by valeur;
