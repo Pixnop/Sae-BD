@@ -143,6 +143,15 @@ FROM FIEVETL.EtreAbsent EA
 GROUP BY TO_CHAR(EA.Dates, 'YYYY-MM');
 
 ------------------------------------------------------------------------------------------------------------------------
+--taux d'abscence par mois
+CREATE OR REPLACE VIEW TauxAbsencesParMois AS
+SELECT NAPM.MoisAnnee,
+       NAPM.NombreAbsences,
+       (NAPM.NombreAbsences / (SELECT COUNT(*) FROM FIEVETL.EtudiantCours)) * 100 AS TauxAbsences
+FROM FIEVETL.NombreAbsencesParMois NAPM;
+
+
+------------------------------------------------------------------------------------------------------------------------
 
 CREATE OR REPLACE VIEW TopEnseignements AS
 SELECT
@@ -255,12 +264,75 @@ SELECT 'Total' AS appelationBac,
 FROM VueEffectifs2019 v
          FULL JOIN VueEffectifs202O v1 ON v.appelationBac = v1.appelationBac;
 
+------------------------------------------------------------------------------------------------------------------------
 
-
-
-
-
-
-
+--taux de réussite par année
+CREATE OR REPLACE VIEW TauxReussiteAnnee AS
+SELECT
+    a.ANNEE,
+    COUNT(CASE WHEN ec.note >= 10 THEN ec.note ELSE NULL END) AS NombreReussite,
+    COUNT(CASE WHEN ec.note < 10 THEN ec.note ELSE NULL END) AS NombreEchec,
+    COUNT(ec.note) AS NombreTotal,
+    (COUNT(CASE WHEN ec.note >= 10 THEN ec.note ELSE NULL END) / COUNT(ec.note)) * 100 AS TauxReussite
+FROM
+    FIEVETL.EtudiantCours ec
+        JOIN
+    FIEVETL.Etudiants e ON ec.IdEtudiant = e.IdEtudiant
+        JOIN
+    FIEVETL.ASSOANNEEADMISSION a ON e.IDADMISSION = a.IDADMISSION
+GROUP BY
+    a.ANNEE
+ORDER BY a.ANNEE ASC;
 
 ------------------------------------------------------------------------------------------------------------------------
+--taux de reusite du module Bonus Sport ci la note est supérieur 0 (donc si l'étudiant a participé)
+CREATE OR REPLACE VIEW TauxReussiteBonusSport AS
+SELECT
+    m.NomModule,
+    COUNT(CASE WHEN ec.note > 0 THEN ec.note ELSE NULL END) AS NombreReussite,
+    COUNT(CASE WHEN ec.note <= 0 THEN ec.note ELSE NULL END) AS NombreEchec,
+    COUNT(ec.note) AS NombreTotal,
+    (COUNT(CASE WHEN ec.note > 0 THEN ec.note ELSE NULL END) / COUNT(ec.note)) * 100 AS TauxReussite
+FROM
+    FIEVETL.EtudiantCours ec
+        JOIN
+    FIEVETL.Cours c ON ec.IdCours = c.IdCours
+        JOIN
+    FIEVETL.Modules m ON c.IdModule = m.IdModule
+WHERE
+    m.NomModule = 'Bonus Sport'
+        AND ec.note >= 0
+GROUP BY
+    m.NomModule;
+
+------------------------------------------------------------------------------------------------------------------------
+--nombre devaluation par module
+CREATE OR REPLACE VIEW NombreEvaluationModule AS
+SELECT
+    m.NomModule,
+    COUNT(ec.note) AS NombreEvaluation
+FROM
+    FIEVETL.EtudiantCours ec
+        JOIN
+    FIEVETL.Cours c ON ec.IdCours = c.IdCours
+        JOIN
+    FIEVETL.Modules m ON c.IdModule = m.IdModule
+GROUP BY
+    m.NomModule;
+
+------------------------------------------------------------------------------------------------------------------------
+--totes les notes du module 'M3201'
+CREATE OR REPLACE VIEW NotesModule AS
+SELECT
+    ec.note
+FROM
+    FIEVETL.EtudiantCours ec
+        JOIN
+    FIEVETL.Cours c ON ec.IdCours = c.IdCours
+        JOIN
+    FIEVETL.Modules m ON c.IdModule = m.IdModule
+WHERE
+    m.NomModule = 'M3201';
+
+
+
