@@ -56,4 +56,7 @@ SELECT u.IdUtilisateur, u.NomUtilisateur, AVG(n.note) AS AverageGrade
 FROM fievetl.Utilisateurs u
          JOIN fievetl.Evaluations e ON u.IdUtilisateur = e.IdUtilisateur
          JOIN fievetl.noter n ON e.IdEvaluation = n.IdEvaluation
+Where n.note>0
 GROUP BY u.IdUtilisateur, u.NomUtilisateur;
+
+
