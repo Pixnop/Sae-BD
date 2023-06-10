@@ -207,7 +207,6 @@ GROUP BY
 --Vue donnant la fréquence et le nombre d'effectifs des étudiants par année
 
 
-
 CREATE OR REPLACE VIEW VueEffectifs2019 AS
 SELECT b.APPELATIONBAC, count(*) as effectif2019, count(*) * 100 / (SELECT count(*) FROM FIEVETL.Etudiants e
     JOIN FIEVETL.ADMISSIONS a on e.IDADMISSION = a.IDADMISSION
