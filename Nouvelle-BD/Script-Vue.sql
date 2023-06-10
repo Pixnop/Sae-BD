@@ -124,9 +124,6 @@ GROUP BY
     m.NomModule,
     b.APPELATIONBAC;
 
-
-
-
 ------------------------------------------------------------------------------------------------------------------------
 
 CREATE OR REPLACE VIEW MoyenneNotesEnseignant AS
@@ -136,6 +133,16 @@ FROM FIEVETL.Utilisateurs U
          JOIN FIEVETL.Evaluations E ON EU.IdEvaluation = E.IdEvaluation
          JOIN FIEVETL.EtudiantCours EC ON E.IdEvaluation = EC.IdEvaluation
 GROUP BY U.IdUtilisateur, U.NomUtilisateur;
+
+------------------------------------------------------------------------------------------------------------------------
+
+CREATE OR REPLACE VIEW NombreAbsencesParMois AS
+SELECT TO_CHAR(EA.Dates, 'YYYY-MM') AS MoisAnnee,
+       COUNT(*) AS NombreAbsences
+FROM FIEVETL.EtreAbsent EA
+GROUP BY TO_CHAR(EA.Dates, 'YYYY-MM');
+
+------------------------------------------------------------------------------------------------------------------------
 
 
 
