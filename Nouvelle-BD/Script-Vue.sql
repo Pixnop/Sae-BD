@@ -186,23 +186,25 @@ ORDER BY MoyenneNote DESC;
 
 commit;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ------------------------------------------------------------------------------------------------------------------------
+--taux de réussite par module
+CREATE OR REPLACE VIEW TauxReussiteModule AS
+SELECT
+    m.NomModule,
+    COUNT(CASE WHEN ec.note >= 10 THEN ec.note ELSE NULL END) AS NombreReussite,
+    COUNT(CASE WHEN ec.note < 10 THEN ec.note ELSE NULL END) AS NombreEchec,
+    COUNT(ec.note) AS NombreTotal,
+    (COUNT(CASE WHEN ec.note >= 10 THEN ec.note ELSE NULL END) / COUNT(ec.note)) * 100 AS TauxReussite
+FROM
+    FIEVETL.EtudiantCours ec
+        JOIN
+    FIEVETL.Cours c ON ec.IdCours = c.IdCours
+        JOIN
+    FIEVETL.Modules m ON c.IdModule = m.IdModule
+GROUP BY
+    m.NomModule;
 
 --Vue donnant la fréquence et le nombre d'effectifs des étudiants par année
-
 
 
 CREATE OR REPLACE VIEW VueEffectifs2019 AS
