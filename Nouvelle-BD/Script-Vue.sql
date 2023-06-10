@@ -144,9 +144,49 @@ GROUP BY TO_CHAR(EA.Dates, 'YYYY-MM');
 
 ------------------------------------------------------------------------------------------------------------------------
 
--- Les trois enseignements les mieux réussis par les étudiant(e)s ;
--- Les trois enseignements les moins réussis par les étudiant(e)s ;
--- Les trois meilleures années universitaires vis-à-vis des résultats pédagogiques
+CREATE OR REPLACE VIEW TopEnseignements AS
+SELECT
+    m.NomModule,
+    AVG(CASE WHEN ec.note >= 0 THEN ec.note ELSE 0 END) AS MoyenneNote
+FROM
+    FIEVETL.EtudiantCours ec
+        JOIN
+    FIEVETL.Cours c ON ec.IdCours = c.IdCours
+        JOIN
+    FIEVETL.Modules m ON c.IdModule = m.IdModule
+GROUP BY
+    m.NomModule
+ORDER BY MoyenneNote DESC;
+
+------------------------------------------------------------------------------------------------------------------------
+
+CREATE OR REPLACE VIEW BottomEnseignements AS
+SELECT
+    NomModule,
+    MoyenneNote
+FROM
+    FIEVETL.TopEnseignements
+ORDER BY MoyenneNote ASC;
+
+------------------------------------------------------------------------------------------------------------------------
+
+CREATE OR REPLACE VIEW Top3AnneesUniversitaires AS
+SELECT
+    a.ANNEE,
+    AVG(CASE WHEN ec.note >= 0 THEN ec.note ELSE 0 END) AS MoyenneNote
+FROM
+    FIEVETL.EtudiantCours ec
+        JOIN
+    FIEVETL.Etudiants e ON ec.IdEtudiant = e.IdEtudiant
+        JOIN
+    FIEVETL.ASSOANNEEADMISSION a ON e.IDADMISSION = a.IDADMISSION
+GROUP BY
+    a.ANNEE
+ORDER BY MoyenneNote DESC;
+
+commit;
+
+
 
 
 
