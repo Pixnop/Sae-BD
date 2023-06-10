@@ -144,5 +144,7 @@ GROUP BY TO_CHAR(EA.Dates, 'YYYY-MM');
 
 ------------------------------------------------------------------------------------------------------------------------
 
-
+-- Les trois enseignements les mieux réussis par les étudiant(e)s ;
+-- Les trois enseignements les moins réussis par les étudiant(e)s ;
+-- Les trois meilleures années universitaires vis-à-vis des résultats pédagogiques
 
