@@ -227,123 +227,6 @@ FROM FIEVETL.ETUDIANTS e
 WHERE abs.JUSTIFIEE = 'true'
 GROUP BY e.IDETUDIANT, abs.DATES;
 
--- Toutes les infos des étudiants de l'année 2019 inscrits au 1er semestre
-
-CREATE OR REPLACE VIEW FIEVETL.VueInfosEtudiant2019S1 AS
-SELECT e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE, COUNT(abs.idabsence) AS NombreAbsences,absjust.NombreAbsencesJustifiees,
-       vm1.moyenneEtudiant, vm2.moyenneEtudiant, vm3.moyenneEtudiant, vm4.moyenneEtudiant,
-       vm5.moyenneEtudiant, vm6.moyenneEtudiant, vm7.moyenneEtudiant, vm8.moyenneEtudiant,
-       vm9.moyenneEtudiant, vm10.moyenneEtudiant, vm11.moyenneEtudiant, vm12.moyenneEtudiant,
-       vm13.moyenneEtudiant
-       , a.APPELATIONBAC, a.NOMSPECIALITE
-FROM FIEVETL.ETUDIANTS e
-JOIN FIEVETL.ADMISSIONS a ON e.IDADMISSION = a.IDADMISSION
-JOIN FIEVETL.vueNbrAbsJustifiee absjust ON e.IDETUDIANT = absjust.IDETUDIANT
-JOIN FIEVETL.GROUPES g ON e.IDGROUPE = g.IDGROUPE
-JOIN FIEVETL.EtreAbsent abs ON e.IDETUDIANT = abs.IDETUDIANT
-JOIN FIEVETL.VueNotesEtudiant2019S1 vm ON e.IDETUDIANT = vm.IDETUDIANT
-JOIN FIEVETL.ETUDIANTCOURS ec ON e.IDETUDIANT = ec.IDETUDIANT
-JOIN FIEVETL.COURS c ON ec.IDCOURS = c.IDCOURS
-JOIN FIEVETL.SEMESTRE s ON c.IDSEMESTRE = s.IDSEMESTRE
-Left JOIN FIEVETL.VueMoyenne2019EtuM1101 vm1 ON e.IDETUDIANT = vm1.IDETUDIANT
-Left JOIN FIEVETL.VueMoyenne2019EtuM1102 vm2 ON e.IDETUDIANT = vm2.IDETUDIANT
-Left JOIN FIEVETL.VueMoyenne2019EtuM1103 vm3 ON e.IDETUDIANT = vm3.IDETUDIANT
-Left JOIN FIEVETL.VueMoyenne2019EtuM1104 vm4 ON e.IDETUDIANT = vm4.IDETUDIANT
-Left JOIN FIEVETL.VueMoyenne2019EtuM1105 vm5 ON e.IDETUDIANT = vm5.IDETUDIANT
-Left JOIN FIEVETL.VueMoyenne2019EtuM1106 vm6 ON e.IDETUDIANT = vm6.IDETUDIANT
-Left JOIN FIEVETL.VueMoyenne2019EtuM1201 vm7 ON e.IDETUDIANT = vm7.IDETUDIANT
-Left JOIN FIEVETL.VueMoyenne2019EtuM1202 vm8 ON e.IDETUDIANT = vm8.IDETUDIANT
-Left JOIN FIEVETL.VueMoyenne2019EtuM1203 vm9 ON e.IDETUDIANT = vm9.IDETUDIANT
-Left JOIN FIEVETL.VueMoyenne2019EtuM1204 vm10 ON e.IDETUDIANT = vm10.IDETUDIANT
-Left JOIN FIEVETL.VueMoyenne2019EtuM1205 vm11 ON e.IDETUDIANT = vm11.IDETUDIANT
-Left JOIN FIEVETL.VueMoyenne2019EtuM1206 vm12 ON e.IDETUDIANT = vm12.IDETUDIANT
-Left JOIN FIEVETL.VueMoyenne2019EtuM1207 vm13 ON e.IDETUDIANT = vm13.IDETUDIANT
-WHERE abs.DATES BETWEEN '01/09/2019' AND '01/01/2020' AND absjust.DATES BETWEEN '01/09/2019' AND '31/12/2019' AND s.NUMEROSEMESTRE = 1
-GROUP BY e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE, absjust.NombreAbsencesJustifiees ,
-         a.APPELATIONBAC, a.NOMSPECIALITE, vm1.moyenneEtudiant, vm2.moyenneEtudiant, vm3.moyenneEtudiant,
-         vm4.moyenneEtudiant, vm5.moyenneEtudiant, vm6.moyenneEtudiant, vm7.moyenneEtudiant, vm8.moyenneEtudiant,
-         vm9.moyenneEtudiant, vm10.moyenneEtudiant, vm11.moyenneEtudiant, vm12.moyenneEtudiant, vm13.moyenneEtudiant;
-
-
--- Toutes les infos des étudiants de l'année 2020 inscrits au 1er semestre
-
-CREATE OR REPLACE VIEW FIEVETL.VueInfosEtudiant2020S1 AS
-SELECT e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE, COUNT(abs.idabsence) AS NombreAbsences, absjust.NombreAbsencesJustifiees,
-       vm1.moyenneEtudiant, vm2.moyenneEtudiant, vm3.moyenneEtudiant, vm4.moyenneEtudiant,
-       vm5.moyenneEtudiant, vm6.moyenneEtudiant, vm7.moyenneEtudiant, vm8.moyenneEtudiant,
-       vm9.moyenneEtudiant, vm10.moyenneEtudiant, vm11.moyenneEtudiant, vm12.moyenneEtudiant, a.APPELATIONBAC, a.NOMSPECIALITE
-FROM FIEVETL.ETUDIANTS e
-         JOIN FIEVETL.ADMISSIONS a ON e.IDADMISSION = a.IDADMISSION
-         JOIN FIEVETL.GROUPES g ON e.IDGROUPE = g.IDGROUPE
-         JOIN FIEVETL.vueNbrAbsJustifiee absjust ON e.IDETUDIANT = absjust.IDETUDIANT
-         JOIN FIEVETL.EtreAbsent abs ON e.IDETUDIANT = abs.IDETUDIANT
-         JOIN FIEVETL.VueNotesEtudiant2020S1 vm ON e.IDETUDIANT = vm.IDETUDIANT
-         JOIN FIEVETL.VueNbrAbsJustifiee VueNbrAbsJust ON e.IDETUDIANT = VueNbrAbsJust.IDETUDIANT
-         JOIN FIEVETL.ETUDIANTCOURS ec ON e.IDETUDIANT = ec.IDETUDIANT
-         JOIN FIEVETL.COURS c ON ec.IDCOURS = c.IDCOURS
-         JOIN FIEVETL.SEMESTRE s ON c.IDSEMESTRE = s.IDSEMESTRE
-         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1101 vm ON e.IDETUDIANT = vm.IDETUDIANT
-         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1102 vm1 ON vm1.IDETUDIANT = e.IDETUDIANT
-         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1103 vm2 ON vm2.IDETUDIANT = e.IDETUDIANT
-         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1104 vm3 ON vm3.IDETUDIANT = e.IDETUDIANT
-         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1105 vm4 ON vm4.IDETUDIANT = e.IDETUDIANT
-         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1106 vm5 ON vm5.IDETUDIANT = e.IDETUDIANT
-         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1201 vm6 ON vm6.IDETUDIANT = e.IDETUDIANT
-         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1202 vm7 ON vm7.IDETUDIANT = e.IDETUDIANT
-         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1203 vm8 ON vm8.IDETUDIANT = e.IDETUDIANT
-         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1204 vm9 ON vm9.IDETUDIANT = e.IDETUDIANT
-         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1205 vm10 ON vm10.IDETUDIANT = e.IDETUDIANT
-         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1206 vm11 ON vm11.IDETUDIANT = e.IDETUDIANT
-         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1207 vm12 ON vm12.IDETUDIANT = e.IDETUDIANT
-WHERE abs.DATES BETWEEN '01/09/2020' AND '01/01/2021' AND VueNbrAbsJust.DATES BETWEEN '01/09/2019' AND '01/01/2021' AND s.NUMEROSEMESTRE = 1
-GROUP BY e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE, absjust.NombreAbsencesJustifiees,
-         vm1.moyenneEtudiant, vm2.moyenneEtudiant, vm3.moyenneEtudiant, vm4.moyenneEtudiant,
-         vm5.moyenneEtudiant, vm6.moyenneEtudiant, vm7.moyenneEtudiant, vm8.moyenneEtudiant,
-         vm9.moyenneEtudiant, vm10.moyenneEtudiant, vm11.moyenneEtudiant, vm12.moyenneEtudiant, a.APPELATIONBAC, a.NOMSPECIALITE;
-
-
-
-
--- Toutes les infos des étudiants de l'année 2020 qui sont inscrit au 3ème semestre
-CREATE OR REPLACE VIEW FIEVETL.VueInfosEtudiant2020S3 AS
-SELECT e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE, COUNT(abs.idabsence) AS NombreAbsences, absjust.NombreAbsencesJustifiees,
-       vm1.moyenneEtudiant, vm2.moyenneEtudiant, vm3.moyenneEtudiant, vm4.moyenneEtudiant,
-       vm5.moyenneEtudiant, vm6.moyenneEtudiant, vm7.moyenneEtudiant, vm8.moyenneEtudiant,
-       vm9.moyenneEtudiant, vm10.moyenneEtudiant, vm11.moyenneEtudiant, vm12.moyenneEtudiant,
-       vm13.moyenneEtudiant, vm14.moyenneEtudiant, a.APPELATIONBAC, a.NOMSPECIALITE
-FROM FIEVETL.ETUDIANTS e
-         JOIN FIEVETL.ADMISSIONS a ON e.IDADMISSION = a.IDADMISSION
-         JOIN FIEVETL.GROUPES g ON e.IDGROUPE = g.IDGROUPE
-         JOIN FIEVETL.vueNbrAbsJustifiee absjust ON e.IDETUDIANT = absjust.IDETUDIANT
-         JOIN FIEVETL.EtreAbsent abs ON e.IDETUDIANT = abs.IDETUDIANT
-         JOIN FIEVETL.VueNotesEtudiant2020S3 vm ON e.IDETUDIANT = vm.IDETUDIANT
-         JOIN FIEVETL.VueNbrAbsJustifiee VueNbrAbsJust ON e.IDETUDIANT = VueNbrAbsJust.IDETUDIANT
-         JOIN FIEVETL.ETUDIANTCOURS ec ON e.IDETUDIANT = ec.IDETUDIANT
-         JOIN FIEVETL.COURS c ON ec.IDCOURS = c.IDCOURS
-         JOIN FIEVETL.SEMESTRE s ON c.IDSEMESTRE = s.IDSEMESTRE
-        LEFT JOIN FIEVETL.VueMoyenne2020EtuM3101 vm ON e.IDETUDIANT = vm.IDETUDIANT
-        LEFT JOIN FIEVETL.VueMoyenne2020EtuM3102 vm1 ON vm1.IDETUDIANT = e.IDETUDIANT
-        LEFT JOIN FIEVETL.VueMoyenne2020EtuM3103 vm2 ON vm2.IDETUDIANT = e.IDETUDIANT
-        LEFT JOIN FIEVETL.VueMoyenne2020EtuM3104 vm3 ON vm3.IDETUDIANT = e.IDETUDIANT
-        LEFT JOIN FIEVETL.VueMoyenne2020EtuM3105 vm4 ON vm4.IDETUDIANT = e.IDETUDIANT
-        LEFT JOIN FIEVETL.VueMoyenne2020EtuM3106C vm5 ON vm5.IDETUDIANT = e.IDETUDIANT
-        LEFT JOIN FIEVETL.VueMoyenne2020EtuM3201 vm6 ON vm6.IDETUDIANT = e.IDETUDIANT
-        LEFT JOIN FIEVETL.VueMoyenne2020EtuM3202C vm7 ON vm7.IDETUDIANT = e.IDETUDIANT
-        LEFT JOIN FIEVETL.VueMoyenne2020EtuM4201C vm8 ON vm8.IDETUDIANT = e.IDETUDIANT
-        LEFT JOIN FIEVETL.VueMoyenne2020EtuM3204 vm9 ON vm9.IDETUDIANT = e.IDETUDIANT
-        LEFT JOIN FIEVETL.VueMoyenne2020EtuM3205 vm10 ON vm10.IDETUDIANT = e.IDETUDIANT
-        LEFT JOIN FIEVETL.VueMoyenne2020EtuM3206 vm11 ON vm11.IDETUDIANT = e.IDETUDIANT
-        LEFT JOIN FIEVETL.VueMoyenne2020EtuM3301 vm12 ON vm12.IDETUDIANT = e.IDETUDIANT
-        LEFT JOIN FIEVETL.VueMoyenne2020EtuM3302 vm13 ON vm13.IDETUDIANT = e.IDETUDIANT
-        LEFT JOIN FIEVETL.VueMoyenne2020EtuM3303 vm14 ON vm14.IDETUDIANT = e.IDETUDIANT
-WHERE abs.DATES BETWEEN '01/09/2020' AND '01/01/2021' AND VueNbrAbsJust.DATES BETWEEN '01/09/2019' AND '01/01/2021' AND s.NUMEROSEMESTRE = 3
-GROUP BY e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE, absjust.NombreAbsencesJustifiees, a.APPELATIONBAC, a.NOMSPECIALITE,
-         vm1.moyenneEtudiant, vm2.moyenneEtudiant, vm3.moyenneEtudiant,
-         vm4.moyenneEtudiant, vm5.moyenneEtudiant, vm6.moyenneEtudiant, vm7.moyenneEtudiant, vm8.moyenneEtudiant,
-         vm9.moyenneEtudiant, vm10.moyenneEtudiant, vm11.moyenneEtudiant, vm12.moyenneEtudiant, vm13.moyenneEtudiant, vm14.moyenneEtudiant;
-
-
-;
 
 -- Vue 1 : Moyenne des notes par module
 CREATE OR REPLACE VIEW FIEVETL.VueNotesEtudiantModule AS
@@ -638,6 +521,123 @@ WHERE CODEMODULE = 'M3303'
 GROUP BY IDETUDIANT, moyenneEtudiant;
 
 
+-- Toutes les infos des étudiants de l'année 2019 inscrits au 1er semestre
+
+CREATE OR REPLACE VIEW FIEVETL.VueInfosEtudiant2019S1 AS
+SELECT e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE, COUNT(abs.idabsence) AS NombreAbsences,absjust.NombreAbsencesJustifiees,
+       vm1.moyenneEtudiant, vm2.moyenneEtudiant, vm3.moyenneEtudiant, vm4.moyenneEtudiant,
+       vm5.moyenneEtudiant, vm6.moyenneEtudiant, vm7.moyenneEtudiant, vm8.moyenneEtudiant,
+       vm9.moyenneEtudiant, vm10.moyenneEtudiant, vm11.moyenneEtudiant, vm12.moyenneEtudiant,
+       vm13.moyenneEtudiant
+        , a.APPELATIONBAC, a.NOMSPECIALITE
+FROM FIEVETL.ETUDIANTS e
+         JOIN FIEVETL.ADMISSIONS a ON e.IDADMISSION = a.IDADMISSION
+         JOIN FIEVETL.vueNbrAbsJustifiee absjust ON e.IDETUDIANT = absjust.IDETUDIANT
+         JOIN FIEVETL.GROUPES g ON e.IDGROUPE = g.IDGROUPE
+         JOIN FIEVETL.EtreAbsent abs ON e.IDETUDIANT = abs.IDETUDIANT
+         JOIN FIEVETL.VueNotesEtudiant2019S1 vm ON e.IDETUDIANT = vm.IDETUDIANT
+         JOIN FIEVETL.ETUDIANTCOURS ec ON e.IDETUDIANT = ec.IDETUDIANT
+         JOIN FIEVETL.COURS c ON ec.IDCOURS = c.IDCOURS
+         JOIN FIEVETL.SEMESTRE s ON c.IDSEMESTRE = s.IDSEMESTRE
+         Left JOIN FIEVETL.VueMoyenne2019EtuM1101 vm1 ON e.IDETUDIANT = vm1.IDETUDIANT
+         Left JOIN FIEVETL.VueMoyenne2019EtuM1102 vm2 ON e.IDETUDIANT = vm2.IDETUDIANT
+         Left JOIN FIEVETL.VueMoyenne2019EtuM1103 vm3 ON e.IDETUDIANT = vm3.IDETUDIANT
+         Left JOIN FIEVETL.VueMoyenne2019EtuM1104 vm4 ON e.IDETUDIANT = vm4.IDETUDIANT
+         Left JOIN FIEVETL.VueMoyenne2019EtuM1105 vm5 ON e.IDETUDIANT = vm5.IDETUDIANT
+         Left JOIN FIEVETL.VueMoyenne2019EtuM1106 vm6 ON e.IDETUDIANT = vm6.IDETUDIANT
+         Left JOIN FIEVETL.VueMoyenne2019EtuM1201 vm7 ON e.IDETUDIANT = vm7.IDETUDIANT
+         Left JOIN FIEVETL.VueMoyenne2019EtuM1202 vm8 ON e.IDETUDIANT = vm8.IDETUDIANT
+         Left JOIN FIEVETL.VueMoyenne2019EtuM1203 vm9 ON e.IDETUDIANT = vm9.IDETUDIANT
+         Left JOIN FIEVETL.VueMoyenne2019EtuM1204 vm10 ON e.IDETUDIANT = vm10.IDETUDIANT
+         Left JOIN FIEVETL.VueMoyenne2019EtuM1205 vm11 ON e.IDETUDIANT = vm11.IDETUDIANT
+         Left JOIN FIEVETL.VueMoyenne2019EtuM1206 vm12 ON e.IDETUDIANT = vm12.IDETUDIANT
+         Left JOIN FIEVETL.VueMoyenne2019EtuM1207 vm13 ON e.IDETUDIANT = vm13.IDETUDIANT
+WHERE abs.DATES BETWEEN '01/09/2019' AND '01/01/2020' AND absjust.DATES BETWEEN '01/09/2019' AND '31/12/2019' AND s.NUMEROSEMESTRE = 1
+GROUP BY e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE, absjust.NombreAbsencesJustifiees ,
+         a.APPELATIONBAC, a.NOMSPECIALITE, vm1.moyenneEtudiant, vm2.moyenneEtudiant, vm3.moyenneEtudiant,
+         vm4.moyenneEtudiant, vm5.moyenneEtudiant, vm6.moyenneEtudiant, vm7.moyenneEtudiant, vm8.moyenneEtudiant,
+         vm9.moyenneEtudiant, vm10.moyenneEtudiant, vm11.moyenneEtudiant, vm12.moyenneEtudiant, vm13.moyenneEtudiant;
+
+
+-- Toutes les infos des étudiants de l'année 2020 inscrits au 1er semestre
+
+CREATE OR REPLACE VIEW FIEVETL.VueInfosEtudiant2020S1 AS
+SELECT e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE, COUNT(abs.idabsence) AS NombreAbsences, absjust.NombreAbsencesJustifiees,
+       vm1.moyenneEtudiant, vm2.moyenneEtudiant, vm3.moyenneEtudiant, vm4.moyenneEtudiant,
+       vm5.moyenneEtudiant, vm6.moyenneEtudiant, vm7.moyenneEtudiant, vm8.moyenneEtudiant,
+       vm9.moyenneEtudiant, vm10.moyenneEtudiant, vm11.moyenneEtudiant, vm12.moyenneEtudiant, a.APPELATIONBAC, a.NOMSPECIALITE
+FROM FIEVETL.ETUDIANTS e
+         JOIN FIEVETL.ADMISSIONS a ON e.IDADMISSION = a.IDADMISSION
+         JOIN FIEVETL.GROUPES g ON e.IDGROUPE = g.IDGROUPE
+         JOIN FIEVETL.vueNbrAbsJustifiee absjust ON e.IDETUDIANT = absjust.IDETUDIANT
+         JOIN FIEVETL.EtreAbsent abs ON e.IDETUDIANT = abs.IDETUDIANT
+         JOIN FIEVETL.VueNotesEtudiant2020S1 vm ON e.IDETUDIANT = vm.IDETUDIANT
+         JOIN FIEVETL.VueNbrAbsJustifiee VueNbrAbsJust ON e.IDETUDIANT = VueNbrAbsJust.IDETUDIANT
+         JOIN FIEVETL.ETUDIANTCOURS ec ON e.IDETUDIANT = ec.IDETUDIANT
+         JOIN FIEVETL.COURS c ON ec.IDCOURS = c.IDCOURS
+         JOIN FIEVETL.SEMESTRE s ON c.IDSEMESTRE = s.IDSEMESTRE
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1101 vm ON e.IDETUDIANT = vm.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1102 vm1 ON vm1.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1103 vm2 ON vm2.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1104 vm3 ON vm3.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1105 vm4 ON vm4.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1106 vm5 ON vm5.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1201 vm6 ON vm6.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1202 vm7 ON vm7.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1203 vm8 ON vm8.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1204 vm9 ON vm9.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1205 vm10 ON vm10.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1206 vm11 ON vm11.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM1207 vm12 ON vm12.IDETUDIANT = e.IDETUDIANT
+WHERE abs.DATES BETWEEN '01/09/2020' AND '01/01/2021' AND VueNbrAbsJust.DATES BETWEEN '01/09/2019' AND '01/01/2021' AND s.NUMEROSEMESTRE = 1
+GROUP BY e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE, absjust.NombreAbsencesJustifiees,
+         vm1.moyenneEtudiant, vm2.moyenneEtudiant, vm3.moyenneEtudiant, vm4.moyenneEtudiant,
+         vm5.moyenneEtudiant, vm6.moyenneEtudiant, vm7.moyenneEtudiant, vm8.moyenneEtudiant,
+         vm9.moyenneEtudiant, vm10.moyenneEtudiant, vm11.moyenneEtudiant, vm12.moyenneEtudiant, a.APPELATIONBAC, a.NOMSPECIALITE;
+
+
+
+
+-- Toutes les infos des étudiants de l'année 2020 qui sont inscrit au 3ème semestre
+CREATE OR REPLACE VIEW FIEVETL.VueInfosEtudiant2020S3 AS
+SELECT e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE, COUNT(abs.idabsence) AS NombreAbsences, absjust.NombreAbsencesJustifiees,
+       vm1.moyenneEtudiant, vm2.moyenneEtudiant, vm3.moyenneEtudiant, vm4.moyenneEtudiant,
+       vm5.moyenneEtudiant, vm6.moyenneEtudiant, vm7.moyenneEtudiant, vm8.moyenneEtudiant,
+       vm9.moyenneEtudiant, vm10.moyenneEtudiant, vm11.moyenneEtudiant, vm12.moyenneEtudiant,
+       vm13.moyenneEtudiant, vm14.moyenneEtudiant, a.APPELATIONBAC, a.NOMSPECIALITE
+FROM FIEVETL.ETUDIANTS e
+         JOIN FIEVETL.ADMISSIONS a ON e.IDADMISSION = a.IDADMISSION
+         JOIN FIEVETL.GROUPES g ON e.IDGROUPE = g.IDGROUPE
+         JOIN FIEVETL.vueNbrAbsJustifiee absjust ON e.IDETUDIANT = absjust.IDETUDIANT
+         JOIN FIEVETL.EtreAbsent abs ON e.IDETUDIANT = abs.IDETUDIANT
+         JOIN FIEVETL.VueNotesEtudiant2020S3 vm ON e.IDETUDIANT = vm.IDETUDIANT
+         JOIN FIEVETL.VueNbrAbsJustifiee VueNbrAbsJust ON e.IDETUDIANT = VueNbrAbsJust.IDETUDIANT
+         JOIN FIEVETL.ETUDIANTCOURS ec ON e.IDETUDIANT = ec.IDETUDIANT
+         JOIN FIEVETL.COURS c ON ec.IDCOURS = c.IDCOURS
+         JOIN FIEVETL.SEMESTRE s ON c.IDSEMESTRE = s.IDSEMESTRE
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM3101 vm ON e.IDETUDIANT = vm.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM3102 vm1 ON vm1.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM3103 vm2 ON vm2.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM3104 vm3 ON vm3.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM3105 vm4 ON vm4.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM3106C vm5 ON vm5.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM3201 vm6 ON vm6.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM3202C vm7 ON vm7.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM4201C vm8 ON vm8.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM3204 vm9 ON vm9.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM3205 vm10 ON vm10.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM3206 vm11 ON vm11.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM3301 vm12 ON vm12.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM3302 vm13 ON vm13.IDETUDIANT = e.IDETUDIANT
+         LEFT JOIN FIEVETL.VueMoyenne2020EtuM3303 vm14 ON vm14.IDETUDIANT = e.IDETUDIANT
+WHERE abs.DATES BETWEEN '01/09/2020' AND '01/01/2021' AND VueNbrAbsJust.DATES BETWEEN '01/09/2019' AND '01/01/2021' AND s.NUMEROSEMESTRE = 3
+GROUP BY e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE, absjust.NombreAbsencesJustifiees, a.APPELATIONBAC, a.NOMSPECIALITE,
+         vm1.moyenneEtudiant, vm2.moyenneEtudiant, vm3.moyenneEtudiant,
+         vm4.moyenneEtudiant, vm5.moyenneEtudiant, vm6.moyenneEtudiant, vm7.moyenneEtudiant, vm8.moyenneEtudiant,
+         vm9.moyenneEtudiant, vm10.moyenneEtudiant, vm11.moyenneEtudiant, vm12.moyenneEtudiant, vm13.moyenneEtudiant, vm14.moyenneEtudiant;
+
+
+;
 
 
 
