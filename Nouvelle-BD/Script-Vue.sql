@@ -228,7 +228,7 @@ WHERE abs.JUSTIFIEE = 'true'
 GROUP BY e.IDETUDIANT, abs.DATES;
 
 
--- Vue 1 : Moyenne des notes par module
+-- Vue 1 : Moyenne des notes des étudiants sur l'ensemble des modules
 CREATE OR REPLACE VIEW FIEVETL.VueNotesEtudiantModule AS
 SELECT e.IDETUDIANT, m.CODEMODULE, a.ANNEE, s.NUMEROSEMESTRE, AVG((CASE WHEN ec.note >= 0 THEN ec.note ELSE NULL END / ev.NoteMax) * 20) AS MoyenneEtudiant
 FROM FIEVETL.ETUDIANTS e
