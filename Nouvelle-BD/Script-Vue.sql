@@ -268,7 +268,10 @@ GROUP BY e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE
 -- Toutes les infos des étudiants de l'année 2020 inscrits au 1er semestre
 
 CREATE OR REPLACE VIEW FIEVETL.VueInfosEtudiant2020S1 AS
-SELECT e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE, COUNT(abs.idabsence) AS NombreAbsences, absjust.NombreAbsencesJustifiees, , a.APPELATIONBAC, a.NOMSPECIALITE
+SELECT e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE, COUNT(abs.idabsence) AS NombreAbsences, absjust.NombreAbsencesJustifiees,
+       vm1.moyenneEtudiant, vm2.moyenneEtudiant, vm3.moyenneEtudiant, vm4.moyenneEtudiant,
+       vm5.moyenneEtudiant, vm6.moyenneEtudiant, vm7.moyenneEtudiant, vm8.moyenneEtudiant,
+       vm9.moyenneEtudiant, vm10.moyenneEtudiant, vm11.moyenneEtudiant, vm12.moyenneEtudiant, a.APPELATIONBAC, a.NOMSPECIALITE
 FROM FIEVETL.ETUDIANTS e
          JOIN FIEVETL.ADMISSIONS a ON e.IDADMISSION = a.IDADMISSION
          JOIN FIEVETL.GROUPES g ON e.IDGROUPE = g.IDGROUPE
@@ -293,7 +296,10 @@ FROM FIEVETL.ETUDIANTS e
          LEFT JOIN FIEVETL.VueMoyenne2020EtuM1206 vm11 ON vm11.IDETUDIANT = e.IDETUDIANT
          LEFT JOIN FIEVETL.VueMoyenne2020EtuM1207 vm12 ON vm12.IDETUDIANT = e.IDETUDIANT
 WHERE abs.DATES BETWEEN '01/09/2020' AND '01/01/2021' AND VueNbrAbsJust.DATES BETWEEN '01/09/2019' AND '01/01/2021' AND s.NUMEROSEMESTRE = 1
-GROUP BY e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE, absjust.NombreAbsencesJustifiees, a.APPELATIONBAC, a.NOMSPECIALITE
+GROUP BY e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE, absjust.NombreAbsencesJustifiees,
+         vm1.moyenneEtudiant, vm2.moyenneEtudiant, vm3.moyenneEtudiant, vm4.moyenneEtudiant,
+         vm5.moyenneEtudiant, vm6.moyenneEtudiant, vm7.moyenneEtudiant, vm8.moyenneEtudiant,
+         vm9.moyenneEtudiant, vm10.moyenneEtudiant, vm11.moyenneEtudiant, vm12.moyenneEtudiant, a.APPELATIONBAC, a.NOMSPECIALITE
 
 
 
