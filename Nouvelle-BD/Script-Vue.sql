@@ -219,19 +219,28 @@ GROUP BY
 
 -- Vues associées au livrable de statistiques
 
--- Vue 1 : Moyenne des notes par module pour le 1er semestre de l'année universitaire 2019 de chaque étudiant
-
-CREATE OR REPLACE VIEW FIEVETL.VueInfosEtudiant2019 AS
-SELECT e.IDETUDIANT, e.CIVILITE, e.nom, e.prenom, g.idgroupe, COUNT()
-
-
-
--- Vue 2 Moyenne de chaque étudiant pour le module M1101 en 2019
-
-CREATE OR REPLACE VIEW FIEVETL.VueMoyenneEtudiantM1101 AS
-SELECT e.IDETUDIANT, m.idModule, AVG(ec.note) AS MoyenneEtudiant
+-- Nombre d'absence justifiee par etudiant
+CREATE OR REPLACE VIEW vueNbrAbsJustifiee AS
+SELECT e.IDETUDIANT, COUNT(abs.idabsence) AS NombreAbsencesJustifiees
 FROM FIEVETL.ETUDIANTS e
-JOIN FIEVETL.EtudiantCours ec ON e.IDETUDIANT = ec.IDETUDIANT
+         JOIN FIEVETL.ETREABSENT abs ON e.IDETUDIANT = abs.IDETUDIANT
+WHERE abs.JUSTIFIEE = 'true'
+GROUP BY e.IDETUDIANT;
+
+-- Toutes les infos des étudiants de l'année 2019
+CREATE OR REPLACE VIEW FIEVETL.VueInfosEtudiant2019 AS
+SELECT e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE, COUNT(abs.idabsence) AS NombreAbsences, VueNbrAbsJust, vueMoyenneEtudiant2019S1, a.APPELATIONBAC, a.NOMSPECIALITE
+FROM FIEVETL.ETUDIANTS e
+JOIN FIEVETL.ADMISSIONS a ON e.IDADMISSION = a.IDADMISSION
+JOIN FIEVETL.GROUPES g ON e.IDGROUPE = g.IDGROUPE
+JOIN FIEVETL.EtreAbsent abs ON e.IDETUDIANT = abs.IDETUDIANT
+JOIN FIEVETL.VueMoyenneEtudiant2019S1 vm ON e.IDETUDIANT = vm.IDETUDIANT
+JOIN FIEVETL.VueNbrAbsJustifiee VueNbrAbsJust ON e.IDETUDIANT = VueNbrAbsJust.IDETUDIANT
+WHERE abs.DATES BETWEEN '01/09/2019' AND '01/09/2020'
+GROUP BY e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE, vueMoyenneEtudiant2019S1, a.APPELATIONBAC, a.NOMSPECIALITE
+
+
+
 
 
 
