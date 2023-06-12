@@ -262,7 +262,7 @@ WHERE abs.DATES BETWEEN '01/09/2019' AND '01/01/2020' AND absjust.DATES BETWEEN 
 GROUP BY e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE, absjust.NombreAbsencesJustifiees ,
          a.APPELATIONBAC, a.NOMSPECIALITE, vm1.moyenneEtudiant, vm2.moyenneEtudiant, vm3.moyenneEtudiant,
          vm4.moyenneEtudiant, vm5.moyenneEtudiant, vm6.moyenneEtudiant, vm7.moyenneEtudiant, vm8.moyenneEtudiant,
-         vm9.moyenneEtudiant, vm10.moyenneEtudiant, vm11.moyenneEtudiant, vm12.moyenneEtudiant, vm13.moyenneEtudiant
+         vm9.moyenneEtudiant, vm10.moyenneEtudiant, vm11.moyenneEtudiant, vm12.moyenneEtudiant, vm13.moyenneEtudiant;
 
 
 -- Toutes les infos des étudiants de l'année 2020 inscrits au 1er semestre
@@ -299,7 +299,7 @@ WHERE abs.DATES BETWEEN '01/09/2020' AND '01/01/2021' AND VueNbrAbsJust.DATES BE
 GROUP BY e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE, absjust.NombreAbsencesJustifiees,
          vm1.moyenneEtudiant, vm2.moyenneEtudiant, vm3.moyenneEtudiant, vm4.moyenneEtudiant,
          vm5.moyenneEtudiant, vm6.moyenneEtudiant, vm7.moyenneEtudiant, vm8.moyenneEtudiant,
-         vm9.moyenneEtudiant, vm10.moyenneEtudiant, vm11.moyenneEtudiant, vm12.moyenneEtudiant, a.APPELATIONBAC, a.NOMSPECIALITE
+         vm9.moyenneEtudiant, vm10.moyenneEtudiant, vm11.moyenneEtudiant, vm12.moyenneEtudiant, a.APPELATIONBAC, a.NOMSPECIALITE;
 
 
 
@@ -336,7 +336,7 @@ WHERE abs.DATES BETWEEN '01/09/2020' AND '01/01/2021' AND VueNbrAbsJust.DATES BE
 GROUP BY e.IDETUDIANT, e.CIVILITÉ, e.NOMETUDIANT, e.PRENOMETUDIANT, g.NOMGROUPE, absjust.NombreAbsencesJustifiees, a.APPELATIONBAC, a.NOMSPECIALITE
 
 
-
+;
 
 -- Vue 1 : Moyenne des notes par module
 CREATE OR REPLACE VIEW FIEVETL.VueNotesEtudiantModule AS
